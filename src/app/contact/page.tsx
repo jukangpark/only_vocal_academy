@@ -1,11 +1,6 @@
 import Link from "next/link";
 import Navigation from "@/components/navigation";
 import {
-  ArrowLeft,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
   MessageSquare,
 } from "lucide-react";
 

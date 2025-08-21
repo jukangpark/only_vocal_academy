@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Navigation from "@/components/navigation";
 import {
-  ArrowLeft,
-  Mic,
   Music,
   GraduationCap,
   Award,

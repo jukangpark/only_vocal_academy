@@ -1,7 +1,5 @@
-import Link from "next/link";
 import Navigation from "@/components/navigation";
 import {
-  ArrowLeft,
   Users,
   Briefcase,
   Mail,

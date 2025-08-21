@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Navigation from "@/components/navigation";
 import { Users, Wifi, Coffee, Car } from "lucide-react";
 

@@ -1,6 +1,5 @@
-import Link from "next/link";
 import Navigation from "@/components/navigation";
-import { Calendar, Clock } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 export default function NoticePage() {
   const notices = [

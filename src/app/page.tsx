@@ -11,7 +11,6 @@ import {
   Music,
   Mic,
   Star,
-  Play,
   ChevronRight,
   Clock,
   CheckCircle,
@@ -642,7 +641,7 @@ export default function Home() {
           <div className="bg-gradient-to-br from-brand-500 to-brand-600 rounded-3xl p-8 md:p-12 text-gray-900 text-center">
             <div className="mb-8">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                '보컬PRO' 과정
+                &apos;보컬PRO&apos; 과정
               </h2>
               <p className="text-xl opacity-90">
                 원장직강으로만 진행하는 프리미엄 과정
@@ -680,7 +679,7 @@ export default function Home() {
                 단 하나의 보컬 전문 아카데미
               </h2>
               <div className="text-6xl font-bold text-brand-600 mb-4">
-                'ONLY'
+                &apos;ONLY&apos;
               </div>
             </div>
 

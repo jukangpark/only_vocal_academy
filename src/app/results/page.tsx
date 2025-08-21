@@ -1,10 +1,7 @@
-import Link from "next/link";
 import Navigation from "@/components/navigation";
 import {
-  ArrowLeft,
   Trophy,
   GraduationCap,
-  Calendar,
   Search,
 } from "lucide-react";
 

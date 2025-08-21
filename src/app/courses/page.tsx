@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Navigation from "@/components/navigation";
 import {
-  ArrowLeft,
   GraduationCap,
   Heart,
   Target,
