@@ -13,7 +13,6 @@ const navigationItems = [
   { href: "/facility", label: "시설소개" },
   { href: "/videos", label: "동영상" },
   { href: "/location", label: "오시는길" },
-  { href: "/results", label: "합격자명단" },
   { href: "/careers", label: "인재채용" },
 ];
 

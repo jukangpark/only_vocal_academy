@@ -42,65 +42,9 @@ export default function Home() {
               증명합니다
             </h2>
             <p className="text-xl md:text-2xl text-gray-200 mb-4">
-              500여명을 합격시킨 진짜 경험과 노하우
+              광주 유일의 근거중심 보컬전문 아카데미
             </p>
             <p className="text-lg text-gray-300">비교된다면 비교해 보세요</p>
-          </div>
-
-          <div className="bg-white rounded-2xl p-8 shadow-xl max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-brand-600 mb-2">
-                  500+
-                </div>
-                <p className="text-gray-600">합격생 배출</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-brand-600 mb-2">
-                  15년
-                </div>
-                <p className="text-gray-600">교육 노하우</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-brand-600 mb-2">
-                  98%
-                </div>
-                <p className="text-gray-600">만족도</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Results Section */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-            합격자 통계
-          </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto mb-12">
-            {[90, 109, 180, 204, 231].map((count, index) => (
-              <div
-                key={index}
-                className="text-center p-4 bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl shadow-lg"
-              >
-                <div className="text-2xl md:text-3xl font-bold text-brand-600 mb-1">
-                  {count}
-                </div>
-                <div className="text-sm text-gray-600">{2020 + index}년</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Link
-              href="/results"
-              className="inline-flex items-center space-x-2 bg-brand-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
-            >
-              <span>합격자 명단 보기</span>
-              <ChevronRight className="w-5 h-5" />
-            </Link>
           </div>
         </div>
       </section>
@@ -527,9 +471,6 @@ export default function Home() {
                 </span>
                 <span className="px-4 py-2 bg-brand-100 text-brand-700 rounded-full text-sm font-semibold">
                   Medical Voice
-                </span>
-                <span className="px-4 py-2 bg-brand-100 text-brand-700 rounded-full text-sm font-semibold">
-                  음악대학 입시
                 </span>
                 <span className="px-4 py-2 bg-brand-100 text-brand-700 rounded-full text-sm font-semibold">
                   발성장애 치료
