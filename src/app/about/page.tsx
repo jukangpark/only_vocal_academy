@@ -81,7 +81,7 @@ export default function AboutPage() {
             광주 유일의 근거중심 보컬전문 아카데미
           </p>
           <div className="mt-8">
-            <p className="text-2xl md:text-3xl font-bold text-brand-400 mb-4">
+            <p className="text-2xl md:text-3xl font-bold text-white mb-4">
               광주 유일의 '근거 중심 발성 보컬 센터'
             </p>
             <p className="text-xl md:text-2xl font-semibold text-white">
