@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { Mic, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 
 const navigationItems = [
   { href: "/about", label: "학원소개" },
@@ -11,13 +12,13 @@ const navigationItems = [
   { href: "/courses", label: "수강안내" },
   { href: "/teachers", label: "강사소개" },
   { href: "/facility", label: "시설소개" },
-  { href: "/videos", label: "동영상" },
   { href: "/location", label: "오시는길" },
   { href: "/careers", label: "인재채용" },
 ];
 
 export default function Navigation() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -30,21 +31,26 @@ export default function Navigation() {
     return false;
   };
 
+  const handleLogoClick = () => {
+    router.push("/");
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-brand-600 to-brand-700 rounded-lg flex items-center justify-center">
-                <Mic className="w-6 h-6 text-white" />
-              </div>
-              <h1 className="text-2xl font-bold text-gray-900">
-                온리보컬아카데미
+          <div className="flex items-center overflow-hidden h-20">
+            <button
+              onClick={handleLogoClick}
+              className="flex items-center hover:opacity-80 transition-opacity"
+            >
+              <Logo />
+              {/* // 모바일에서는 보이지 않게 */}
+              <h1 className="text-2xl font-bold hidden lg:block">
+                온리 보컬 아카데미
               </h1>
-            </Link>
+            </button>
           </div>
-
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navigationItems.map((item) => (
@@ -71,7 +77,6 @@ export default function Navigation() {
               상담문의
             </Link>
           </nav>
-
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-2 text-gray-700 hover:text-brand-600 transition-colors"

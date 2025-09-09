@@ -1,9 +1,45 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import Navigation from "@/components/navigation";
 import { Music, GraduationCap, Award, Users, Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function TeachersPage() {
+  // 애니메이션 variants
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" },
+  };
+
+  const fadeInLeft = {
+    initial: { opacity: 0, x: -60 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6, ease: "easeOut" },
+  };
+
+  const fadeInRight = {
+    initial: { opacity: 0, x: 60 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6, ease: "easeOut" },
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const scaleIn = {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 0.5, ease: "easeOut" },
+  };
+
   const teachers = [
     {
       name: "윤지현 원장",
@@ -93,9 +129,6 @@ export default function TeachersPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
-      {/* Header */}
-
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto text-center">
@@ -229,123 +262,6 @@ export default function TeachersPage() {
           </div>
         </div>
       </section>
-
-      {/* Teaching Philosophy */}
-      <section className="py-20 px-4 bg-gradient-to-r from-gray-50 to-gray-100">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-            교육 철학
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mb-4">
-                <Users className="w-8 h-8 text-gray-900" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">
-                개인별 맞춤 교육
-              </h3>
-              <p className="text-gray-600">
-                각 학생의 개성과 목표에 맞는 맞춤형 커리큘럼을 제공하여 최적의
-                학습 효과를 달성합니다.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mb-4">
-                <GraduationCap className="w-8 h-8 text-gray-900" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">
-                전문적 지도
-              </h3>
-              <p className="text-gray-600">
-                각 분야의 전문가들이 체계적이고 과학적인 방법으로 학생들의
-                실력을 향상시킵니다.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mb-4">
-                <Music className="w-8 h-8 text-gray-900" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">
-                창의적 표현
-              </h3>
-              <p className="text-gray-600">
-                음악의 본질을 이해하고 자신만의 독특한 표현력을 개발할 수 있도록
-                지도합니다.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mb-4">
-                <Award className="w-8 h-8 text-gray-900" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">
-                실전 중심
-              </h3>
-              <p className="text-gray-600">
-                이론과 실습을 균형있게 배합하여 실제 상황에서 활용할 수 있는
-                실력을 기릅니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-brand-600 to-brand-700 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">O</span>
-                </div>
-                <h3 className="text-xl font-bold">온리보컬아카데미</h3>
-              </div>
-              <p className="text-gray-400 text-sm">
-                광주 유일의 근거중심 보컬전문 아카데미
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">수강 과정</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>입시과정</li>
-                <li>취미과정</li>
-                <li>오디션과정</li>
-                <li>전문심화과정</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">학원 정보</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>학원소개</li>
-                <li>강사진</li>
-                <li>합격실적</li>
-                <li>상담문의</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">연락처</h4>
-              <div className="space-y-2 text-sm text-gray-400">
-                <p>0507-1497-4900</p>
-                <p>임방울대로332번길 9-14</p>
-                <p>GW빌딩 2층</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-700 pt-8 text-center">
-            <p className="text-gray-400 text-sm">
-              © 2024 온리보컬아카데미. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

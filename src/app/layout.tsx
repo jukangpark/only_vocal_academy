@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Footer from "@/components/Footer";
+import Navigation from "@/components/navigation";
 
 export const metadata: Metadata = {
   title: "온리보컬아카데미 - 광주 유일의 근거중심 보컬전문 아카데미",
@@ -14,7 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="bg-white text-gray-900 antialiased">{children}</body>
+      <body className="bg-white text-gray-900 antialiased">
+        <Navigation />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

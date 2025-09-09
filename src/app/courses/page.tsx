@@ -1,328 +1,674 @@
+"use client";
+
 import Link from "next/link";
 import Navigation from "@/components/navigation";
-import {
-  GraduationCap,
-  Heart,
-  Target,
-  Zap,
-  Users,
-  Music,
-  CheckCircle,
-  Clock,
-  DollarSign,
-} from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function CoursesPage() {
-  const courses = [
-    {
-      title: "입시과정",
-      description: "음악대학, 실용음악과 입시 준비",
-      icon: GraduationCap,
-      duration: "6개월 ~ 1년",
-      price: "월 30만원",
-      features: [
-        "개인별 맞춤 커리큘럼",
-        "실전 모의고사",
-        "합격 전략 수립",
-        "포트폴리오 제작",
-        "입시 노하우 전수",
-        "개별 상담 및 관리",
-      ],
-      target: "음악대학 입시 준비생",
-      schedule: "주 2회 (개별 스케줄)",
+  // 애니메이션 variants
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" },
+  };
+
+  const fadeInLeft = {
+    initial: { opacity: 0, x: -60 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6, ease: "easeOut" },
+  };
+
+  const fadeInRight = {
+    initial: { opacity: 0, x: 60 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6, ease: "easeOut" },
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1,
+      },
     },
-    {
-      title: "취미과정",
-      description: "일반인을 위한 보컬 레슨",
-      icon: Heart,
-      duration: "3개월 ~ 6개월",
-      price: "월 15만원",
-      features: [
-        "기초부터 차근차근",
-        "편안한 분위기",
-        "개인 스케줄 맞춤",
-        "다양한 장르 연습",
-        "기초 음악 이론",
-        "자유로운 수업 분위기",
-      ],
-      target: "보컬에 관심 있는 일반인",
-      schedule: "주 1회 (개별 스케줄)",
-    },
-    {
-      title: "오디션과정",
-      description: "가수 오디션 준비 과정",
-      icon: Target,
-      duration: "3개월 ~ 6개월",
-      price: "월 25만원",
-      features: [
-        "오디션 노하우 전수",
-        "실전 연습",
-        "포트폴리오 제작",
-        "무대 매너 훈련",
-        "오디션 심사 기준 분석",
-        "개별 맞춤 전략",
-      ],
-      target: "가수 오디션 준비생",
-      schedule: "주 2회 (개별 스케줄)",
-    },
-    {
-      title: "전문심화과정",
-      description: "전문가를 위한 고급 과정",
-      icon: Zap,
-      duration: "6개월 ~ 1년",
-      price: "월 35만원",
-      features: [
-        "고급 테크닉",
-        "음악 이론",
-        "창작 실습",
-        "음악 분석",
-        "고급 보컬 테크닉",
-        "전문가 지도",
-      ],
-      target: "전문가 지망생",
-      schedule: "주 3회 (개별 스케줄)",
-    },
-    {
-      title: "앙상블 과정",
-      description: "팀워크와 하모니 연습",
-      icon: Users,
-      duration: "3개월 ~ 6개월",
-      price: "월 20만원",
-      features: [
-        "팀워크 향상",
-        "하모니 훈련",
-        "공연 경험",
-        "그룹 활동",
-        "합창 기법",
-        "무대 공연",
-      ],
-      target: "그룹 활동 희망자",
-      schedule: "주 1회 (그룹 수업)",
-    },
-    {
-      title: "CCM 과정",
-      description: "CCM 전문 보컬 트레이닝",
-      icon: Music,
-      duration: "3개월 ~ 6개월",
-      price: "월 18만원",
-      features: [
-        "CCM 특화 훈련",
-        "영성 음악",
-        "교회 봉사",
-        "찬양 훈련",
-        "영성 보컬",
-        "교회 음악",
-      ],
-      target: "CCM 가수 지망생",
-      schedule: "주 1회 (개별 스케줄)",
-    },
-  ];
+  };
+
+  const scaleIn = {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 0.5, ease: "easeOut" },
+  };
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
-      {/* Header */}
-
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            수강 안내
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            개인별 맞춤형 커리큘럼으로 여러분의 목표에 맞는 최적의 과정을
-            제공합니다.
-          </p>
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={staggerContainer}
+          >
+            <motion.h1
+              className="text-4xl md:text-6xl font-bold mb-6 text-gray-900"
+              variants={fadeInUp}
+            >
+              수강 안내
+            </motion.h1>
+            <motion.p
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              variants={fadeInUp}
+            >
+              개인별 맞춤형 커리큘럼으로 여러분의 목표에 맞는 최적의 과정을
+              제공합니다.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Course List */}
+      {/* Courses Section */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {courses.map((course, index) => (
-              <div
-                key={index}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow"
-              >
-                <div className="w-16 h-16 bg-gradient-to-r from-brand-600 to-brand-700 rounded-lg flex items-center justify-center mb-6">
-                  <course.icon className="w-8 h-8 text-gray-900" />
+          <div className="max-w-7xl mx-auto">
+            {/* 보컬 과정 */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+                보컬 과정
+              </h3>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* 스탠다드 */}
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      스탠다드
+                    </h4>
+                    <div className="inline-block bg-gray-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      추천
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수업시간:</span>
+                      <span className="font-semibold">주 1회 (한 달 4회)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">레슨시간:</span>
+                      <span className="font-semibold">1T (50분)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수강료:</span>
+                      <span className="font-bold text-brand-600">₩220,000</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">1회 수강료:</span>
+                      <span className="font-semibold text-gray-700">
+                        ₩55,000
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">할인:</span>
+                      <span className="text-gray-500">해당 없음</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
+                    <p className="text-sm text-gray-700">
+                      개인의 발성상태, 지향성에 맞춘 100% 1:1 개인 맞춤 커리큘럼
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
+                    <p className="text-sm text-gray-700">
+                      남녀노소 누구나, 노래 실력 향상, 발성 교정 목적으로 장기
+                      수강을 원하는 경우 (6개월 이상)
+                    </p>
+                  </div>
                 </div>
 
-                <h3 className="text-2xl font-bold mb-2 text-gray-900">
-                  {course.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{course.description}</p>
-
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
-                    <Clock className="w-4 h-4 text-brand-600" />
-                    <span>기간: {course.duration}</span>
+                {/* 심화 */}
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      심화
+                    </h4>
+                    <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      2만원 할인
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
-                    <DollarSign className="w-4 h-4 text-brand-600" />
-                    <span>수강료: {course.price}</span>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수업시간:</span>
+                      <span className="font-semibold">주 2회 (한 달 8회)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">레슨시간:</span>
+                      <span className="font-semibold">2T (100분)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수강료:</span>
+                      <span className="font-bold text-brand-600">₩440,000</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">1회 수강료:</span>
+                      <span className="font-semibold text-gray-700">
+                        ₩52,500
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">할인:</span>
+                      <span className="text-green-600 font-semibold">
+                        2만원 할인
+                      </span>
+                    </div>
                   </div>
-                  <div className="text-sm text-gray-600">
-                    <span className="font-semibold">대상:</span> {course.target}
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
+                    <p className="text-sm text-gray-700">
+                      개인의 발성상태, 지향성에 맞춘 100% 1:1 개인 맞춤 커리큘럼
+                    </p>
                   </div>
-                  <div className="text-sm text-gray-600">
-                    <span className="font-semibold">수업:</span>{" "}
-                    {course.schedule}
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
+                    <p className="text-sm text-gray-700">
+                      단기간 빠른 성장을 원하는 경우, 진단 결과 발성 상태가 매우
+                      좋지 않아 빠른 교정이 필요한 경우
+                    </p>
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3">
-                    주요 특징
-                  </h4>
-                  <ul className="space-y-2">
-                    {course.features.map((feature, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-center space-x-2 text-sm text-gray-600"
-                      >
-                        <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* 원장직강 */}
+                <div className="bg-gradient-to-br from-brand-50 to-brand-100 border border-brand-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      원장직강
+                    </h4>
+                    <div className="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      프리미엄
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수업시간:</span>
+                      <span className="font-semibold">주 1회 (한 달 4회)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">레슨시간:</span>
+                      <span className="font-semibold">1T (50분)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수강료:</span>
+                      <span className="font-bold text-brand-600">₩390,000</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">1회 수강료:</span>
+                      <span className="font-semibold text-gray-700">
+                        ₩97,500
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">할인:</span>
+                      <span className="text-gray-500">해당 없음</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
+                    <p className="text-sm text-gray-700">
+                      개인의 발성상태, 지향성에 맞춘 100% 1:1 개인 맞춤 커리큘럼
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
+                    <p className="text-sm text-gray-700">
+                      진단 결과 발성 상태, 발성 습관 등이 매우 좋지 않아 빠른
+                      발성 교정이 필요한 전공생, 노래, 목소리 관련 직업군
+                    </p>
+                  </div>
                 </div>
 
-                <Link
-                  href="/contact"
-                  className="block w-full bg-brand-600 text-gray-900 text-center py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
-                >
-                  상담 신청하기
-                </Link>
+                {/* 원장직강 원포인트 */}
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      원장직강 원포인트
+                    </h4>
+                    <div className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      1회 레슨
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수업시간:</span>
+                      <span className="font-semibold">1회 과정</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">레슨시간:</span>
+                      <span className="font-semibold">1T (50분)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수강료:</span>
+                      <span className="font-bold text-brand-600">₩100,000</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">할인:</span>
+                      <span className="text-gray-500">해당 없음</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
+                    <p className="text-sm text-gray-700">
+                      개인의 발성상태, 지향성에 맞춘 100% 1:1 개인 맞춤 커리큘럼
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
+                    <p className="text-sm text-gray-700">
+                      발성 교정에 목적을 둔 전공생, 노래, 목소리 관련 직업군
+                      (고정스케줄 시간이 안맞지만 수강을 받고 싶은 경우)
+                    </p>
+                  </div>
+                </div>
+
+                {/* 보컬 Pro class */}
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      보컬 Pro class
+                    </h4>
+                    <div className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      전문반
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수업시간:</span>
+                      <span className="font-semibold">1:1 개인레슨</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">레슨시간:</span>
+                      <span className="font-semibold">1T (50분)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수강료:</span>
+                      <span className="font-bold text-brand-600">590,000₩</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
+                    <p className="text-sm text-gray-700">
+                      개인의 발성상태, 지향성에 맞춘 100% 1:1 개인 맞춤 커리큘럼
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
+                    <p className="text-sm text-gray-700">
+                      흥미, 재미를 위한 수강은 불가하며 실용음악과 입시 지망생
+                      또는 전문적인 수강 목적을 가진 경우 (1년 이상 장기 수강생)
+                    </p>
+                  </div>
+                </div>
+
+                {/* 마스터클래스 */}
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      마스터클래스
+                    </h4>
+                    <div className="inline-block bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      그룹수업
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수업시간:</span>
+                      <span className="font-semibold">주 1회 (한 달 4회)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">레슨시간:</span>
+                      <span className="font-semibold">1T (50분)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수강료:</span>
+                      <span className="font-bold text-brand-600">₩</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">할인:</span>
+                      <span className="text-green-600 font-semibold">
+                        부전공 1과목 수강시 25,000원씩 할인
+                      </span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
+                    <p className="text-sm text-gray-700">
+                      발표 위주의 그룹수업 (과제곡 발표, 듀엣 미션, 월말평가
+                      진행 등)
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
+                    <p className="text-sm text-gray-700">
+                      보컬 오디션 지망생, 앨범 발매 목적 등
+                    </p>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
+
+            {/* 발성프로그램 */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+                발성프로그램
+              </h3>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      발성프로그램
+                    </h4>
+                    <div className="inline-block bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      그룹수업
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수업시간:</span>
+                      <span className="font-semibold">주 1회 (한 달 4회)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">레슨시간:</span>
+                      <span className="font-semibold">1T (50분)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수강료:</span>
+                      <span className="font-bold text-brand-600">₩100,000</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
+                    <p className="text-sm text-gray-700">
+                      기본 발성 위주의 그룹수업 (실기, 이론 병행)
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
+                    <p className="text-sm text-gray-700">
+                      전문적인 수강 목적을 가진 경우 (1년 이상 장기 수강생)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 피아노 과정 */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+                피아노 과정
+              </h3>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      피아노
+                    </h4>
+                    <div className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      부전공
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수업시간:</span>
+                      <span className="font-semibold">주 1회 (한 달 4회)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">레슨시간:</span>
+                      <span className="font-semibold">30분</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수강료:</span>
+                      <span className="font-bold text-brand-600">₩100,000</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
+                    <p className="text-sm text-gray-700">1:1 맞춤 커리큘럼</p>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      화성학
+                    </h4>
+                    <div className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      부전공
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수업시간:</span>
+                      <span className="font-semibold">주 1회 (한 달 4회)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">레슨시간:</span>
+                      <span className="font-semibold">30분</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수강료:</span>
+                      <span className="font-bold text-brand-600">₩100,000</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
+                    <p className="text-sm text-gray-700">1:1 맞춤 커리큘럼</p>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      시창
+                    </h4>
+                    <div className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      부전공
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수업시간:</span>
+                      <span className="font-semibold">주 1회 (한 달 4회)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">레슨시간:</span>
+                      <span className="font-semibold">1T (50분)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수강료:</span>
+                      <span className="font-bold text-brand-600">₩100,000</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
+                    <p className="text-sm text-gray-700">
+                      실용음악과 대학 입시를 대비한 그룹수업 단기 프로젝트로
+                      진행
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
+                    <p className="text-sm text-gray-700">
+                      전문반을 수강할 경우만 수업 가능
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Additional Info */}
+      {/* Contact Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-gray-50 to-gray-100">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-            수강 안내사항
-          </h2>
+        <div className="container mx-auto">
+          {/* 수상 경력 */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
+              방문 상담 및 수강 신청
+            </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-xl font-bold mb-4 text-gray-900">
-                수강 신청 절차
+            <div className="bg-white rounded-2xl p-8 shadow-lg mb-12 max-w-4xl mx-auto">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                🏆 수상 경력
               </h3>
-              <ol className="space-y-3 text-gray-600">
-                <li className="flex items-start space-x-3">
-                  <span className="w-6 h-6 bg-brand-600 text-gray-900 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
-                    1
-                  </span>
-                  <span>전화 또는 온라인으로 상담 예약</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <span className="w-6 h-6 bg-brand-600 text-gray-900 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
-                    2
-                  </span>
-                  <span>학원 방문 상담 및 수업 체험</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <span className="w-6 h-6 bg-brand-600 text-gray-900 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
-                    3
-                  </span>
-                  <span>개인별 맞춤 커리큘럼 설계</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <span className="w-6 h-6 bg-brand-600 text-gray-900 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
-                    4
-                  </span>
-                  <span>수강 신청 및 수업 시작</span>
-                </li>
-              </ol>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-xl font-bold mb-4 text-gray-900">
-                수강료 안내
-              </h3>
-              <div className="space-y-4 text-gray-600">
-                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                  <span>입회비</span>
-                  <span className="font-semibold">5만원</span>
+              <div className="space-y-4 text-left">
+                <div className="p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-lg">
+                  <p className="font-semibold text-gray-900">
+                    2023, 2024 KCIA 한국소비자산업평가 2년연속 광주광역시 음악
+                    부문 우수 업체 선정
+                  </p>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                  <span>교재비</span>
-                  <span className="font-semibold">과정별 상이</span>
+                <div className="p-4 bg-blue-50 border-l-4 border-blue-400 rounded-lg">
+                  <p className="font-semibold text-gray-900">
+                    스포츠서울 주관 2024 이노베이션 리더 대상 보컬, 음악 부분
+                    대상 수상
+                  </p>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                  <span>할인 혜택</span>
-                  <span className="font-semibold text-brand-600">
-                    3개월 이상 등록 시
-                  </span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                  <span>결제 방법</span>
-                  <span className="font-semibold">현금, 카드, 계좌이체</span>
+                <div className="p-4 bg-green-50 border-l-4 border-green-400 rounded-lg">
+                  <p className="font-semibold text-gray-900">
+                    스포츠서울 주관 2022 혁신한국인 & 파워코리아
+                    보컬전문교육기관 부문 대상
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-brand-600 to-brand-700 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">O</span>
-                </div>
-                <h3 className="text-xl font-bold">온리보컬아카데미</h3>
+          {/* 학원 소개 */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg mb-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+              온리보컬아카데미 소개
+            </h3>
+
+            <div className="space-y-6 text-gray-700 leading-relaxed">
+              <p className="text-lg">
+                <span className="font-semibold text-brand-600">
+                  온리보컬아카데미
+                </span>
+                는 광주, 호남 유일의 근거 중심 발성 보컬센터로 근거 중심 발성
+                교수법, 보컬코치 과정을 수료한 발성 전문 원장과 보컬코치들이
+                수업합니다.
+              </p>
+
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h4 className="font-bold text-gray-900 mb-3">
+                  👨‍⚕️ 윤지현 원장 프로필
+                </h4>
+                <ul className="space-y-2 text-sm">
+                  <li>• 현) 서울 메디컬보이스 이비인후과 발성센터 출강 중</li>
+                  <li>• 현) 온리보컬아카데미 원장</li>
+                  <li>• Medical Voice 1기 수료</li>
+                  <li>
+                    • 유명 가수 및 뮤지컬 배우, 아이돌, 실용음악과 지망생,
+                    발성장애 환자 등 다양한 케이스 경험
+                  </li>
+                </ul>
               </div>
-              <p className="text-gray-400 text-sm">
-                광주 유일의 근거중심 보컬전문 아카데미
+
+              <div className="bg-blue-50 p-6 rounded-lg">
+                <h4 className="font-bold text-gray-900 mb-3">
+                  📋 방문 상담 과정
+                </h4>
+                <p className="mb-3">
+                  레슨 전 필수로 내원 방문 상담이 필요합니다. 방문 상담은 100%
+                  예약제로 진행 중이며:
+                </p>
+                <ol className="list-decimal list-inside space-y-2 text-sm">
+                  <li>목소리 문진표 작성</li>
+                  <li>간단한 가창 테스트(보컬체크업) 시행</li>
+                  <li>발성 상태 진단</li>
+                  <li>수업 방향 제시</li>
+                  <li>진단내용에 따라 가장 적합한 보컬코치 배정</li>
+                </ol>
+              </div>
+
+              <div className="bg-orange-50 p-6 rounded-lg">
+                <h4 className="font-bold text-gray-900 mb-3">
+                  ⚠️ 중요 안내사항
+                </h4>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    • 레슨받기까지의 과정이 타 학원에 비해 복잡하고 대기기간도
+                    오래걸립니다
+                  </li>
+                  <li>
+                    • 방문상담 희망자가 많아 한달 가량 일찍 방문상담 예약이
+                    마감됩니다
+                  </li>
+                  <li>
+                    • 수업을 원하시는 경우 여유를 두고 미리 예약을 잡아주시길
+                    부탁드립니다
+                  </li>
+                  <li>
+                    • '보컬PRO'과정은 원장직강으로만 진행하며, 6개월이상
+                    대기하실 수 있습니다
+                  </li>
+                </ul>
+              </div>
+
+              <p className="text-center text-lg font-semibold text-brand-600">
+                노래와 목소리로 고민하시는 많은 분께 직관적이고 근거 있는 방법을
+                제시하는
+                <br />단 하나의 보컬 전문 아카데미 'ONLY' 입니다.
               </p>
             </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">수강 과정</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>입시과정</li>
-                <li>취미과정</li>
-                <li>오디션과정</li>
-                <li>전문심화과정</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">학원 정보</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>학원소개</li>
-                <li>강사진</li>
-                <li>합격실적</li>
-                <li>상담문의</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">연락처</h4>
-              <div className="space-y-2 text-sm text-gray-400">
-                <p>0507-1497-4900</p>
-                <p>임방울대로332번길 9-14</p>
-                <p>GW빌딩 2층</p>
-              </div>
-            </div>
           </div>
 
-          <div className="border-t border-gray-700 pt-8 text-center">
-            <p className="text-gray-400 text-sm">
-              © 2024 온리보컬아카데미. All rights reserved.
+          {/* 예약 및 다운로드 */}
+          <div className="text-center">
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              방문 상담은 네이버 예약을 통해 진행됩니다.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://map.naver.com/p/search/온리보컬/place/1108538742?placePath=/ticket?entry=pll&fromPanelNum=2&timestamp=202509092103&locale=ko&svcName=map_pcv5&searchText=온리보컬&from=map&fromPanelNum=2&timestamp=202509092103&locale=ko&svcName=map_pcv5&searchText=온리보컬&fromNxList=true&searchType=place&c=15.00,0,0,0,dh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
+              >
+                <svg
+                  className="w-6 h-6"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                </svg>
+                <span>네이버 예약하기</span>
+              </a>
+              <a
+                href="/images/온리보컬_수강신청서.jpeg"
+                download="온리보컬_수강신청서.jpeg"
+                className="inline-flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+                <span>수강신청서 다운로드</span>
+              </a>
+            </div>
           </div>
         </div>
-      </footer>
+      </section>
     </div>
   );
 }

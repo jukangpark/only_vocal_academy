@@ -46,9 +46,6 @@ export default function NoticePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
-      {/* Header */}
-
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto text-center">
@@ -114,60 +111,6 @@ export default function NoticePage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-brand-600 to-brand-700 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">O</span>
-                </div>
-                <h3 className="text-xl font-bold">온리보컬아카데미</h3>
-              </div>
-              <p className="text-gray-400 text-sm">
-                광주 유일의 근거중심 보컬전문 아카데미
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">수강 과정</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>입시과정</li>
-                <li>취미과정</li>
-                <li>오디션과정</li>
-                <li>전문심화과정</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">학원 정보</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>학원소개</li>
-                <li>강사진</li>
-                <li>합격실적</li>
-                <li>상담문의</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">연락처</h4>
-              <div className="space-y-2 text-sm text-gray-400">
-                <p>0507-1497-4900</p>
-                <p>임방울대로332번길 9-14</p>
-                <p>GW빌딩 2층</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-700 pt-8 text-center">
-            <p className="text-gray-400 text-sm">
-              © 2024 온리보컬아카데미. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
