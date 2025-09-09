@@ -1,4 +1,5 @@
 import Navigation from "@/components/navigation";
+import Image from "next/image";
 import { Users, Award, Target, Clock } from "lucide-react";
 
 export default function AboutPage() {
@@ -99,17 +100,14 @@ export default function AboutPage() {
           </h2>
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <div className="text-center mb-8">
-              <div className="w-32 h-32 bg-gradient-to-br from-brand-500 to-brand-600 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden shadow-lg">
-                {/* 원장님 얼굴 이미지가 들어갈 자리 */}
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-500 text-sm">원장님 사진</span>
-                </div>
-                {/* 실제 이미지 사용 시 아래 주석을 해제하고 위의 placeholder div를 제거하세요 */}
-                {/* <img 
-                  src="/images/director.jpg" 
-                  alt="윤지현 원장" 
+              <div className="w-40 h-60 mx-auto mb-4 overflow-hidden border-4 border-brand-500 rounded-lg shadow-lg">
+                <Image
+                  src="/images/온리보컬 원장 보컬코치 윤지현.jpeg"
+                  alt="윤지현 원장"
+                  width={160}
+                  height={240}
                   className="w-full h-full object-cover"
-                /> */}
+                />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 윤지현 원장

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Navigation from "@/components/navigation";
 import {
   Phone,
@@ -419,8 +420,14 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
               {/* Profile Image */}
               <div className="text-center">
-                <div className="w-48 h-48 bg-gradient-to-br from-brand-500 to-brand-600 rounded-full mx-auto mb-6 flex items-center justify-center shadow-xl">
-                  <span className="text-white text-6xl font-bold">윤</span>
+                <div className="w-48 h-72 mx-auto mb-6 overflow-hidden border-4 border-brand-500 rounded-lg shadow-xl">
+                  <Image
+                    src="/images/온리보컬 원장 보컬코치 윤지현.jpeg"
+                    alt="윤지현 원장"
+                    width={192}
+                    height={288}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   윤지현 원장

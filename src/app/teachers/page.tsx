@@ -1,12 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import Navigation from "@/components/navigation";
-import {
-  Music,
-  GraduationCap,
-  Award,
-  Users,
-  Star,
-} from "lucide-react";
+import { Music, GraduationCap, Award, Users, Star } from "lucide-react";
 
 export default function TeachersPage() {
   const teachers = [
@@ -22,25 +17,11 @@ export default function TeachersPage() {
         "보컬 테크닉 전문가",
         "개인별 맞춤 지도",
       ],
-      image: "🎤",
+      image: "/images/온리보컬 원장 보컬코치 윤지현.jpeg",
     },
     {
-      name: "이음악 강사",
-      specialty: "피아노 전문",
-      experience: "10년 경력",
-      education: "실용음악과 피아노 전공",
-      description: "실용음악과 피아노 전공, 작곡 및 편곡 전문",
-      achievements: [
-        "피아노 반주 전문",
-        "작곡 및 편곡 전문",
-        "음악 이론 전문",
-        "실용음악 입시 전문",
-      ],
-      image: "🎹",
-    },
-    {
-      name: "박테크닉 강사",
-      specialty: "보컬 테크닉",
+      name: "한화정 보컬코치",
+      specialty: "보컬 전문",
       experience: "12년 경력",
       education: "보컬 테크닉 전문",
       description: "고급 보컬 테크닉 전문, 오디션 합격 다수",
@@ -50,13 +31,27 @@ export default function TeachersPage() {
         "음악 치료사 자격",
         "발성 기법 전문",
       ],
-      image: "🎵",
+      image: "/images/온리보컬 보컬코치 한화정.jpeg",
     },
     {
-      name: "최음악 강사",
-      specialty: "음악 이론",
+      name: "김가희 보컬코치",
+      specialty: "보컬 전문",
+      experience: "10년 경력",
+      education: "실용음악과 보컬 전공",
+      description: "실용음악과 보컬 전공, 작곡 및 편곡 전문",
+      achievements: [
+        "보컬 반주 전문",
+        "작곡 및 편곡 전문",
+        "음악 이론 전문",
+        "실용음악 입시 전문",
+      ],
+      image: "/images/온리보컬 보컬코치 김가희.png",
+    },
+    {
+      name: "이다영 보컬코치",
+      specialty: "보컬 전문",
       experience: "8년 경력",
-      education: "음악학과 이론 전공",
+      education: "음악학과 보컬 전공",
       description: "음악 이론 및 시창청음 전문, 입시 준비 전문",
       achievements: [
         "음악 이론 전문",
@@ -64,11 +59,11 @@ export default function TeachersPage() {
         "입시 준비 전문",
         "화성학 전문",
       ],
-      image: "📚",
+      image: "/images/온리보컬 보컬코치 이다영.jpeg",
     },
     {
-      name: "정앙상블 강사",
-      specialty: "앙상블 전문",
+      name: "배윤서 보컬코치",
+      specialty: "보컬 전문",
       experience: "6년 경력",
       education: "앙상블 및 합창 전문",
       description: "앙상블 및 합창 전문, 그룹 활동 지도",
@@ -78,11 +73,11 @@ export default function TeachersPage() {
         "그룹 활동 지도",
         "무대 공연 전문",
       ],
-      image: "👥",
+      image: "/images/온리보컬 보컬코치 배윤서.jpeg",
     },
     {
-      name: "한CCM 강사",
-      specialty: "CCM 전문",
+      name: "김예찬 보컬코치",
+      specialty: "보컬 전문",
       experience: "7년 경력",
       education: "CCM 및 찬양 전문",
       description: "CCM 및 찬양 전문, 교회 음악 전문",
@@ -92,7 +87,7 @@ export default function TeachersPage() {
         "교회 음악 전문",
         "영성 음악 전문",
       ],
-      image: "⛪",
+      image: "/images/온리보컬 보컬코치 김예찬.jpeg",
     },
   ];
 
@@ -116,15 +111,80 @@ export default function TeachersPage() {
       {/* Teachers List */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {teachers.map((teacher, index) => (
+          {/* 원장님 섹션 */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow">
+              <div className="text-center mb-6">
+                <div className="w-64 h-96 mx-auto mb-6 overflow-hidden border-4 border-brand-500 rounded-lg">
+                  <Image
+                    src={teachers[0].image}
+                    alt={teachers[0].name}
+                    width={256}
+                    height={384}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                  {teachers[0].name}
+                </h3>
+                <p className="text-brand-600 font-semibold mb-1 text-lg">
+                  {teachers[0].specialty}
+                </p>
+                <p className="text-gray-500 text-base mb-2">
+                  {teachers[0].experience}
+                </p>
+                <p className="text-gray-600 text-base">
+                  {teachers[0].education}
+                </p>
+              </div>
+
+              <div className="mb-6">
+                <p className="text-gray-700 mb-4 text-lg">
+                  {teachers[0].description}
+                </p>
+
+                <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-lg">
+                  <Award className="w-5 h-5 text-yellow-500 mr-2" />
+                  주요 성과
+                </h4>
+                <ul className="space-y-2">
+                  {teachers[0].achievements.map((achievement, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-center space-x-2 text-base text-gray-600"
+                    >
+                      <Star className="w-4 h-4 text-yellow-500 flex-shrink-0" />
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <Link
+                href="/contact"
+                className="block w-full bg-brand-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors text-lg"
+              >
+                상담 신청하기
+              </Link>
+            </div>
+          </div>
+
+          {/* 보컬코치들 섹션 */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {teachers.slice(1).map((teacher, index) => (
               <div
-                key={index}
+                key={index + 1}
                 className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow"
               >
                 <div className="text-center mb-6">
-                  <div className="w-24 h-24 bg-gradient-to-br from-brand-500 to-brand-600 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">
-                    {teacher.image}
+                  <div className="w-48 h-72 mx-auto mb-4 overflow-hidden border-4 border-brand-500 rounded-lg">
+                    <Image
+                      src={teacher.image}
+                      alt={teacher.name}
+                      width={192}
+                      height={288}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
                     {teacher.name}
