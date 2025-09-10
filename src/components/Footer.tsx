@@ -7,7 +7,6 @@ const navigationItems = [
   { href: "/teachers", label: "강사소개" },
   { href: "/facility", label: "시설소개" },
   { href: "/location", label: "오시는길" },
-  { href: "/careers", label: "인재채용" },
 ];
 
 const Footer = () => {
