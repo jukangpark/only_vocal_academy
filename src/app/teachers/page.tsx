@@ -56,7 +56,7 @@ export default function TeachersPage() {
       image: "/images/온리보컬 원장 보컬코치 윤지현.jpeg",
     },
     {
-      name: "한화정 보컬코치",
+      name: "한화정 부원장 보컬코치",
       specialty: "보컬 전문",
       experience: "12년 경력",
       education: "보컬 테크닉 전문",
@@ -202,11 +202,69 @@ export default function TeachersPage() {
             </div>
           </div>
 
+          {/* 부원장 섹션 */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow">
+              <div className="text-center mb-6">
+                <div className="w-56 h-84 mx-auto mb-6 overflow-hidden border-4 border-brand-500 rounded-lg">
+                  <Image
+                    src={teachers[1].image}
+                    alt={teachers[1].name}
+                    width={224}
+                    height={336}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  {teachers[1].name}
+                </h3>
+                <p className="text-brand-600 font-semibold mb-1 text-lg">
+                  {teachers[1].specialty}
+                </p>
+                <p className="text-gray-500 text-base mb-2">
+                  {teachers[1].experience}
+                </p>
+                <p className="text-gray-600 text-base">
+                  {teachers[1].education}
+                </p>
+              </div>
+
+              <div className="mb-6">
+                <p className="text-gray-700 mb-4 text-lg">
+                  {teachers[1].description}
+                </p>
+
+                <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-lg">
+                  <Award className="w-5 h-5 text-yellow-500 mr-2" />
+                  주요 성과
+                </h4>
+                <ul className="space-y-2">
+                  {teachers[1].achievements.map((achievement, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-center space-x-2 text-base text-gray-600"
+                    >
+                      <Star className="w-4 h-4 text-yellow-500 flex-shrink-0" />
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <Link
+                href="/contact"
+                className="block w-full bg-brand-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors text-lg"
+              >
+                상담 신청하기
+              </Link>
+            </div>
+          </div>
+
           {/* 보컬코치들 섹션 */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {teachers.slice(1).map((teacher, index) => (
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {teachers.slice(2).map((teacher, index) => (
               <div
-                key={index + 1}
+                key={index + 2}
                 className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow"
               >
                 <div className="text-center mb-6">
@@ -219,7 +277,7 @@ export default function TeachersPage() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {teacher.name}
                   </h3>
                   <p className="text-brand-600 font-semibold mb-1">
@@ -232,9 +290,11 @@ export default function TeachersPage() {
                 </div>
 
                 <div className="mb-6">
-                  <p className="text-gray-700 mb-4">{teacher.description}</p>
+                  <p className="text-gray-700 mb-4 text-sm">
+                    {teacher.description}
+                  </p>
 
-                  <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                  <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-sm">
                     <Award className="w-4 h-4 text-yellow-500 mr-2" />
                     주요 성과
                   </h4>
@@ -242,7 +302,7 @@ export default function TeachersPage() {
                     {teacher.achievements.map((achievement, idx) => (
                       <li
                         key={idx}
-                        className="flex items-center space-x-2 text-sm text-gray-600"
+                        className="flex items-center space-x-2 text-xs text-gray-600"
                       >
                         <Star className="w-3 h-3 text-yellow-500 flex-shrink-0" />
                         <span>{achievement}</span>
@@ -253,7 +313,7 @@ export default function TeachersPage() {
 
                 <Link
                   href="/contact"
-                  className="block w-full bg-brand-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
+                  className="block w-full bg-brand-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-brand-700 transition-colors text-sm"
                 >
                   상담 신청하기
                 </Link>
