@@ -1,5 +1,5 @@
 import Navigation from "@/components/navigation";
-import { Users, Wifi, Coffee, Car } from "lucide-react";
+import { Calendar, Wifi, Users } from "lucide-react";
 
 export default function FacilityPage() {
   const facilities = [
@@ -48,23 +48,29 @@ export default function FacilityPage() {
 
   const amenities = [
     {
-      name: "무료 Wi-Fi",
-      icon: Wifi,
-      description: "전 구역에서 무료 인터넷 사용 가능",
+      name: "예약",
+      icon: Calendar,
+      description: "온라인 및 전화 예약 서비스",
+      bgColor: "bg-blue-500",
     },
-    { name: "주차장", icon: Car, description: "학원 이용 고객 무료 주차" },
     {
-      name: "음료 서비스",
-      icon: Coffee,
-      description: "커피, 차 등 음료 무료 제공",
+      name: "무선 인터넷",
+      icon: Wifi,
+      description: "전 구역에서 무료 Wi-Fi 사용 가능",
+      bgColor: "bg-green-500",
     },
-    { name: "화장실", icon: Users, description: "깨끗하고 편리한 화장실 시설" },
+    {
+      name: "남/녀 화장실 구분",
+      icon: Users,
+      description: "남녀 구분된 깨끗한 화장실 시설",
+      bgColor: "bg-purple-500",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
+      <section className="h-80 flex items-center px-4 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
             시설 소개
@@ -121,7 +127,7 @@ export default function FacilityPage() {
       </section>
 
       {/* Amenities */}
-      <section className="py-20 px-4 bg-gradient-to-r from-gray-50 to-gray-100">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
             편의 시설
@@ -131,7 +137,9 @@ export default function FacilityPage() {
             {amenities.map((amenity, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-brand-600 rounded-lg flex items-center justify-center">
+                  <div
+                    className={`w-12 h-12 ${amenity.bgColor} rounded-lg flex items-center justify-center`}
+                  >
                     <amenity.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -143,55 +151,6 @@ export default function FacilityPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Location Info */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-            위치 및 접근성
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-6">
-              <h3 className="text-xl font-bold mb-4 text-gray-900">교통편</h3>
-              <div className="space-y-3 text-gray-600">
-                <div>
-                  <span className="font-semibold">지하철:</span> 광주 1호선
-                  광산구청역 3번 출구
-                </div>
-                <div>
-                  <span className="font-semibold">버스:</span> 100, 200, 300번
-                  버스 정류장 하차
-                </div>
-                <div>
-                  <span className="font-semibold">주차:</span> 건물 내 무료
-                  주차장 이용 가능
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-6">
-              <h3 className="text-xl font-bold mb-4 text-gray-900">
-                운영 시간
-              </h3>
-              <div className="space-y-3 text-gray-600">
-                <div className="flex justify-between">
-                  <span>평일</span>
-                  <span>PM 12:00 ~ PM 10:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>토요일</span>
-                  <span>AM 11:00 ~ PM 08:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>일요일</span>
-                  <span>PM 02:00 ~ PM 10:00</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

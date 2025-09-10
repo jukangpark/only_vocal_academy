@@ -41,7 +41,7 @@ export default function CoursesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
+      <section className="h-80 flex items-center px-4 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto text-center">
           <motion.div
             initial="initial"
@@ -509,7 +509,7 @@ export default function CoursesPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-gray-50 to-gray-100">
+      <section className="py-20 px-4">
         <div className="container mx-auto">
           {/* 수상 경력 */}
           <div className="text-center mb-16">

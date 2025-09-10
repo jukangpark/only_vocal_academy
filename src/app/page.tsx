@@ -2,15 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import Navigation from "@/components/navigation";
 import {
-  Phone,
-  MapPin,
   Award,
   Instagram,
   Youtube,
   Users,
-  Mic,
   Star,
   ChevronRight,
   Clock,
@@ -300,7 +296,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-3xl p-8 shadow-xl">
+          <div className="bg-white rounded-3xl p-8 shadow-xl">
             <div className="relative w-full aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
               <iframe
                 src="https://www.youtube.com/embed/YSReBuZDCU0"
@@ -429,7 +425,7 @@ export default function Home() {
 
       {/* Consultation Process Section */}
       <motion.section
-        className="py-20 px-4 bg-gradient-to-r from-gray-50 to-gray-100"
+        className="py-20 px-4"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, margin: "-100px" }}
@@ -528,47 +524,6 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* PRO Course Section */}
-      <motion.section
-        className="py-20 px-4 bg-white"
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
-      >
-        <div className="container mx-auto max-w-4xl">
-          <div className="bg-gradient-to-br from-brand-500 to-brand-600 rounded-3xl p-8 md:p-12 text-gray-900 text-center">
-            <div className="mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                &apos;보컬PRO&apos; 과정
-              </h2>
-              <p className="text-xl opacity-90">
-                원장직강으로만 진행하는 프리미엄 과정
-              </p>
-            </div>
-
-            <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-              <div className="flex items-center justify-center mb-4">
-                <Star className="w-8 h-8 text-yellow-300 mr-3" />
-                <h3 className="text-2xl font-bold">특별 안내</h3>
-              </div>
-              <p className="text-lg leading-relaxed">
-                받을 수 있는 인원에 한계가 있어 대기자가 있는 상황이며,
-                <strong>6개월 이상 대기</strong>하실 수 있음을 미리
-                알려드립니다.
-              </p>
-            </div>
-
-            <div className="mt-8">
-              <p className="text-lg opacity-90">
-                본인의 발성 상태가 궁금하시거나 노래하며 해결하고 싶던 부분과
-                궁금증이 있으셨다면 부담 없이 예약해주세요 :)
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
       {/* Final Message Section */}
       <motion.section
         className="py-20 px-4 bg-gradient-to-r from-brand-50 to-brand-100"
@@ -578,50 +533,58 @@ export default function Home() {
         variants={fadeInUp}
       >
         <div className="container mx-auto max-w-4xl text-center">
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl">
-            <div className="mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                단 하나의 보컬 전문 아카데미
-              </h2>
-              <div className="text-6xl font-bold text-brand-600 mb-4">
-                &apos;ONLY&apos;
-              </div>
+          <div className="mb-8">
+            {/* 팀 로고 */}
+            <div className="flex justify-center mb-6">
+              <Image
+                src="/images/team_only_vocal.png"
+                alt="온리보컬 팀"
+                width={120}
+                height={120}
+                className="rounded-full"
+              />
             </div>
-
-            <p className="text-xl text-gray-700 leading-relaxed mb-8">
-              노래와 목소리로 고민하시는 많은 분께
-              <br />
-              직관적이고 근거 있는 방법을 제시하는
-              <br />
-              <strong className="text-brand-600">
-                단 하나의 보컬 전문 아카데미
-              </strong>
-              입니다.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center space-x-2 bg-brand-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
-              >
-                <span>상담 예약하기</span>
-                <ChevronRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center space-x-2 border-2 border-brand-600 text-brand-600 px-8 py-4 rounded-lg font-semibold hover:bg-brand-600 hover:text-white transition-colors"
-              >
-                <span>학원 소개</span>
-                <ChevronRight className="w-5 h-5" />
-              </Link>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              단 하나의 보컬 전문 아카데미
+            </h2>
+            <div className="text-6xl font-bold text-brand-600 mb-4">
+              &apos;ONLY&apos;
             </div>
+          </div>
+
+          <p className="text-xl text-gray-700 leading-relaxed mb-8">
+            노래와 목소리로 고민하시는 많은 분께
+            <br />
+            직관적이고 근거 있는 방법을 제시하는
+            <br />
+            <strong className="text-brand-600">
+              단 하나의 보컬 전문 아카데미
+            </strong>
+            입니다.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center space-x-2 bg-brand-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
+            >
+              <span>상담 예약하기</span>
+              <ChevronRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="/about"
+              className="inline-flex items-center space-x-2 border-2 border-brand-600 text-brand-600 px-8 py-4 rounded-lg font-semibold hover:bg-brand-600 hover:text-white transition-colors"
+            >
+              <span>학원 소개</span>
+              <ChevronRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </motion.section>
 
       {/* Social Media Section */}
       <motion.section
-        className="py-16 px-4 bg-gradient-to-r from-gray-50 to-gray-100"
+        className="py-16 px-4 bg-white"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, margin: "-100px" }}
@@ -640,7 +603,7 @@ export default function Home() {
               className="flex items-center space-x-2 bg-gradient-to-r from-brand-500 to-brand-600 text-gray-900 px-6 py-3 rounded-lg hover:scale-105 transition-transform"
             >
               <Instagram className="w-6 h-6" />
-              <span className="font-semibold">Instagram</span>
+              <span>Instagram</span>
             </a>
 
             <a
@@ -650,7 +613,7 @@ export default function Home() {
               className="flex items-center space-x-2 bg-brand-600 text-gray-900 px-6 py-3 rounded-lg hover:scale-105 transition-transform"
             >
               <Youtube className="w-6 h-6" />
-              <span className="font-semibold">YouTube</span>
+              <span>YouTube</span>
             </a>
           </div>
         </div>

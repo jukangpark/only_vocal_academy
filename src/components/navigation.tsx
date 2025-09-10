@@ -46,7 +46,7 @@ export default function Navigation() {
               className="flex items-center hover:opacity-80 transition-opacity"
             >
               <Logo />
-              <h1 className="text-xl font-bold lg:text-2xl md:text-2xl hidden">
+              <h1 className="font-bold text-2xl hidden lg:block md:block">
                 온리 보컬 아카데미
               </h1>
             </button>
@@ -66,16 +66,6 @@ export default function Navigation() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-                isActive("/contact")
-                  ? "bg-brand-600 text-gray-900 shadow-lg"
-                  : "bg-gradient-to-r from-brand-500 to-brand-600 text-gray-900 shadow-md hover:shadow-lg hover:from-brand-600 hover:to-brand-700"
-              }`}
-            >
-              상담문의
-            </Link>
           </nav>
           {/* Mobile Menu Button */}
           <button

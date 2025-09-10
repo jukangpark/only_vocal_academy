@@ -1,19 +1,9 @@
 "use client";
 
-import Navigation from "@/components/navigation";
+import AddressInfo from "@/components/AddressInfo";
 import Image from "next/image";
-import { Users, Award, Target, Clock, Copy, Check } from "lucide-react";
-import { useState } from "react";
-import { motion } from "framer-motion";
 
 export default function AboutPage() {
-  const [copiedRoad, setCopiedRoad] = useState(false);
-  const [copiedJibun, setCopiedJibun] = useState(false);
-
-  const roadAddress =
-    "광주 광산구 임방울대로332번길 9-14 GW빌딩 2층 온리보컬아카데미";
-  const jibunAddress = "광주 광산구 수완동 1435";
-
   // 애니메이션 variants
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -47,25 +37,10 @@ export default function AboutPage() {
     transition: { duration: 0.5, ease: "easeOut" },
   };
 
-  const copyToClipboard = async (text: string, type: "road" | "jibun") => {
-    try {
-      await navigator.clipboard.writeText(text);
-      if (type === "road") {
-        setCopiedRoad(true);
-        setTimeout(() => setCopiedRoad(false), 2000);
-      } else {
-        setCopiedJibun(true);
-        setTimeout(() => setCopiedJibun(false), 2000);
-      }
-    } catch (err) {
-      console.error("복사 실패:", err);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
+      <section className="relative py-20 px-4">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -92,63 +67,98 @@ export default function AboutPage() {
       </section>
 
       {/* Vision Section */}
-      <section className="py-20 px-4 bg-gray-200">
+      <section className="py-20 px-4">
         <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 text-center">
-              학원소개 & 비전
-            </h2>
-            <div className="text-center">
-              <p className="text-lg text-gray-600 mb-6">
-                온리보컬아카데미는 2009년 설립 이후, 과학적이고 체계적인 보컬
-                교육을 통해 수많은 학생들의 꿈을 실현시켜 왔습니다.
-              </p>
-              <p className="text-lg text-gray-600 mb-6">
-                <strong>모든 소리에는 원인과 결과가 있습니다.</strong> 1:1
-                맞춤수업으로 수강생의 니즈를 정확하게 파악하고 교정합니다.
-              </p>
-              <p className="text-lg text-gray-600 mb-6">
-                우리는 단순한 노래 교육이 아닌, 음악의 본질을 이해하고 표현할 수
-                있는 진정한 아티스트를 양성하는 것을 목표로 합니다.
-              </p>
-              <p className="text-lg text-gray-600">
-                개인별 맞춤형 커리큘럼과 전문 강사진의 체계적인 지도로 여러분의
-                음악적 잠재력을 최대한 끌어올려 드리겠습니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Consultation System Section */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-            체계적인 상담 시스템
-          </h2>
-          <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl p-8 shadow-lg">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                내원 방문상담은 100% 예약제로만 진행중입니다
-              </h3>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                목소리 문진표 작성 및 간단한 가창 테스트, 체크업을 시행하여
-                개인의 발성상태를 진단 후, 수업 진행 방향을 안내드리고 있습니다.
-              </p>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                비전
+              </h2>
+              <div className="w-24 h-1 bg-brand-600 mx-auto rounded-full"></div>
             </div>
 
-            <div className="bg-white rounded-xl p-6 shadow-md">
-              <div className="text-center">
-                <h4 className="text-xl font-bold text-gray-900 mb-4">
-                  📱 예약 방법
-                </h4>
-                <p className="text-lg text-gray-700 mb-4">
-                  내원 방문상담은 <strong>네이버예약을 통해서만</strong> 받고
-                  있으니
-                </p>
-                <p className="text-xl font-bold text-brand-600">
-                  네이버에 '온리보컬아카데미'를 검색해주세요
-                </p>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* 왼쪽 컬럼 */}
+              <div className="space-y-6">
+                <div className="bg-white rounded-xl p-6 shadow-lg">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-white text-xl">🎯</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      우리의 철학
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    <strong className="text-brand-600">
+                      모든 소리에는 원인과 결과가 있습니다.
+                    </strong>
+                    <br />
+                    1:1 맞춤수업으로 수강생의 니즈를 정확하게 파악하고
+                    교정합니다.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 shadow-lg">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-white text-xl">🎵</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      교육 목표
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    단순한 노래 교육이 아닌, 음악의 본질을 이해하고 표현할 수
+                    있는
+                    <strong className="text-brand-600">
+                      {" "}
+                      진정한 아티스트를 양성
+                    </strong>
+                    하는 것을 목표로 합니다.
+                  </p>
+                </div>
+              </div>
+
+              {/* 오른쪽 컬럼 */}
+              <div className="space-y-6">
+                <div className="bg-white rounded-xl p-6 shadow-lg">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-white text-xl">📈</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      15년의 역사
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    2009년 설립 이후, 과학적이고 체계적인 보컬 교육을 통해
+                    <strong className="text-brand-600">
+                      {" "}
+                      수많은 학생들의 꿈을 실현
+                    </strong>
+                    시켜 왔습니다.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 shadow-lg">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-white text-xl">💎</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      맞춤형 교육
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    개인별 맞춤형 커리큘럼과 전문 강사진의 체계적인 지도로
+                    <strong className="text-brand-600">
+                      {" "}
+                      여러분의 음악적 잠재력을 최대한 끌어올려
+                    </strong>{" "}
+                    드리겠습니다.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -156,7 +166,7 @@ export default function AboutPage() {
       </section>
 
       {/* Greeting Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
             인사말
@@ -302,7 +312,7 @@ export default function AboutPage() {
       </section>
 
       {/* Location Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
             위치 안내
@@ -313,58 +323,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold mb-6 text-gray-900">
                   주소 정보
                 </h3>
-                <div className="space-y-4">
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold text-gray-900">
-                        도로명 주소
-                      </h4>
-                      <button
-                        onClick={() => copyToClipboard(roadAddress, "road")}
-                        className="flex items-center space-x-1 px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-md transition-colors"
-                      >
-                        {copiedRoad ? (
-                          <>
-                            <Check className="w-4 h-4" />
-                            <span>복사됨</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-4 h-4" />
-                            <span>복사</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                    <p className="text-gray-600">
-                      광주 광산구 임방울대로332번길 9-14
-                      <br />
-                      GW빌딩 2층 온리보컬아카데미
-                    </p>
-                  </div>
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold text-gray-900">지번</h4>
-                      <button
-                        onClick={() => copyToClipboard(jibunAddress, "jibun")}
-                        className="flex items-center space-x-1 px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-md transition-colors"
-                      >
-                        {copiedJibun ? (
-                          <>
-                            <Check className="w-4 h-4" />
-                            <span>복사됨</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-4 h-4" />
-                            <span>복사</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                    <p className="text-gray-600">광주 광산구 수완동 1435</p>
-                  </div>
-                </div>
+                <AddressInfo />
               </div>
               <div>
                 <h3 className="text-2xl font-bold mb-6 text-gray-900">

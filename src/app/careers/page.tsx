@@ -75,7 +75,7 @@ export default function CareersPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
+      <section className="h-80 flex items-center px-4 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
             인재채용
@@ -94,7 +94,7 @@ export default function CareersPage() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-6">
+            <div className="bg-gray-50 rounded-xl p-6">
               <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mb-4">
                 <Users className="w-8 h-8 text-gray-900" />
               </div>
@@ -107,7 +107,7 @@ export default function CareersPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-6">
+            <div className="bg-gray-50 rounded-xl p-6">
               <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mb-4">
                 <Briefcase className="w-8 h-8 text-gray-900" />
               </div>
@@ -120,7 +120,7 @@ export default function CareersPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-6">
+            <div className="bg-gray-50 rounded-xl p-6">
               <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-8 h-8 text-gray-900" />
               </div>
@@ -132,7 +132,7 @@ export default function CareersPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-6">
+            <div className="bg-gray-50 rounded-xl p-6">
               <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mb-4">
                 <Clock className="w-8 h-8 text-gray-900" />
               </div>
@@ -148,7 +148,7 @@ export default function CareersPage() {
       </section>
 
       {/* Job Positions */}
-      <section className="py-20 px-4 bg-gradient-to-r from-gray-50 to-gray-100">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
             채용 포지션

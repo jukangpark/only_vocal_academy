@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Navigation from "@/components/navigation";
-import { motion } from "framer-motion";
+import { Instagram, Youtube } from "lucide-react";
 
 export default function ContactPage() {
   // 애니메이션 variants
@@ -15,7 +14,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="py-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="h-80 flex items-center px-4 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
             상담 문의
@@ -27,47 +26,13 @@ export default function ContactPage() {
           </p>
         </div>
       </div>
-
       {/* Contact Section */}
       <div className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          {/* 수상 경력 */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
-              방문 상담 및 수강 신청
-            </h2>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg mb-12 max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                🏆 수상 경력
-              </h3>
-              <div className="space-y-4 text-left">
-                <div className="p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-lg">
-                  <p className="font-semibold text-gray-900">
-                    2023, 2024 KCIA 한국소비자산업평가 2년연속 광주광역시 음악
-                    부문 우수 업체 선정
-                  </p>
-                </div>
-                <div className="p-4 bg-blue-50 border-l-4 border-blue-400 rounded-lg">
-                  <p className="font-semibold text-gray-900">
-                    스포츠서울 주관 2024 이노베이션 리더 대상 보컬, 음악 부분
-                    대상 수상
-                  </p>
-                </div>
-                <div className="p-4 bg-green-50 border-l-4 border-green-400 rounded-lg">
-                  <p className="font-semibold text-gray-900">
-                    스포츠서울 주관 2022 혁신한국인 & 파워코리아
-                    보컬전문교육기관 부문 대상
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* 학원 소개 */}
           <div className="bg-white rounded-2xl p-8 shadow-lg mb-12 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              온리보컬아카데미 소개
+              방문상담 안내사항
             </h3>
 
             <div className="space-y-6 text-gray-700 leading-relaxed">
@@ -79,21 +44,6 @@ export default function ContactPage() {
                 교수법, 보컬코치 과정을 수료한 발성 전문 원장과 보컬코치들이
                 수업합니다.
               </p>
-
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h4 className="font-bold text-gray-900 mb-3">
-                  👨‍⚕️ 윤지현 원장 프로필
-                </h4>
-                <ul className="space-y-2 text-sm">
-                  <li>• 현) 서울 메디컬보이스 이비인후과 발성센터 출강 중</li>
-                  <li>• 현) 온리보컬아카데미 원장</li>
-                  <li>• Medical Voice 1기 수료</li>
-                  <li>
-                    • 유명 가수 및 뮤지컬 배우, 아이돌, 실용음악과 지망생,
-                    발성장애 환자 등 다양한 케이스 경험
-                  </li>
-                </ul>
-              </div>
 
               <div className="bg-blue-50 p-6 rounded-lg">
                 <h4 className="font-bold text-gray-900 mb-3">
@@ -110,6 +60,42 @@ export default function ContactPage() {
                   <li>수업 방향 제시</li>
                   <li>진단내용에 따라 가장 적합한 보컬코치 배정</li>
                 </ol>
+              </div>
+
+              <div className="bg-green-50 p-6 rounded-lg">
+                <h4 className="font-bold text-gray-900 mb-3">
+                  🎤 보컬 파트 방문상담 안내
+                </h4>
+                <div className="space-y-3 text-sm">
+                  <p>
+                    온리보컬아카데미의 보컬파트 방문상담은 간단한 가창
+                    테스트(보컬체크업)를 시행하고 있습니다.
+                  </p>
+                  <p>
+                    <span className="font-semibold text-green-700">
+                      준비사항:
+                    </span>{" "}
+                    평소에 즐겨 부르시던 노래를 1-2곡 정도 준비해오시면 원활한
+                    상담이 가능합니다.
+                  </p>
+                  <div className="bg-white p-4 rounded-lg border-l-4 border-green-500">
+                    <p className="font-semibold text-gray-900 mb-2">
+                      ⚠️ 중요 안내
+                    </p>
+                    <p>
+                      비염, 축농증, 비중격만곡증, 발성장애 및 성대결절, 성대폴립
+                      등의 성대 관련 질환이 있으실 경우
+                      <span className="font-semibold text-green-700">
+                        {" "}
+                        예약 사항에 꼭 남겨주시길 바랍니다.
+                      </span>
+                    </p>
+                  </div>
+                  <p className="text-center font-semibold text-green-700">
+                    광주 유일의 근거중심 보컬전문 아카데미 'ONLY' 진단과 근거를
+                    바탕으로 상담하겠습니다.
+                  </p>
+                </div>
               </div>
 
               <div className="bg-orange-50 p-6 rounded-lg">
@@ -199,7 +185,7 @@ export default function ContactPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Phone Contact */}
-            <div className="bg-gradient-to-r from-brand-600 to-brand-700 rounded-2xl p-8 text-gray-900">
+            <div className="bg-gray-50 rounded-2xl p-8 text-gray-900">
               <h3 className="text-2xl font-bold mb-4">📞 전화 상담</h3>
               <div className="mb-6">
                 <a
@@ -229,7 +215,7 @@ export default function ContactPage() {
             </div>
 
             {/* Location Contact */}
-            <div className="bg-gradient-to-r from-brand-600 to-brand-700 rounded-2xl p-8 text-gray-900">
+            <div className="bg-gray-50 rounded-2xl p-8 text-gray-900">
               <h3 className="text-2xl font-bold mb-4">📍 방문 상담</h3>
               <div className="mb-6">
                 <p className="text-lg font-semibold">광주 광산구 수완동 1435</p>
@@ -249,7 +235,7 @@ export default function ContactPage() {
             </div>
 
             {/* Social Media */}
-            <div className="bg-gradient-to-r from-brand-600 to-brand-700 rounded-2xl p-8 text-gray-900">
+            <div className="bg-gray-50 rounded-2xl p-8 text-gray-900">
               <h3 className="text-2xl font-bold mb-4">📱 소셜 미디어</h3>
               <div className="space-y-4">
                 <a
@@ -258,8 +244,8 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors"
                 >
-                  <span className="text-2xl">📷</span>
-                  <span className="font-semibold">Instagram</span>
+                  <Instagram className="w-6 h-6" />
+                  <span>Instagram</span>
                 </a>
                 <a
                   href="https://www.youtube.com/@onlyvocal2250"
@@ -267,8 +253,8 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors"
                 >
-                  <span className="text-2xl">🎥</span>
-                  <span className="font-semibold">YouTube</span>
+                  <Youtube className="w-6 h-6" />
+                  <span>YouTube</span>
                 </a>
               </div>
             </div>
