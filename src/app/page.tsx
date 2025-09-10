@@ -566,14 +566,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center space-x-2 bg-brand-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
+              className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
             >
               <span>상담 예약하기</span>
               <ChevronRight className="w-5 h-5" />
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center space-x-2 border-2 border-brand-600 text-brand-600 px-8 py-4 rounded-lg font-semibold hover:bg-brand-600 hover:text-white transition-colors"
+              className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
             >
               <span>학원 소개</span>
               <ChevronRight className="w-5 h-5" />
