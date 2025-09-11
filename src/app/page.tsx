@@ -13,13 +13,10 @@ import {
   Trophy,
   Heart,
 } from "lucide-react";
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Slider from "@/components/Slider";
 
 export default function Home() {
-  const [isPaused, setIsPaused] = useState(false);
-  const [animationProgress, setAnimationProgress] = useState(0);
-
   const awards = [
     "/images/awards/2023 KCIA 한국소비자산업평가.jpeg",
     "/images/awards/2023 KCIA 한국소비자산업평가2.jpeg",
@@ -62,31 +59,6 @@ export default function Home() {
     animate: { opacity: 1, scale: 1 },
     transition: { duration: 0.5, ease: "easeOut" },
   };
-
-  useEffect(() => {
-    let animationId: number;
-    let startTime: number;
-
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-
-      if (!isPaused) {
-        const elapsed = currentTime - startTime;
-        const progress = (elapsed / 20000) % 1; // 20초 주기
-        setAnimationProgress(progress);
-      }
-
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animationId = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-    };
-  }, [isPaused]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -193,34 +165,9 @@ export default function Home() {
           </div>
 
           {/* 무한 슬라이드 섹션 */}
-          <div className="mb-12 overflow-hidden">
-            <div
-              className="flex space-x-6"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-              style={{
-                transform: `translateX(-${animationProgress * 100}%)`,
-                transition: isPaused ? "none" : "transform 0.1s linear",
-              }}
-            >
-              {duplicatedAwards.map((award, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-64 h-40 bg-white rounded-xl shadow-lg overflow-hidden"
-                >
-                  <Image
-                    src={award}
-                    alt={`수상 내역 ${index + 1}`}
-                    width={256}
-                    height={160}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <Slider duplicatedAwards={duplicatedAwards} />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
             {/* KCIA 수상 */}
             <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center mb-4">
@@ -280,7 +227,7 @@ export default function Home() {
 
       {/* Promotional Video Section */}
       <motion.section
-        className="py-20 px-4 bg-gradient-to-r from-gray-50 to-gray-100"
+        className="py-20 px-4 bg-gray-50"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, margin: "-100px" }}
