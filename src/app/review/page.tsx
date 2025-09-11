@@ -45,10 +45,32 @@ const ReviewPage = () => {
             viewport={{ once: true }}
             className="mb-6"
           >
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              이런 점이 좋았어요.
-            </h2>
-            <p className="text-gray-600">105회 83명참여</p>
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                  이런 점이 좋았어요.
+                </h2>
+                <p className="text-gray-600">105회 83명참여</p>
+              </div>
+              <motion.a
+                href="https://map.naver.com/p/entry/place/1108538742?placePath=/review?additionalHeight=76&entry=plt&fromPanelNum=1&locale=ko&svcName=map_pcv5&timestamp=202509111416&fromPanelNum=1&additionalHeight=76&timestamp=202509111416&locale=ko&svcName=map_pcv5&searchType=place&lng=126.8255258&lat=35.1900323&c=15.00,0,0,0,dh"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                </svg>
+                네이버 리뷰 보러가기
+              </motion.a>
+            </div>
           </motion.div>
 
           <div className="space-y-2">
