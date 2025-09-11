@@ -70,25 +70,27 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Overlay */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-gray-200">
-            <nav className="space-y-2">
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`block w-full p-4 rounded-lg text-center transition-colors ${
-                    isActive(item.href)
-                      ? "text-brand-600 bg-brand-50 font-semibold"
-                      : "text-gray-700 hover:text-brand-600 hover:bg-gray-50"
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+          <div className="fixed top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-40 lg:hidden">
+            <div className="container mx-auto px-4 py-4">
+              <nav className="space-y-2">
+                {navigationItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`block w-full p-4 rounded-lg text-center transition-colors ${
+                      isActive(item.href)
+                        ? "text-brand-600 bg-brand-50 font-semibold"
+                        : "text-gray-700 hover:text-brand-600 hover:bg-gray-50"
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
           </div>
         )}
       </div>
