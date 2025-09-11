@@ -92,7 +92,7 @@ export default function FacilityPage() {
             {facilities.map((facility, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow"
+                className="bg-white border border-gray-200 rounded-xl p-6 transition-shadow"
               >
                 <div className="text-center mb-6">
                   <div className="w-20 h-20 bg-gradient-to-br from-brand-500 to-brand-600 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl">

@@ -14,9 +14,14 @@ import {
   Heart,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import Slider from "@/components/Slider";
+import ReviewCard from "@/components/ReviewCard";
+import reviews from "@/constants/reviews";
 
 export default function Home() {
+  const [showMoreReviews, setShowMoreReviews] = useState(false);
+
   const awards = [
     "/images/awards/2023 KCIA 한국소비자산업평가.jpeg",
     "/images/awards/2023 KCIA 한국소비자산업평가2.jpeg",
@@ -26,6 +31,12 @@ export default function Home() {
 
   // 무한 슬라이드를 위해 배열을 복제
   const duplicatedAwards = [...awards, ...awards, ...awards, ...awards];
+
+  // 리뷰 데이터 - 처음 10개만 사용
+  const selectedReviews = reviews.slice(0, 10);
+  const displayedReviews = showMoreReviews
+    ? selectedReviews
+    : selectedReviews.slice(0, 5);
 
   // 애니메이션 variants
   const fadeInUp = {
@@ -101,7 +112,7 @@ export default function Home() {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+            <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg transition-shadow">
               <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-brand-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-blue-400" />
               </div>
@@ -114,7 +125,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+            <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg transition-shadow">
               <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-brand-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-red-400" />
               </div>
@@ -127,7 +138,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+            <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg transition-shadow">
               <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-brand-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8 text-yellow-400" />
               </div>
@@ -236,10 +247,11 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              온리보컬아카데미 홍보영상
+              윤지현 원장님 방송출연 영상
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              광주 유일의 근거중심 보컬전문 아카데미를 소개합니다
+              '진심누나' 방송출연! : 트롯돌 '태이' 성대 회복 재활 트레이닝
+              영상입니다
             </p>
           </div>
 
@@ -260,10 +272,8 @@ export default function Home() {
                 온리보컬아카데미의 특별함을 확인하세요
               </h3>
               <p className="text-gray-600 mb-6">
-                근거중심 발성 교수법과 체계적인 교육 시스템을 통해
+                광주 유일의 근거중심 보컬전문 아카데미
                 <br />
-                수많은 합격생을 배출한 온리보컬아카데미만의 차별화된 교육을
-                만나보세요
               </p>
               <a
                 href="https://www.youtube.com/watch?v=YSReBuZDCU0"
@@ -529,6 +539,70 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Reviews Section */}
+      <motion.section
+        className="py-20 px-4 bg-gray-50"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+      >
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              100% 리얼 수강생 후기를 직접 확인하세요!
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              실제 수강생들이 남긴 솔직한 후기를 통해 온리보컬아카데미의 진짜
+              모습을 확인해보세요
+            </p>
+          </div>
+
+          <div className="space-y-6 mb-8">
+            {displayedReviews.map((review, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+              >
+                <ReviewCard {...review} />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            {!showMoreReviews && (
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowMoreReviews(true)}
+                className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors cursor-pointer"
+              >
+                <span>더보기</span>
+                <ChevronRight className="w-5 h-5" />
+              </motion.button>
+            )}
+
+            {showMoreReviews && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="space-y-4"
+              >
+                <Link
+                  href="/review"
+                  className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
+                >
+                  <span>전체 수강후기 보기</span>
+                  <ChevronRight className="w-5 h-5" />
+                </Link>
+              </motion.div>
+            )}
+          </div>
+        </div>
+      </motion.section>
+
       {/* Social Media Section */}
       <motion.section
         className="py-16 px-4 bg-white"
@@ -547,7 +621,7 @@ export default function Home() {
               href="https://www.instagram.com/onlyvocal_/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 bg-gradient-to-r from-brand-500 to-brand-600 text-gray-900 px-6 py-3 rounded-lg hover:scale-105 transition-transform"
+              className="flex items-center space-x-2 bg-gradient-to-r from-brand-500 to-brand-600 text-gray-900 px-6 py-3 rounded-lg transition-transform hover:text-pink-300"
             >
               <Instagram className="w-6 h-6" />
               <span>Instagram</span>
@@ -557,7 +631,7 @@ export default function Home() {
               href="https://www.youtube.com/@onlyvocal2250"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 bg-brand-600 text-gray-900 px-6 py-3 rounded-lg hover:scale-105 transition-transform"
+              className="flex items-center space-x-2 bg-brand-600 text-gray-900 px-6 py-3 rounded-lg transition-transform hover:text-red-500"
             >
               <Youtube className="w-6 h-6" />
               <span>YouTube</span>

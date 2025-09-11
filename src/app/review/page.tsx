@@ -45,7 +45,7 @@ const ReviewPage = () => {
               수강 후기
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              수강생들이 직접 남긴 후기를 확인해보세요
+              100% 리얼 수강생 리뷰로 증명합니다.
             </p>
           </motion.div>
         </div>

@@ -140,13 +140,21 @@ export default function TeachersPage() {
           </p>
         </div>
       </section>
-
+      <div className="flex justify-center mt-6">
+        <Image
+          src="/images/team_only_vocal.png"
+          alt="온리보컬 팀"
+          width={250}
+          height={250}
+          className="rounded-full"
+        />
+      </div>
       {/* Teachers List */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           {/* 원장님 섹션 */}
           <div className="max-w-4xl mx-auto mb-16">
-            <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow">
+            <div className="bg-white border border-gray-200 rounded-xl p-8 transition-shadow">
               <div className="text-center mb-6">
                 <div className="w-64 h-96 mx-auto mb-6 overflow-hidden border-4 border-brand-500 rounded-lg">
                   <Image
@@ -195,7 +203,7 @@ export default function TeachersPage() {
 
               <Link
                 href="/contact"
-                className="block w-full bg-brand-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors text-lg"
+                className="block w-full bg-brand-600 text-white text-center py-3 rounded-lg font-semibold transition-colors text-lg"
               >
                 상담 신청하기
               </Link>
@@ -204,7 +212,7 @@ export default function TeachersPage() {
 
           {/* 부원장 섹션 */}
           <div className="max-w-4xl mx-auto mb-16">
-            <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow">
+            <div className="bg-white border border-gray-200 rounded-xl p-8 transition-shadow">
               <div className="text-center mb-6">
                 <div className="w-56 h-84 mx-auto mb-6 overflow-hidden border-4 border-brand-500 rounded-lg">
                   <Image
@@ -253,7 +261,7 @@ export default function TeachersPage() {
 
               <Link
                 href="/contact"
-                className="block w-full bg-brand-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors text-lg"
+                className="block w-full bg-brand-600 text-white text-center py-3 rounded-lg font-semibold transition-colors text-lg"
               >
                 상담 신청하기
               </Link>
@@ -265,7 +273,7 @@ export default function TeachersPage() {
             {teachers.slice(2).map((teacher, index) => (
               <div
                 key={index + 2}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-shadow"
+                className="bg-white border border-gray-200 rounded-xl p-6 transition-shadow"
               >
                 <div className="text-center mb-6">
                   <div className="w-48 h-72 mx-auto mb-4 overflow-hidden border-4 border-brand-500 rounded-lg">

@@ -31,12 +31,11 @@ export default function Navigation() {
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex items-center overflow-hidden h-20">
-            <button
-              onClick={handleLogoClick}
-              className="flex items-center hover:opacity-80 transition-opacity"
-            >
-              <Logo />
-              <h1 className="font-bold text-2xl hidden lg:block md:block">
+            <button onClick={handleLogoClick} className="flex items-center">
+              <div className="transform rotate-[4deg]">
+                <Logo />
+              </div>
+              <h1 className="font-light text-2xl hidden lg:block md:block -ml-5">
                 온리 보컬 아카데미
               </h1>
             </button>
@@ -79,7 +78,7 @@ export default function Navigation() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`block w-full p-4 rounded-lg text-center transition-colors ${
+                    className={`block w-full py-2 px-4 rounded-lg text-center transition-colors ${
                       isActive(item.href)
                         ? "text-brand-600 bg-brand-50 font-semibold"
                         : "text-gray-700 hover:text-brand-600 hover:bg-gray-50"
