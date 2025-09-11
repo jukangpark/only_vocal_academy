@@ -85,15 +85,13 @@ const ReviewPage = () => {
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
-              viewport={{ once: true }}
             >
               <ReviewCard {...review} />
             </motion.div>
           ))}
 
-          {/* 맨 위로 가기 버튼 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
