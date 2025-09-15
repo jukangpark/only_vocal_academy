@@ -1,6 +1,7 @@
 "use client";
 
 import AddressInfo from "@/components/AddressInfo";
+import Banner from "@/components/Banner";
 import Image from "next/image";
 
 export default function AboutPage() {
@@ -40,31 +41,11 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 px-4">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url(/introduction.jpeg)" }}
-        >
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
-        <div className="container mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-            학원 소개
-          </h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            광주 유일의 근거중심 보컬전문 아카데미
-          </p>
-          <div className="mt-8">
-            <p className="text-2xl md:text-3xl font-bold text-white mb-4">
-              광주 유일의 '근거 중심 발성 보컬 센터'
-            </p>
-            <p className="text-xl md:text-2xl font-semibold text-white">
-              '발성은 과학, 노래는 예술이다.'
-            </p>
-          </div>
-        </div>
-      </section>
+      <Banner
+        title="학원 소개"
+        description="광주 유일의 근거 중심 발성 보컬 센터, 발성은 과학, 노래는 예술이다."
+        image="/introduction.jpeg"
+      />
 
       {/* Vision Section */}
       <section className="py-20 px-4">

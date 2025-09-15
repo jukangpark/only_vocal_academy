@@ -5,6 +5,7 @@ import Image from "next/image";
 import Navigation from "@/components/navigation";
 import { Music, GraduationCap, Award, Users, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import Banner from "@/components/Banner";
 
 export default function TeachersPage() {
   // 애니메이션 variants
@@ -129,17 +130,12 @@ export default function TeachersPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="h-80 flex items-center px-4 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            강사진 소개
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            각 분야의 전문가들이 여러분의 음악적 꿈을 실현시켜 드립니다.
-          </p>
-        </div>
-      </section>
+      <Banner
+        title="강사진 소개"
+        description="각 분야의 전문가들이 여러분의 음악적 꿈을 실현시켜 드립니다."
+        image="/introduction.jpeg"
+      />
+
       <div className="flex justify-center mt-6">
         <Image
           src="/images/team_only_vocal.png"

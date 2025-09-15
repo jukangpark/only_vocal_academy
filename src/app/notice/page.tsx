@@ -1,3 +1,4 @@
+import Banner from "@/components/Banner";
 import Navigation from "@/components/navigation";
 import { Calendar } from "lucide-react";
 
@@ -46,17 +47,11 @@ export default function NoticePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="h-80 flex items-center px-4 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            공지사항
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            온리보컬아카데미의 최신 소식과 중요한 안내사항을 확인하세요.
-          </p>
-        </div>
-      </section>
+      <Banner
+        title="공지사항"
+        description="온리보컬아카데미의 최신 소식과 중요한 안내사항을 확인하세요."
+        image="/introduction.jpeg"
+      />
 
       {/* Notice List */}
       <section className="py-20 px-4 bg-white">

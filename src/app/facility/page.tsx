@@ -1,3 +1,4 @@
+import Banner from "@/components/Banner";
 import Navigation from "@/components/navigation";
 import { Calendar, Wifi, Users } from "lucide-react";
 
@@ -69,17 +70,11 @@ export default function FacilityPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="h-80 flex items-center px-4 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            시설 소개
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            최신 장비와 편안한 환경으로 최고의 학습 효과를 제공합니다.
-          </p>
-        </div>
-      </section>
+      <Banner
+        title="시설 소개"
+        description="최신 장비와 편안한 환경으로 최고의 학습 효과를 제공합니다."
+        image="/introduction.jpeg"
+      />
 
       {/* Facilities List */}
       <section className="py-20 px-4 bg-white">

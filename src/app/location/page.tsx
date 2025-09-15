@@ -1,21 +1,17 @@
 import Navigation from "@/components/navigation";
 import AddressInfo from "@/components/AddressInfo";
 import { MapPin, Phone, Clock, Car, Train, Bus } from "lucide-react";
+import Banner from "@/components/Banner";
 
 export default function LocationPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="h-80 flex items-center px-4 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            오시는 길
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            온리보컬아카데미로 오시는 방법을 안내해드립니다.
-          </p>
-        </div>
-      </section>
+      <Banner
+        title="오시는 길"
+        description="온리보컬아카데미로 오시는 방법을 안내해드립니다."
+        image="/introduction.jpeg"
+      />
 
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">

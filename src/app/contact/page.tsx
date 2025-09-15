@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Instagram, Youtube } from "lucide-react";
+import Banner from "@/components/Banner";
 
 export default function ContactPage() {
   // 애니메이션 variants
@@ -13,19 +14,12 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <div className="h-80 flex items-center px-4 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            상담 문의
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            방문 상담 및 수강 신청을 위한 안내입니다.
-            <br />
-            네이버 예약을 통해 편리하게 상담 예약하세요.
-          </p>
-        </div>
-      </div>
+      <Banner
+        title="상담 문의"
+        description="방문 상담 및 수강 신청을 위한 안내입니다."
+        image="/introduction.jpeg"
+      />
+
       {/* Contact Section */}
       <div className="py-20 px-4 bg-white">
         <div className="container mx-auto">

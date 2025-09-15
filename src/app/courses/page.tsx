@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Navigation from "@/components/navigation";
 import { motion } from "framer-motion";
+import Banner from "@/components/Banner";
 
 export default function CoursesPage() {
   // 애니메이션 variants
@@ -40,30 +41,11 @@ export default function CoursesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="h-80 flex items-center px-4 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto text-center">
-          <motion.div
-            initial="initial"
-            animate="animate"
-            variants={staggerContainer}
-          >
-            <motion.h1
-              className="text-4xl md:text-6xl font-bold mb-6 text-gray-900"
-              variants={fadeInUp}
-            >
-              수강 안내
-            </motion.h1>
-            <motion.p
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
-              variants={fadeInUp}
-            >
-              개인별 맞춤형 커리큘럼으로 여러분의 목표에 맞는 최적의 과정을
-              제공합니다.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+      <Banner
+        title="수강 안내"
+        description="개인별 맞춤형 커리큘럼으로 여러분의 목표에 맞는 최적의 과정을 제공합니다."
+        image="/introduction.jpeg"
+      />
 
       {/* Courses Section */}
       <section className="py-20 px-4 bg-white">

@@ -6,6 +6,7 @@ import ProgressBar from "@/components/ProgressBar";
 import ReviewCard from "@/components/ReviewCard";
 import reviews from "@/constants/reviews";
 import reviewStats from "@/constants/reviewStats";
+import Banner from "@/components/Banner";
 
 const ReviewPage = () => {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -32,24 +33,12 @@ const ReviewPage = () => {
   }, [showTooltip]);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      {/* Hero Section */}
-      <section className="h-80 flex items-center px-4 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-              수강 후기
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              100% 리얼 수강생 리뷰로 증명합니다.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <div className="min-h-screen bg-gray-50">
+      <Banner
+        title="수강 후기"
+        description="100% 리얼 수강생 리뷰로 증명합니다."
+        image="/introduction.jpeg"
+      />
       <div className="max-w-4xl mx-auto px-4">
         {/* 페이지 제목 */}
         <div className="text-center mb-12 py-5"></div>
