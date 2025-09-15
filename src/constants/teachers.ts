@@ -1,0 +1,88 @@
+const teachers = [
+  {
+    name: "윤지현 원장",
+    specialty: "보컬 전문",
+    experience: "15년 경력",
+    education: "음악대학 보컬과 졸업",
+    description: "음악대학 보컬과 졸업, 다수의 합격생 배출",
+    achievements: [
+      "500여명 합격생 배출",
+      "음악대학 입시 전문",
+      "보컬 테크닉 전문가",
+      "개인별 맞춤 지도",
+    ],
+    image: "/images/온리보컬 원장 보컬코치 윤지현.jpeg",
+  },
+  {
+    name: "한화정 부원장 보컬코치",
+    specialty: "보컬 전문",
+    experience: "12년 경력",
+    education: "보컬 테크닉 전문",
+    description: "고급 보컬 테크닉 전문, 오디션 합격 다수",
+    achievements: [
+      "고급 보컬 테크닉",
+      "오디션 합격 다수",
+      "음악 치료사 자격",
+      "발성 기법 전문",
+    ],
+    image: "/images/온리보컬 보컬코치 한화정.jpeg",
+  },
+  {
+    name: "김가희 보컬코치",
+    specialty: "보컬 전문",
+    experience: "10년 경력",
+    education: "실용음악과 보컬 전공",
+    description: "실용음악과 보컬 전공, 작곡 및 편곡 전문",
+    achievements: [
+      "보컬 반주 전문",
+      "작곡 및 편곡 전문",
+      "음악 이론 전문",
+      "실용음악 입시 전문",
+    ],
+    image: "/images/온리보컬 보컬코치 김가희.png",
+  },
+  {
+    name: "이다영 보컬코치",
+    specialty: "보컬 전문",
+    experience: "8년 경력",
+    education: "음악학과 보컬 전공",
+    description: "음악 이론 및 시창청음 전문, 입시 준비 전문",
+    achievements: [
+      "음악 이론 전문",
+      "시창청음 전문",
+      "입시 준비 전문",
+      "화성학 전문",
+    ],
+    image: "/images/온리보컬 보컬코치 이다영.jpeg",
+  },
+  {
+    name: "배윤서 보컬코치",
+    specialty: "보컬 전문",
+    experience: "6년 경력",
+    education: "앙상블 및 합창 전문",
+    description: "앙상블 및 합창 전문, 그룹 활동 지도",
+    achievements: [
+      "앙상블 전문",
+      "합창 지도 전문",
+      "그룹 활동 지도",
+      "무대 공연 전문",
+    ],
+    image: "/images/온리보컬 보컬코치 배윤서.jpeg",
+  },
+  {
+    name: "김예찬 보컬코치",
+    specialty: "보컬 전문",
+    experience: "7년 경력",
+    education: "CCM 및 찬양 전문",
+    description: "CCM 및 찬양 전문, 교회 음악 전문",
+    achievements: [
+      "CCM 전문",
+      "찬양 지도 전문",
+      "교회 음악 전문",
+      "영성 음악 전문",
+    ],
+    image: "/images/온리보컬 보컬코치 김예찬.jpeg",
+  },
+];
+
+export default teachers;
