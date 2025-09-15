@@ -31,7 +31,10 @@ export default function Navigation() {
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex items-center overflow-hidden h-20">
-            <button onClick={handleLogoClick} className="flex items-center">
+            <button
+              onClick={handleLogoClick}
+              className="flex items-center cursor-pointer"
+            >
               <div className="transform rotate-[4deg]">
                 <Logo />
               </div>
