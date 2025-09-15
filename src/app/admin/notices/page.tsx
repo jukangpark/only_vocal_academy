@@ -16,92 +16,12 @@ import {
   User,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import notices from "@/constants/notices";
 
 export default function NoticesPage() {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
-
-  // 실제 공지사항 데이터 (notice/page.tsx에서 추출)
-  const notices = [
-    {
-      id: 1,
-      title: "2024년 하반기 수강생 모집 안내",
-      date: "2024-12-15",
-      category: "모집안내",
-      content:
-        "2024년 하반기 수강생 모집을 시작합니다. 입시반, 취미반, 오디션반 등 다양한 과정을 준비했습니다.",
-      author: "윤지현 원장",
-      status: "공개",
-      views: 156,
-      priority: "높음",
-      tags: ["모집", "입시", "취미"],
-    },
-    {
-      id: 2,
-      title: "2024년 합격생 발표",
-      date: "2024-12-10",
-      category: "합격발표",
-      content: "2024년도 음악대학 및 실용음악과 입시 합격생 명단을 발표합니다.",
-      author: "윤지현 원장",
-      status: "공개",
-      views: 234,
-      priority: "높음",
-      tags: ["합격", "입시", "발표"],
-    },
-    {
-      id: 3,
-      title: "겨울방학 특별 프로그램 안내",
-      date: "2024-12-05",
-      category: "프로그램",
-      content:
-        "겨울방학을 맞아 특별 프로그램을 준비했습니다. 집중 보컬 트레이닝과 합격 전략 수업을 진행합니다.",
-      author: "한화정 부원장",
-      status: "공개",
-      views: 89,
-      priority: "보통",
-      tags: ["겨울방학", "특별프로그램", "보컬트레이닝"],
-    },
-    {
-      id: 4,
-      title: "2024년 연말 공연 안내",
-      date: "2024-11-30",
-      category: "공연안내",
-      content:
-        "2024년 연말 학생들의 실력을 보여주는 공연이 개최됩니다. 많은 관심과 참여 부탁드립니다.",
-      author: "김가희 보컬코치",
-      status: "공개",
-      views: 67,
-      priority: "보통",
-      tags: ["공연", "연말", "학생발표"],
-    },
-    {
-      id: 5,
-      title: "신규 강사진 합류 안내",
-      date: "2024-11-25",
-      category: "강사소개",
-      content:
-        "더욱 전문적이고 체계적인 교육을 위해 새로운 강사진이 합류했습니다.",
-      author: "윤지현 원장",
-      status: "공개",
-      views: 123,
-      priority: "낮음",
-      tags: ["강사", "신규", "합류"],
-    },
-    {
-      id: 6,
-      title: "2025년 상반기 수강료 조정 안내",
-      date: "2024-11-20",
-      category: "수강료",
-      content:
-        "2025년 상반기부터 수강료가 조정됩니다. 자세한 내용은 개별 안내드리겠습니다.",
-      author: "윤지현 원장",
-      status: "비공개",
-      views: 0,
-      priority: "높음",
-      tags: ["수강료", "조정", "2025년"],
-    },
-  ];
 
   const filteredNotices = notices.filter((notice) => {
     const matchesSearch =
