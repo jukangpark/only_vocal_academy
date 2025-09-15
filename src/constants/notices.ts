@@ -8,7 +8,6 @@ const notices = [
     author: "윤지현 원장",
     status: "공개",
     views: 45,
-    priority: "높음",
     tags: ["휴무", "토요일", "안내"],
   },
   {
@@ -20,7 +19,6 @@ const notices = [
     author: "윤지현 원장",
     status: "공개",
     views: 38,
-    priority: "높음",
     tags: ["광복절", "정상수업", "안내"],
   },
   {
@@ -32,7 +30,6 @@ const notices = [
     author: "윤지현 원장",
     status: "공개",
     views: 52,
-    priority: "높음",
     tags: ["휴무", "6월", "안내"],
   },
   {
@@ -45,7 +42,6 @@ const notices = [
     author: "윤지현 원장",
     status: "공개",
     views: 41,
-    priority: "높음",
     tags: ["선거", "현충일", "정상수업"],
   },
   {
@@ -58,7 +54,6 @@ const notices = [
     author: "윤지현 원장",
     status: "공개",
     views: 67,
-    priority: "높음",
     tags: ["부처님오신날", "어린이날", "정상수업"],
   },
   {
@@ -70,7 +65,6 @@ const notices = [
     author: "윤지현 원장",
     status: "공개",
     views: 67,
-    priority: "높음",
     tags: ["삼일절"],
   },
 ];

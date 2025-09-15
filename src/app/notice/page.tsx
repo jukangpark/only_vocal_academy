@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import Banner from "@/components/Banner";
 import { Calendar, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import notices from "@/constants/notices";
 
 export default function NoticePage() {
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5; // 페이지당 아이템 수
@@ -49,6 +51,11 @@ export default function NoticePage() {
   const goToNextPage = () => {
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   };
+
+  // 공지사항 클릭 핸들러
+  const handleNoticeClick = (noticeId: number) => {
+    router.push(`/notice/${noticeId}`);
+  };
   return (
     <div className="min-h-screen bg-white">
       <Banner
@@ -78,11 +85,12 @@ export default function NoticePage() {
             {currentNotices.map((notice) => (
               <div
                 key={notice.id}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
+                onClick={() => handleNoticeClick(notice.id)}
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow cursor-pointer"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center space-x-3">
-                    <span className="px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm font-semibold">
+                    <span className="px-3 py-1 bg-gray-600 text-gray-100 rounded-full text-sm font-semibold">
                       {notice.category}
                     </span>
                     <div className="flex items-center space-x-2 text-gray-500 text-sm">
@@ -95,9 +103,9 @@ export default function NoticePage() {
                   {notice.title}
                 </h3>
                 <p className="text-gray-600 mb-4">{notice.content}</p>
-                <button className="text-brand-600 hover:text-brand-700 font-semibold transition-colors">
+                <div className="text-gray-600 hover:text-gray-800 font-semibold transition-colors">
                   자세히 보기 →
-                </button>
+                </div>
               </div>
             ))}
           </div>
@@ -173,14 +181,6 @@ export default function NoticePage() {
                   <ChevronRight className="w-4 h-4 ml-1" />
                 </button>
               </div>
-            </div>
-          )}
-
-          {/* 페이지 정보 */}
-          {filteredNotices.length > 0 && (
-            <div className="text-center mt-6 text-sm text-gray-600">
-              {startIndex + 1} - {Math.min(endIndex, filteredNotices.length)} /{" "}
-              {filteredNotices.length} 개 결과
             </div>
           )}
         </div>
