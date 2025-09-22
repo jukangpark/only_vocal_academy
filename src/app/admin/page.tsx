@@ -41,9 +41,7 @@ export default function AdminPage() {
       data: { session },
     } = await supabase.auth.getSession();
     setUser(session?.user ?? null);
-    if (!session?.user) {
-      setIsLoginModalOpen(true);
-    }
+    // 로그인되지 않은 경우 모달을 자동으로 열지 않음
   };
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -126,7 +124,28 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+    <div className="min-h-screen bg-gray-50">
+      {/* Login Required Screen */}
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="w-32 h-32 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Lock className="w-16 h-16 text-gray-400" />
+          </div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">
+            로그인이 필요한 서비스입니다
+          </h1>
+          <p className="text-lg text-gray-600 mb-8">
+            온리보컬아카데미 관리자 페이지에 접근하려면 로그인이 필요합니다.
+          </p>
+          <button
+            onClick={() => setIsLoginModalOpen(true)}
+            className="px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-semibold"
+          >
+            로그인하기
+          </button>
+        </div>
+      </div>
+
       {/* Login Modal */}
       <AnimatePresence>
         {isLoginModalOpen && (
