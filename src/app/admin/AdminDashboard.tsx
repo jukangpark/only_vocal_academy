@@ -14,7 +14,6 @@ const AdminDashboard = () => {
       icon: Users,
       color: "bg-blue-500",
       hoverColor: "hover:bg-blue-600",
-      stats: "총 6명",
     },
     {
       id: 2,
@@ -23,7 +22,6 @@ const AdminDashboard = () => {
       icon: BookOpen,
       color: "bg-green-500",
       hoverColor: "hover:bg-green-600",
-      stats: "진행중 7개",
     },
     {
       id: 3,
@@ -32,7 +30,6 @@ const AdminDashboard = () => {
       icon: FileText,
       color: "bg-orange-500",
       hoverColor: "hover:bg-orange-600",
-      stats: "활성 5개",
     },
   ];
 
@@ -82,9 +79,6 @@ const AdminDashboard = () => {
                         <h3 className="text-lg font-semibold text-white">
                           {card.title}
                         </h3>
-                        <p className="text-white text-opacity-90 text-sm">
-                          {card.stats}
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -105,7 +99,6 @@ const AdminDashboard = () => {
                 {/* 카드 푸터 */}
                 <div className="px-4 py-2 bg-gray-50 rounded-b-lg border-t border-gray-100">
                   <div className="flex justify-between items-center text-xs text-gray-500">
-                    <span>마지막 업데이트: 2시간 전</span>
                     <span className="flex items-center">
                       <div className="w-2 h-2 bg-green-400 rounded-full mr-1"></div>
                       활성

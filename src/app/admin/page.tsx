@@ -109,7 +109,7 @@ export default function AdminPage() {
               </div>
               <button
                 onClick={handleLogout}
-                className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"
+                className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 cursor-pointer"
               >
                 <LogOut className="w-4 h-4 mr-2" />
                 로그아웃
@@ -139,7 +139,7 @@ export default function AdminPage() {
           </p>
           <button
             onClick={() => setIsLoginModalOpen(true)}
-            className="px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-semibold"
+            className="px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-semibold cursor-pointer"
           >
             로그인하기
           </button>
@@ -271,7 +271,7 @@ export default function AdminPage() {
                       className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-900 bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                       {isLoading ? (
-                        <div className="flex items-center">
+                        <div className="flex items-center cursor-pointer">
                           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
                           로그인 중...
                         </div>
@@ -283,7 +283,7 @@ export default function AdminPage() {
 
                   <div className="mt-6 text-center">
                     <p className="text-xs text-gray-500">
-                      Supabase 인증을 통한 관리자 로그인
+                      Powered by CodeKingBuilder
                     </p>
                   </div>
                 </div>

@@ -1,10 +1,10 @@
 "use client";
 
-import { use } from "react";
+import { use, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Calendar, User, Eye } from "lucide-react";
+import { ArrowLeft, Calendar, User, Eye, AlertCircle } from "lucide-react";
 import Banner from "@/components/Banner";
-import notices from "@/constants/notices";
+import { getNoticeById, incrementViews, Notice } from "@/lib/notices";
 
 interface NoticeDetailPageProps {
   params: Promise<{
@@ -16,9 +16,56 @@ export default function NoticeDetailPage({ params }: NoticeDetailPageProps) {
   const router = useRouter();
   const resolvedParams = use(params);
   const noticeId = parseInt(resolvedParams.id);
-  const notice = notices.find((n) => n.id === noticeId);
+  const [notice, setNotice] = useState<Notice | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  if (!notice) {
+  // 공지사항 데이터 로드
+  useEffect(() => {
+    loadNotice();
+  }, [noticeId]);
+
+  const loadNotice = async () => {
+    try {
+      setIsLoading(true);
+      const data = await getNoticeById(noticeId);
+
+      if (!data) {
+        setError("공지사항을 찾을 수 없습니다.");
+        return;
+      }
+
+      setNotice(data);
+
+      // 조회수 증가
+      await incrementViews(noticeId);
+    } catch (error) {
+      console.error("💥 공지사항 로드 실패:", error);
+      setError(`공지사항을 불러오는데 실패했습니다: ${error}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Banner
+          title="공지사항 로딩 중..."
+          description="공지사항을 불러오는 중입니다."
+          image="/introduction.jpeg"
+        />
+        <section className="py-20 px-4 bg-white">
+          <div className="container mx-auto max-w-4xl text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">공지사항을 불러오는 중...</p>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  if (error || !notice) {
     return (
       <div className="min-h-screen bg-white">
         <Banner
@@ -28,11 +75,11 @@ export default function NoticeDetailPage({ params }: NoticeDetailPageProps) {
         />
         <section className="py-20 px-4 bg-white">
           <div className="container mx-auto max-w-4xl text-center">
-            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Calendar className="w-8 h-8 text-gray-400" />
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <AlertCircle className="w-8 h-8 text-red-400" />
             </div>
             <h3 className="text-lg font-medium text-gray-900 mb-2">
-              공지사항을 찾을 수 없습니다
+              {error || "공지사항을 찾을 수 없습니다"}
             </h3>
             <p className="text-gray-600 mb-6">
               요청하신 공지사항이 존재하지 않습니다.
@@ -105,22 +152,6 @@ export default function NoticeDetailPage({ params }: NoticeDetailPageProps) {
               <div className="text-gray-700 leading-relaxed whitespace-pre-line">
                 {notice.content}
               </div>
-
-              {/* 태그 */}
-              {notice.tags && notice.tags.length > 0 && (
-                <div className="mt-8 pt-6 border-t border-gray-200">
-                  <div className="flex flex-wrap gap-2">
-                    {notice.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>
