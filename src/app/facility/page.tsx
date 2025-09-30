@@ -1,31 +1,33 @@
 import Banner from "@/components/Banner";
-import Navigation from "@/components/navigation";
-import { Calendar, Wifi, Users } from "lucide-react";
+import { Calendar, Wifi, Users, Coffee } from "lucide-react";
 
 export default function FacilityPage() {
   const facilities = [
     {
       name: "보컬 연습실",
       description: "개인 보컬 레슨을 위한 전문 연습실",
-      features: ["고급 음향 장비", "피아노", "에어컨", "조명 시스템"],
+      features: [
+        "고급 음향 장비",
+        "피아노",
+        "에어컨",
+        "조명 시스템",
+        "전문 거울",
+        "자세 교정 도구",
+        "음향 흡음재",
+      ],
       image: "🎤",
-    },
-    {
-      name: "앙상블실",
-      description: "그룹 수업 및 앙상블 연습을 위한 공간",
-      features: ["다중 음향 시스템", "무대 조명", "대형 스크린", "편안한 좌석"],
-      image: "👥",
-    },
-    {
-      name: "피아노실",
-      description: "피아노 반주 및 이론 수업을 위한 공간",
-      features: ["그랜드 피아노", "음악 이론 교구", "화이트보드", "에어컨"],
-      image: "🎹",
     },
     {
       name: "대기실",
       description: "수업 대기 및 휴식을 위한 공간",
-      features: ["편안한 소파", "음료 서비스", "무료 Wi-Fi", "음악 관련 서적"],
+      features: [
+        "카페테리아",
+        "로비 테이블",
+        "음료&다과 서비스",
+        "무료 와이파이",
+        "편안한 소파",
+        "음악 관련 서적",
+      ],
       image: "☕",
     },
     {
@@ -66,6 +68,12 @@ export default function FacilityPage() {
       description: "남녀 구분된 깨끗한 화장실 시설",
       bgColor: "bg-purple-500",
     },
+    {
+      name: "음료 및 다과",
+      icon: Coffee,
+      description: "다양한 음료와 다과 서비스 제공",
+      bgColor: "bg-orange-500",
+    },
   ];
 
   return (
@@ -83,7 +91,7 @@ export default function FacilityPage() {
             주요 시설
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {facilities.map((facility, index) => (
               <div
                 key={index}

@@ -71,7 +71,7 @@ export default function CoursesPage() {
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold">주 1회 (한 달 4회)</span>
+                      <span className="font-semibold">고정스케줄</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
@@ -120,7 +120,7 @@ export default function CoursesPage() {
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold">주 2회 (한 달 8회)</span>
+                      <span className="font-semibold">고정스케줄</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
@@ -211,7 +211,7 @@ export default function CoursesPage() {
                 <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="text-center mb-4">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">
-                      원장직강 원포인트
+                      원장직강 원포인트 [쿠폰제]
                     </h4>
                     <div className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
                       1회 레슨
@@ -285,51 +285,6 @@ export default function CoursesPage() {
                     <p className="text-sm text-gray-700">
                       흥미, 재미를 위한 수강은 불가하며 실용음악과 입시 지망생
                       또는 전문적인 수강 목적을 가진 경우 (1년 이상 장기 수강생)
-                    </p>
-                  </div>
-                </div>
-
-                {/* 마스터클래스 */}
-                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="text-center mb-4">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">
-                      마스터클래스
-                    </h4>
-                    <div className="inline-block bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">
-                      그룹수업
-                    </div>
-                  </div>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold">주 1회 (한 달 4회)</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold">1T (50분)</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">수강료:</span>
-                      <span className="font-bold text-brand-600">₩</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">할인:</span>
-                      <span className="text-green-600 font-semibold">
-                        부전공 1과목 수강시 25,000원씩 할인
-                      </span>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
-                    <p className="text-sm text-gray-700">
-                      발표 위주의 그룹수업 (과제곡 발표, 듀엣 미션, 월말평가
-                      진행 등)
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
-                    <p className="text-sm text-gray-700">
-                      보컬 오디션 지망생, 앨범 발매 목적 등
                     </p>
                   </div>
                 </div>

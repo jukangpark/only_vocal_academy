@@ -65,22 +65,7 @@ export default function LocationPage() {
             교통편 안내
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Subway */}
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-4">
-                <Train className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">지하철</h3>
-              <div className="space-y-3 text-gray-600">
-                <p>
-                  <span className="font-semibold">광주 1호선</span>
-                </p>
-                <p>광산구청역 3번 출구</p>
-                <p>도보 5분 거리</p>
-              </div>
-            </div>
-
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Bus */}
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-4">
@@ -91,12 +76,9 @@ export default function LocationPage() {
                 <p>
                   <span className="font-semibold">일반버스:</span>
                 </p>
-                <p>100, 200, 300번</p>
-                <p>광산구청 정류장 하차</p>
-                <p>
-                  <span className="font-semibold">마을버스:</span>
-                </p>
-                <p>광산01, 광산02번</p>
+                <span className="font-semibold">일반버스:</span> 03, 10, 12, 33,
+                46, 72 <br />
+                <span className="font-semibold">마을버스:</span> 700
               </div>
             </div>
 
@@ -120,7 +102,7 @@ export default function LocationPage() {
       </section>
 
       {/* Nearby Landmarks */}
-      <section className="py-20 px-4 bg-white">
+      {/* <section className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
             주변 시설
@@ -154,7 +136,7 @@ export default function LocationPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

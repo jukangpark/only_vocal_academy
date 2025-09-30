@@ -167,88 +167,59 @@ export default function AboutPage() {
               <div className="w-24 h-1 bg-brand-600 mx-auto rounded-full"></div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* 왼쪽 컬럼 */}
-              <div className="space-y-6">
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-white text-xl">🎯</span>
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      우리의 철학
-                    </h3>
+            <div className="space-y-6">
+              <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white text-xl">🎯</span>
                   </div>
-                  <p className="text-gray-600 leading-relaxed">
-                    <strong className="text-brand-600">
-                      모든 소리에는 원인과 결과가 있습니다.
-                    </strong>
-                    <br />
-                    1:1 맞춤수업으로 수강생의 니즈를 정확하게 파악하고
-                    교정합니다.
-                  </p>
+                  <h3 className="text-xl font-bold text-gray-900">
+                    우리의 철학
+                  </h3>
                 </div>
-
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-white text-xl">🎵</span>
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      교육 목표
-                    </h3>
-                  </div>
-                  <p className="text-gray-600 leading-relaxed">
-                    단순한 노래 교육이 아닌, 음악의 본질을 이해하고 표현할 수
-                    있는
-                    <strong className="text-brand-600">
-                      {" "}
-                      진정한 아티스트를 양성
-                    </strong>
-                    하는 것을 목표로 합니다.
-                  </p>
-                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  <strong className="text-brand-600">
+                    모든 소리에는 원인과 결과가 있습니다.
+                  </strong>
+                  <br />
+                  1:1 맞춤수업으로 수강생의 니즈를 정확하게 파악하고 교정합니다.
+                </p>
               </div>
 
-              {/* 오른쪽 컬럼 */}
-              <div className="space-y-6">
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-white text-xl">📈</span>
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      15년의 역사
-                    </h3>
+              <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white text-xl">🎵</span>
                   </div>
-                  <p className="text-gray-600 leading-relaxed">
-                    2009년 설립 이후, 과학적이고 체계적인 보컬 교육을 통해
-                    <strong className="text-brand-600">
-                      {" "}
-                      수많은 학생들의 꿈을 실현
-                    </strong>
-                    시켜 왔습니다.
-                  </p>
+                  <h3 className="text-xl font-bold text-gray-900">교육 목표</h3>
                 </div>
+                <p className="text-gray-600 leading-relaxed">
+                  단순한 노래 교육이 아닌, 음악의 본질을 이해하고 표현할 수 있는
+                  <strong className="text-brand-600">
+                    {" "}
+                    진정한 아티스트를 양성
+                  </strong>
+                  하는 것을 목표로 합니다.
+                </p>
+              </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-white text-xl">💎</span>
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      맞춤형 교육
-                    </h3>
+              <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white text-xl">💎</span>
                   </div>
-                  <p className="text-gray-600 leading-relaxed">
-                    개인별 맞춤형 커리큘럼과 전문 강사진의 체계적인 지도로
-                    <strong className="text-brand-600">
-                      {" "}
-                      여러분의 음악적 잠재력을 최대한 끌어올려
-                    </strong>{" "}
-                    드리겠습니다.
-                  </p>
+                  <h3 className="text-xl font-bold text-gray-900">
+                    맞춤형 교육
+                  </h3>
                 </div>
+                <p className="text-gray-600 leading-relaxed">
+                  개인별 맞춤형 커리큘럼과 전문 강사진의 체계적인 지도로
+                  <strong className="text-brand-600">
+                    {" "}
+                    여러분의 음악적 잠재력을 최대한 끌어올려
+                  </strong>{" "}
+                  드리겠습니다.
+                </p>
               </div>
             </div>
           </div>
