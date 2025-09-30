@@ -47,6 +47,115 @@ export default function AboutPage() {
         image="/introduction.jpeg"
       />
 
+      {/* Greeting Section */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+            인사말
+          </h2>
+          <div className="text-center mb-12">
+            <div className="w-64 h-100 mx-auto mb-6 overflow-hidden rounded-2xl shadow-2xl">
+              <Image
+                src="/images/온리보컬 원장 보컬코치 윤지현.jpeg"
+                alt="윤지현 원장"
+                width={256}
+                height={320}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">
+              윤지현 원장
+            </h3>
+            <p className="text-xl text-brand-600 font-semibold">발성 전문가</p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+              <p>
+                안녕하세요. <br />
+                근거중심발성교수법을 토대로 목소리 본연의 아름다움을 찾아
+                노래하는 즐거움을 선사하는 온리보컬아카데미의 원장 보컬코치
+                윤지현입니다.
+              </p>
+
+              <p>
+                사람마다 눈, 코, 입이 다르게 생긴 것처럼 우리 모두가 몸의 구조,
+                마인드, 성대 모양, 발성 기관들의 협응성 등이 모두 다릅니다.
+                따라서 보컬 레슨을 진행할 때{" "}
+                <strong className="text-brand-600 text-xl">
+                  개인의 특성에 맞게 적합한 방법을 사용하는 것을 가장 중요하게
+                </strong>{" "}
+                여기고 있습니다.
+              </p>
+
+              <p>
+                또한 보컬코치가 옳다고, 좋다고 생각하는 소리를 기준으로 수강생을
+                이끌지 않고, <br />
+                <strong className="text-brand-600 text-xl">
+                  수강생이 진정으로 원하는 소리와 방향대로 수업하는 것을
+                  중요하게
+                </strong>{" "}
+                생각합니다. :)
+              </p>
+
+              <p>
+                <strong className="text-brand-600 text-xl">
+                  노래는 타고난 사람만 잘하는게 아닙니다.
+                  <br />
+                </strong>{" "}
+                음치나 박치, 고음이 안 나는 사람도 성장, 개발될 수 있습니다.
+                노래를 사랑하는 마음과 끊임없이 노력할 수 있는 끈기, 그리고 옳은
+                방향으로 이끌어 줄 수 있는 보컬코치만 있다면 크게 개발될 수
+                있습니다.
+              </p>
+
+              <p>
+                저는 타고난 1%가 아니라 평범한 99% 사람들에게 노래하는 즐거움을
+                주는 보컬코치가 되어
+                <br />
+                <strong className="text-brand-600 text-xl">
+                  "노래는 타고난 사람만 잘할 수 있다"는 편견을 꼭 깨겠습니다.
+                </strong>
+              </p>
+
+              <p>
+                많은 사람이 편하고 건강하게 오랫동안 노래하는 행복을 느끼실 수
+                있도록 절대 자만하지 않고 항상 낮은 자세로 공부하고, 수강생의
+                입장에서 공감하고 이해하며 끊임없이 노력하는
+                <br />
+                <strong className="text-brand-600 text-xl">
+                  단 하나뿐인 보컬 전문 아카데미 '온리'가 되겠습니다.
+                </strong>
+              </p>
+            </div>
+
+            <div className="text-center mt-12">
+              <a
+                href="https://linktr.ee/onlyvocal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-3 bg-gradient-to-r from-brand-500 to-brand-600 text-black px-10 py-5 rounded-xl font-bold text-lg hover:bg-brand-700 transition-all duration-300 shadow-xl cursor-pointer"
+              >
+                <span>온리보컬 링크트리</span>
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Vision Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto">
@@ -146,111 +255,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Greeting Section */}
-      <section className="py-20 px-">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-            인사말
-          </h2>
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <div className="text-center mb-8">
-              <div className="w-40 h-60 mx-auto mb-4 overflow-hidden border-4 border-brand-500 rounded-lg shadow-lg">
-                <Image
-                  src="/images/온리보컬 원장 보컬코치 윤지현.jpeg"
-                  alt="윤지현 원장"
-                  width={160}
-                  height={240}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                윤지현 원장
-              </h3>
-            </div>
-            <div className="prose prose-lg max-w-none text-gray-700">
-              <p className="mb-4">
-                안녕하세요. 근거중심발성교수법을 토대로 목소리 본연의 아름다움을
-                찾아 노래하는 즐거움을 선사하는 온리보컬아카데미의 원장 보컬코치
-                윤지현입니다.
-              </p>
-
-              <p className="mb-4">
-                사람마다 눈, 코, 입이 다르게 생긴 것처럼 우리 모두가 몸의 구조,
-                마인드, 성대 모양, 발성 기관들의 협응성 등이 모두 다릅니다.
-                따라서 보컬 레슨을 진행할 때{" "}
-                <strong>
-                  개인의 특성에 맞게 적합한 방법을 사용하는 것을 가장 중요하게
-                </strong>{" "}
-                여기고 있습니다.
-              </p>
-
-              <p className="mb-4">
-                또한 보컬코치가 옳다고, 좋다고 생각하는 소리를 기준으로 수강생을
-                이끌지 않고,
-                <strong>
-                  수강생이 진정으로 원하는 소리와 방향대로 수업하는 것을
-                  중요하게
-                </strong>{" "}
-                생각합니다. :)
-              </p>
-
-              <p className="mb-4">
-                <strong>노래는 타고난 사람만 잘하는게 아닙니다.</strong> 음치나
-                박치, 고음이 안 나는 사람도 성장, 개발될 수 있습니다. 노래를
-                사랑하는 마음과 끊임없이 노력할 수 있는 끈기, 그리고 옳은
-                방향으로 이끌어 줄 수 있는 보컬코치만 있다면 크게 개발될 수
-                있습니다.
-              </p>
-
-              <p className="mb-4">
-                저는 타고난 1%가 아니라 평범한 99% 사람들에게 노래하는 즐거움을
-                주는 보컬코치가 되어
-                <strong>
-                  "노래는 타고난 사람만 잘할 수 있다"는 편견을 꼭 깨겠습니다.
-                </strong>
-              </p>
-
-              <p className="mb-4">
-                많은 사람이 편하고 건강하게 오랫동안 노래하는 행복을 느끼실 수
-                있도록 절대 자만하지 않고 항상 낮은 자세로 공부하고, 수강생의
-                입장에서 공감하고 이해하며 끊임없이 노력하는
-                <strong>
-                  단 하나뿐인 보컬 전문 아카데미 '온리'가 되겠습니다.
-                </strong>
-              </p>
-
-              <p className="text-center text-lg font-semibold text-brand-600">
-                감사합니다!
-              </p>
-
-              <div className="text-center mt-8">
-                <a
-                  href="https://linktr.ee/onlyvocal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-brand-500 to-brand-600 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors shadow-lg hover:shadow-xl"
-                >
-                  <span>온리보컬 링크트리</span>
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Operating Hours */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
@@ -260,23 +264,7 @@ export default function AboutPage() {
           <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl p-8">
             <div className="space-y-4">
               <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                <span className="font-semibold text-gray-900">월</span>
-                <span className="text-gray-600">14:00 - 22:00</span>
-              </div>
-              <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                <span className="font-semibold text-gray-900">화</span>
-                <span className="text-gray-600">14:00 - 22:00</span>
-              </div>
-              <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                <span className="font-semibold text-gray-900">수</span>
-                <span className="text-gray-600">14:00 - 22:00</span>
-              </div>
-              <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                <span className="font-semibold text-gray-900">목</span>
-                <span className="text-gray-600">14:00 - 22:00</span>
-              </div>
-              <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                <span className="font-semibold text-gray-900">금</span>
+                <span className="font-semibold text-gray-900">월 ~ 금</span>
                 <span className="text-gray-600">14:00 - 22:00</span>
               </div>
               <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">

@@ -18,6 +18,7 @@ import { useState } from "react";
 import Slider from "@/components/Slider";
 import ReviewCard from "@/components/ReviewCard";
 import reviews from "@/constants/reviews";
+import FacilitySlider from "@/components/FacilitySlider";
 
 export default function Home() {
   const [showMoreReviews, setShowMoreReviews] = useState(false);
@@ -42,33 +43,11 @@ export default function Home() {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" },
-  };
-
-  const fadeInLeft = {
-    initial: { opacity: 0, x: -60 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.6, ease: "easeOut" },
-  };
-
-  const fadeInRight = {
-    initial: { opacity: 0, x: 60 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.6, ease: "easeOut" },
-  };
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1,
-      },
+    transition: {
+      delay: 0.2,
+      duration: 0.6,
+      ease: "easeOut",
     },
-  };
-
-  const scaleIn = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.5, ease: "easeOut" },
   };
 
   return (
@@ -112,7 +91,17 @@ export default function Home() {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg transition-shadow">
+            <motion.div
+              className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg transition-shadow"
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
               <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-brand-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-blue-400" />
               </div>
@@ -123,9 +112,19 @@ export default function Home() {
                 사람마다 몸의 구조, 성대 모양, 발성 기관이 다르므로 개인의
                 특성에 맞는 적합한 방법을 사용합니다
               </p>
-            </div>
+            </motion.div>
 
-            <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg transition-shadow">
+            <motion.div
+              className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg transition-shadow"
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: 0.4,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
               <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-brand-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-red-400" />
               </div>
@@ -136,9 +135,19 @@ export default function Home() {
                 보컬코치의 기준이 아닌 수강생이 진정으로 원하는 소리와 방향대로
                 수업을 진행합니다
               </p>
-            </div>
+            </motion.div>
 
-            <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg transition-shadow">
+            <motion.div
+              className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl shadow-lg transition-shadow"
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: 0.6,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
               <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-brand-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8 text-yellow-400" />
               </div>
@@ -149,7 +158,7 @@ export default function Home() {
                 음치나 박치, 고음이 안 나는 사람도 노래를 사랑하는 마음과 끈기만
                 있다면 크게 개발될 수 있습니다
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -165,7 +174,6 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
-              <Trophy className="w-12 h-12 text-yellow-500 mr-4" />
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                 수상 내역
               </h2>
@@ -175,64 +183,112 @@ export default function Home() {
             </p>
           </div>
 
-          {/* 무한 슬라이드 섹션 */}
-          <Slider duplicatedAwards={duplicatedAwards} />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-            {/* KCIA 수상 */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-lg flex items-center justify-center mr-4">
-                  <Award className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900">
-                    KCIA 한국소비자산업평가
-                  </h3>
-                  <p className="text-sm text-gray-500">2023-2024</p>
-                </div>
+          {/* 트로피와 수상 카드 레이아웃 */}
+          <div className="flex flex-col lg:flex-row items-center gap-12 max-w-7xl mx-auto mb-16">
+            {/* 왼쪽: 트로피 이미지 */}
+            <div className="flex-shrink-0 lg:w-1/2 flex justify-center">
+              <div className="relative">
+                <Image
+                  src="/images/award.png"
+                  alt="온리보컬아카데미 수상 트로피"
+                  width={400}
+                  height={436}
+                  className="drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+                  priority
+                />
               </div>
-              <p className="text-gray-700 font-semibold">
-                2년 연속 광주광역시 음악 부문 우수 업체 선정
-              </p>
             </div>
 
-            {/* 스포츠서울 이노베이션 리더 */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-400 rounded-lg flex items-center justify-center mr-4">
-                  <Star className="w-6 h-6 text-white" />
+            {/* 오른쪽: 수상 카드들 */}
+            <div className="lg:w-1/2 space-y-6">
+              {/* KCIA 수상 */}
+              <motion.div
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                initial={{ x: 50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  delay: 0.2,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-lg flex items-center justify-center mr-4">
+                    <Award className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">
+                      KCIA 한국소비자산업평가
+                    </h3>
+                    <p className="text-sm text-gray-500">2023-2024</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900">
-                    스포츠서울 이노베이션 리더
-                  </h3>
-                  <p className="text-sm text-gray-500">2024</p>
-                </div>
-              </div>
-              <p className="text-gray-700 font-semibold">
-                보컬, 음악 부분 대상 수상
-              </p>
-            </div>
+                <p className="text-gray-700 font-semibold">
+                  2년 연속 광주광역시 음악 부문 우수 업체 선정
+                </p>
+              </motion.div>
 
-            {/* 혁신한국인 & 파워코리아 */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-teal-400 rounded-lg flex items-center justify-center mr-4">
-                  <Trophy className="w-6 h-6 text-white" />
+              {/* 스포츠서울 이노베이션 리더 */}
+              <motion.div
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                initial={{ x: 50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  delay: 0.4,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-400 rounded-lg flex items-center justify-center mr-4">
+                    <Star className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">
+                      스포츠서울 이노베이션 리더
+                    </h3>
+                    <p className="text-sm text-gray-500">2024</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900">
-                    혁신한국인 & 파워코리아
-                  </h3>
-                  <p className="text-sm text-gray-500">2022</p>
+                <p className="text-gray-700 font-semibold">
+                  보컬, 음악 부분 대상 수상
+                </p>
+              </motion.div>
+
+              {/* 혁신한국인 & 파워코리아 */}
+              <motion.div
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                initial={{ x: 50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  delay: 0.6,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-teal-400 rounded-lg flex items-center justify-center mr-4">
+                    <Trophy className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">
+                      혁신한국인 & 파워코리아
+                    </h3>
+                    <p className="text-sm text-gray-500">2022</p>
+                  </div>
                 </div>
-              </div>
-              <p className="text-gray-700 font-semibold">
-                보컬전문교육기관 부문 대상
-              </p>
+                <p className="text-gray-700 font-semibold">
+                  보컬전문교육기관 부문 대상
+                </p>
+              </motion.div>
             </div>
           </div>
+
+          {/* 무한 슬라이드 섹션 */}
+          <Slider duplicatedAwards={duplicatedAwards} />
         </div>
       </motion.section>
 
@@ -400,9 +456,19 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-gray-900 text-2xl font-bold">1</span>
+            <motion.div
+              className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow"
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <span className="text-white text-2xl font-bold">1</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 목소리 문진표 작성
@@ -411,11 +477,21 @@ export default function Home() {
                 개인의 발성 상태와 목표를 파악하기 위한 상세한 문진표를
                 작성합니다
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-gray-900 text-2xl font-bold">2</span>
+            <motion.div
+              className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow"
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: 0.4,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <span className="text-white text-2xl font-bold">2</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 보컬 체크업
@@ -423,11 +499,21 @@ export default function Home() {
               <p className="text-gray-600">
                 간단한 가창 테스트를 통해 현재 발성 상태를 정확히 진단합니다
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-gray-900 text-2xl font-bold">3</span>
+            <motion.div
+              className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow"
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                delay: 0.6,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <span className="text-white text-2xl font-bold">3</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 맞춤형 코치 배정
@@ -436,7 +522,7 @@ export default function Home() {
                 진단 내용에 따라 가장 적합한 보컬코치를 배정하고 수업 방향을
                 제시합니다
               </p>
-            </div>
+            </motion.div>
           </div>
 
           <div className="bg-white rounded-3xl p-8 shadow-xl">
@@ -458,14 +544,20 @@ export default function Home() {
                 <h4 className="text-xl font-bold text-gray-900">예약 안내</h4>
               </div>
               <div className="text-center space-y-3">
-                <p className="text-gray-700 font-semibold">
-                  방문상담 희망자가 많아 한달 가량 일찍 방문상담 예약이 마감되고
-                  있습니다.
-                </p>
-                <p className="text-gray-600">
-                  수업을 원하시는 경우 여유를 두고 미리 예약을 잡아주시길
-                  부탁드립니다.
-                </p>
+                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg mb-4">
+                  <div className="flex items-center">
+                    <div className="ml-3">
+                      <p className="text-sm text-yellow-700 font-semibold">
+                        ⚠️ 주의사항: 방문상담 희망자가 많아 한달 가량 일찍
+                        방문상담 예약이 마감되고 있습니다.
+                      </p>
+                      <p className="text-sm text-yellow-700 mt-2">
+                        수업을 원하시는 경우 여유를 두고 미리 예약을 잡아주시길
+                        부탁드립니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
                 <div className="mt-6">
                   <Link
                     href="/contact"
@@ -481,15 +573,24 @@ export default function Home() {
         </div>
       </motion.section>
 
+      <FacilitySlider />
+
       {/* Final Message Section */}
       <motion.section
-        className="py-20 px-4 bg-gradient-to-r from-brand-50 to-brand-100"
+        className="relative py-20 px-4"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeInUp}
       >
-        <div className="container mx-auto max-w-4xl text-center">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url(/slide/온리보컬03.jpeg)" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/80"></div>
+        </div>
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
           <div className="mb-8">
             {/* 팀 로고 */}
             <div className="flex justify-center mb-6">
@@ -501,36 +602,27 @@ export default function Home() {
                 className="rounded-full"
               />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               단 하나의 보컬 전문 아카데미
             </h2>
-            <div className="text-6xl font-bold text-brand-600 mb-4">
+            <div className="text-6xl font-bold text-white mb-4">
               &apos;ONLY&apos;
             </div>
           </div>
 
-          <p className="text-xl text-gray-700 leading-relaxed mb-8">
+          <p className="text-xl text-white leading-relaxed mb-8">
             노래와 목소리로 고민하시는 많은 분께
             <br />
             직관적이고 근거 있는 방법을 제시하는
             <br />
-            <strong className="text-brand-600">
-              단 하나의 보컬 전문 아카데미
-            </strong>
+            <strong className="text-white">단 하나의 보컬 전문 아카데미</strong>
             입니다.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
-              className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
-            >
-              <span>상담 예약하기</span>
-              <ChevronRight className="w-5 h-5" />
-            </Link>
-            <Link
               href="/about"
-              className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
+              className="inline-flex items-center space-x-2 bg-brand-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
             >
               <span>학원 소개</span>
               <ChevronRight className="w-5 h-5" />

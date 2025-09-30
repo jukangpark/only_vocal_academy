@@ -2,7 +2,7 @@
 
 import { use } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Calendar, User, Eye, Tag } from "lucide-react";
+import { ArrowLeft, Calendar, User, Eye } from "lucide-react";
 import Banner from "@/components/Banner";
 import notices from "@/constants/notices";
 
@@ -39,7 +39,7 @@ export default function NoticeDetailPage({ params }: NoticeDetailPageProps) {
             </p>
             <button
               onClick={() => router.back()}
-              className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+              className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors cursor-pointer"
             >
               목록으로 돌아가기
             </button>
@@ -64,7 +64,7 @@ export default function NoticeDetailPage({ params }: NoticeDetailPageProps) {
           <div className="mb-8">
             <button
               onClick={() => router.back()}
-              className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+              className="flex items-center text-gray-600 hover:text-gray-900 transition-colors cursor-pointer"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
               목록으로 돌아가기
@@ -122,16 +122,6 @@ export default function NoticeDetailPage({ params }: NoticeDetailPageProps) {
                 </div>
               )}
             </div>
-          </div>
-
-          {/* 하단 네비게이션 */}
-          <div className="mt-12 flex justify-between">
-            <button
-              onClick={() => router.back()}
-              className="px-6 py-3 border border-black text-black rounded-lg hover:bg-black hover:text-white transition-colors cursor-pointer"
-            >
-              목록으로 돌아가기
-            </button>
           </div>
         </div>
       </section>
