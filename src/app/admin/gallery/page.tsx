@@ -87,17 +87,18 @@ export default function GalleryPage() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // 목업 데이터에 추가 필드 추가
-      const postsWithStatus = galleryPosts.map((post, index) => ({
-        ...post,
-        status:
-          index % 3 === 0
+      const postsWithStatus = (galleryPosts as GalleryPost[]).map(
+        (post, index) => ({
+          ...post,
+          status: (index % 3 === 0
             ? "published"
             : index % 3 === 1
             ? "draft"
-            : "archived",
-        views: Math.floor(Math.random() * 1000) + 100,
-        author: "관리자",
-      }));
+            : "archived") as "published" | "draft" | "archived",
+          views: Math.floor(Math.random() * 1000) + 100,
+          author: "관리자",
+        })
+      );
 
       setPosts(postsWithStatus);
       setFilteredPosts(postsWithStatus);
