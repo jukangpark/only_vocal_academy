@@ -5,6 +5,7 @@ const navigationItems = [
   { href: "/teachers", label: "강사소개" },
   { href: "/facility", label: "시설소개" },
   { href: "/review", label: "수강후기" },
+  { href: "/gallery", label: "갤러리" },
   { href: "/location", label: "오시는길" },
   { href: "/contact", label: "상담문의" },
 ];

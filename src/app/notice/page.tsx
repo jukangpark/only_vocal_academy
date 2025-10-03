@@ -24,7 +24,13 @@ export default function NoticePage() {
     try {
       setIsLoading(true);
       const data = await getPublicNotices();
-      setNotices(data);
+      // updated_at 기준으로 최신순 정렬
+      const sortedData = data.sort((a, b) => {
+        const dateA = new Date(a.updated_at || a.date);
+        const dateB = new Date(b.updated_at || b.date);
+        return dateB.getTime() - dateA.getTime(); // 최신순 (내림차순)
+      });
+      setNotices(sortedData);
     } catch (error) {
       console.error("공지사항 로드 실패:", error);
       setError("공지사항을 불러오는데 실패했습니다.");
@@ -35,13 +41,20 @@ export default function NoticePage() {
 
   // 필터링된 공지사항
   const filteredNotices = useMemo(() => {
-    return notices.filter((notice) => {
+    const filtered = notices.filter((notice) => {
       const matchesSearch =
         notice.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         notice.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
         notice.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
         notice.author.toLowerCase().includes(searchTerm.toLowerCase());
       return matchesSearch;
+    });
+
+    // 검색 결과도 updated_at 기준으로 최신순 정렬
+    return filtered.sort((a, b) => {
+      const dateA = new Date(a.updated_at || a.date);
+      const dateB = new Date(b.updated_at || b.date);
+      return dateB.getTime() - dateA.getTime(); // 최신순 (내림차순)
     });
   }, [notices, searchTerm]);
 

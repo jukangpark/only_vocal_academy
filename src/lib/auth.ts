@@ -2,11 +2,12 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+export const ADMIN_EMAIL = "admin@onlyvocalacademy.com";
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-// 관리자 이메일 주소
-export const ADMIN_EMAIL = "onlyvocalgood@gmail.com";
+// 관리자 UID
+export const ADMIN_UID = "74a61bfb-5163-4da6-a823-2409b3f862ac";
 
 // 현재 사용자가 관리자인지 확인
 export async function isAdmin(): Promise<boolean> {
@@ -15,11 +16,11 @@ export async function isAdmin(): Promise<boolean> {
       data: { user },
     } = await supabase.auth.getUser();
 
-    if (!user || !user.email) {
+    if (!user || !user.id) {
       return false;
     }
 
-    return user.email === ADMIN_EMAIL;
+    return user.id === ADMIN_UID;
   } catch (error) {
     console.error("인증 확인 중 오류:", error);
     return false;
@@ -33,24 +34,34 @@ export async function requireAdmin(): Promise<{ isAdmin: boolean; user: any }> {
       data: { user },
     } = await supabase.auth.getUser();
 
-    if (!user || !user.email) {
+    if (!user || !user.id) {
       return { isAdmin: false, user: null };
     }
 
-    const isAdminUser = user.email === ADMIN_EMAIL;
-
-    if (!isAdminUser) {
-      // 관리자가 아닌 경우 로그인 페이지로 리다이렉트
-      if (typeof window !== "undefined") {
-        window.location.href = "/auth/login";
-      }
-    }
+    const isAdminUser = user.id === ADMIN_UID;
 
     return { isAdmin: isAdminUser, user };
   } catch (error) {
     console.error("관리자 권한 확인 중 오류:", error);
     return { isAdmin: false, user: null };
   }
+}
+
+// 회원가입 함수
+export async function signUp(email: string, password: string) {
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      emailRedirectTo: `${window.location.origin}/auth/callback`,
+    },
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
 }
 
 // 로그인 함수
@@ -73,5 +84,47 @@ export async function signOut() {
 
   if (error) {
     throw new Error(error.message);
+  }
+}
+
+// 모든 사용자 데이터 가져오기 (관리자 제외)
+export async function getAllUsers() {
+  try {
+    const response = await fetch("/api/users");
+
+    if (!response.ok) {
+      throw new Error("사용자 데이터를 가져올 수 없습니다.");
+    }
+
+    const users = await response.json();
+    return users;
+  } catch (error) {
+    console.error("사용자 데이터 가져오기 실패:", error);
+    throw error;
+  }
+}
+
+// 사용자 갤러리 접근 권한 업데이트
+export async function updateUserGalleryAccess(
+  userId: string,
+  hasAccess: boolean
+) {
+  try {
+    const response = await fetch(`/api/users/${userId}/gallery-access`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ hasAccess }),
+    });
+
+    if (!response.ok) {
+      throw new Error("갤러리 접근 권한 업데이트에 실패했습니다.");
+    }
+
+    return true;
+  } catch (error) {
+    console.error("갤러리 접근 권한 업데이트 실패:", error);
+    throw error;
   }
 }

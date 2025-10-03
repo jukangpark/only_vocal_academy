@@ -57,7 +57,13 @@ export default function NoticesPage() {
           selectedFilter === "all" || notice.status === selectedFilter;
         return matchesFilter;
       });
-      setFilteredNotices(filtered);
+      // 필터링된 결과도 updated_at 기준으로 최신순 정렬
+      const sortedFiltered = filtered.sort((a, b) => {
+        const dateA = new Date(a.updated_at || a.date);
+        const dateB = new Date(b.updated_at || b.date);
+        return dateB.getTime() - dateA.getTime(); // 최신순 (내림차순)
+      });
+      setFilteredNotices(sortedFiltered);
     }
   }, [notices, selectedFilter, searchTerm]);
 
@@ -65,8 +71,14 @@ export default function NoticesPage() {
     try {
       setIsLoading(true);
       const data = await getAllNotices();
-      setNotices(data);
-      setFilteredNotices(data);
+      // updated_at 기준으로 최신순 정렬
+      const sortedData = data.sort((a, b) => {
+        const dateA = new Date(a.updated_at || a.date);
+        const dateB = new Date(b.updated_at || b.date);
+        return dateB.getTime() - dateA.getTime(); // 최신순 (내림차순)
+      });
+      setNotices(sortedData);
+      setFilteredNotices(sortedData);
     } catch (error) {
       console.error("공지사항 로드 실패:", error);
     } finally {
@@ -93,7 +105,13 @@ export default function NoticesPage() {
       const results = await searchNotices(searchTerm, {
         status: selectedFilter !== "all" ? selectedFilter : undefined,
       });
-      setFilteredNotices(results);
+      // 검색 결과도 updated_at 기준으로 최신순 정렬
+      const sortedResults = results.sort((a, b) => {
+        const dateA = new Date(a.updated_at || a.date);
+        const dateB = new Date(b.updated_at || b.date);
+        return dateB.getTime() - dateA.getTime(); // 최신순 (내림차순)
+      });
+      setFilteredNotices(sortedResults);
     } catch (error) {
       console.error("검색 실패:", error);
     }
