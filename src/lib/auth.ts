@@ -49,16 +49,8 @@ export async function requireAdmin(): Promise<{ isAdmin: boolean; user: any }> {
 
 // 회원가입 함수
 export async function signUp(email: string, password: string) {
-  // 사이트 URL 결정 로직
-  let siteUrl: string;
-
-  if (typeof window !== "undefined") {
-    // 클라이언트 사이드에서는 현재 origin 사용
-    siteUrl = window.location.origin;
-  } else {
-    // 서버 사이드에서는 환경 변수 또는 기본값 사용
-    siteUrl = process.env.NEXT_PUBLIC_AUTH_REDIRECT_URL!;
-  }
+  // 환경 변수에서 사이트 URL 가져오기
+  const siteUrl = process.env.AUTH_REDIRECT_URL!;
 
   const { data, error } = await supabase.auth.signUp({
     email,
