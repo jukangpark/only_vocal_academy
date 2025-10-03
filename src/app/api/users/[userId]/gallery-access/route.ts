@@ -9,11 +9,11 @@ const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { userId: string } }
+  { params }: { params: Promise<{ userId: string }> }
 ) {
   try {
     const { hasAccess } = await request.json();
-    const { userId } = params;
+    const { userId } = await params;
 
     const { error } = await supabase.auth.admin.updateUserById(userId, {
       user_metadata: {
