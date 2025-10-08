@@ -19,23 +19,14 @@ import {
 import { useRouter } from "next/navigation";
 import AdminGuard from "@/components/AdminGuard";
 import { signOut } from "@/lib/auth";
-import galleryPosts from "@/mock/galleryPosts";
+import {
+  getGalleryPosts,
+  deleteGalleryPost,
+  getMediaUrl,
+  GalleryPost,
+} from "@/lib/gallery";
 
-// 갤러리 포스트 타입 정의
-interface GalleryPost {
-  id: number;
-  title: string;
-  content: string;
-  media: {
-    type: "image" | "video";
-    src: string;
-    alt: string;
-  };
-  date: string;
-  status?: "published" | "draft" | "archived";
-  views?: number;
-  author?: string;
-}
+// GalleryPost 타입은 @/lib/gallery에서 import
 
 export default function GalleryPage() {
   const router = useRouter();
@@ -68,8 +59,12 @@ export default function GalleryPage() {
 
       const matchesTab =
         activeTab === "all" ||
-        (activeTab === "image" && post.media.type === "image") ||
-        (activeTab === "video" && post.media.type === "video");
+        (activeTab === "image" &&
+          post.media &&
+          post.media.some((m) => m.file_type === "image")) ||
+        (activeTab === "video" &&
+          post.media &&
+          post.media.some((m) => m.file_type === "video"));
 
       const matchesFilter =
         selectedFilter === "all" || post.status === selectedFilter;
@@ -83,46 +78,31 @@ export default function GalleryPage() {
   const loadPosts = async () => {
     try {
       setIsLoading(true);
-      // 실제로는 API 호출
-      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // 목업 데이터에 추가 필드 추가
-      const postsWithStatus = (galleryPosts as GalleryPost[]).map(
-        (post, index) => ({
-          ...post,
-          status: (index % 3 === 0
-            ? "published"
-            : index % 3 === 1
-            ? "draft"
-            : "archived") as "published" | "draft" | "archived",
-          views: Math.floor(Math.random() * 1000) + 100,
-          author: "관리자",
-        })
-      );
+      // Supabase에서 갤러리 포스트 조회
+      const postsData = await getGalleryPosts();
 
-      setPosts(postsWithStatus);
-      setFilteredPosts(postsWithStatus);
+      setPosts(postsData);
+      setFilteredPosts(postsData);
 
       // 통계 계산
-      const total = postsWithStatus.length;
-      const images = postsWithStatus.filter(
-        (p) => p.media.type === "image"
+      const total = postsData.length;
+      const images = postsData.filter(
+        (p) => p.media && p.media.some((m) => m.file_type === "image")
       ).length;
-      const videos = postsWithStatus.filter(
-        (p) => p.media.type === "video"
+      const videos = postsData.filter(
+        (p) => p.media && p.media.some((m) => m.file_type === "video")
       ).length;
-      const published = postsWithStatus.filter(
+      const published = postsData.filter(
         (p) => p.status === "published"
       ).length;
-      const draft = postsWithStatus.filter((p) => p.status === "draft").length;
-      const totalViews = postsWithStatus.reduce(
-        (sum, p) => sum + (p.views || 0),
-        0
-      );
+      const draft = postsData.filter((p) => p.status === "draft").length;
+      const totalViews = postsData.reduce((sum, p) => sum + (p.views || 0), 0);
 
       setStats({ total, images, videos, published, draft, totalViews });
     } catch (error) {
       console.error("갤러리 로드 실패:", error);
+      alert("갤러리를 불러오는데 실패했습니다.");
     } finally {
       setIsLoading(false);
     }
@@ -130,7 +110,7 @@ export default function GalleryPage() {
 
   const handleEdit = (postId: number) => {
     // 갤러리 편집 페이지로 이동
-    console.log("편집:", postId);
+    router.push(`/admin/gallery/edit/${postId}`);
   };
 
   const handleDelete = async (postId: number) => {
@@ -139,18 +119,30 @@ export default function GalleryPage() {
     }
 
     try {
-      // 실제로는 API 호출
+      // Supabase에서 포스트 삭제
+      await deleteGalleryPost(postId);
+
+      // 로컬 상태 업데이트
       setPosts(posts.filter((post) => post.id !== postId));
-      await loadPosts(); // 통계 새로고침
+      setFilteredPosts(filteredPosts.filter((post) => post.id !== postId));
+
+      // 통계 새로고침
+      await loadPosts();
+
+      alert("포스트가 삭제되었습니다.");
     } catch (error) {
       console.error("삭제 실패:", error);
-      alert("삭제에 실패했습니다.");
+      alert(
+        `삭제에 실패했습니다: ${
+          error instanceof Error ? error.message : "알 수 없는 오류"
+        }`
+      );
     }
   };
 
   const handleView = (postId: number) => {
-    // 갤러리 상세 페이지로 이동
-    console.log("보기:", postId);
+    // 관리자용 미리보기 페이지로 이동 (모든 상태의 포스트를 볼 수 있음)
+    router.push(`/admin/gallery/preview/${postId}`);
   };
 
   const handleLogout = async () => {
@@ -294,7 +286,6 @@ export default function GalleryPage() {
                     <option value="all">전체</option>
                     <option value="published">발행됨</option>
                     <option value="draft">임시저장</option>
-                    <option value="archived">보관됨</option>
                   </select>
                   <button className="flex items-center px-3 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors cursor-pointer">
                     <Filter className="w-4 h-4 mr-1" />
@@ -409,28 +400,34 @@ export default function GalleryPage() {
                   {filteredPosts.map((post) => (
                     <div
                       key={post.id}
-                      className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
+                      className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
                     >
                       {/* 미디어 섹션 */}
                       <div className="relative h-48 overflow-hidden">
-                        {post.media.type === "image" ? (
-                          <img
-                            src={post.media.src}
-                            alt={post.media.alt}
-                            className="w-full h-full object-cover"
-                          />
+                        {post.media && post.media.length > 0 ? (
+                          post.media[0].file_type === "image" ? (
+                            <img
+                              src={getMediaUrl(post.media[0].file_path)}
+                              alt={post.media[0].alt_text || post.title}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <video
+                              src={getMediaUrl(post.media[0].file_path)}
+                              className="w-full h-full object-cover"
+                              controls
+                            />
+                          )
                         ) : (
-                          <iframe
-                            src={post.media.src}
-                            className="w-full h-full"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          />
+                          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                            <span className="text-gray-500">미디어 없음</span>
+                          </div>
                         )}
                         <div className="absolute top-3 right-3">
                           <span className="bg-white bg-opacity-90 px-2 py-1 rounded-full text-xs font-medium text-gray-700">
-                            {post.media.type === "video"
+                            {post.media &&
+                            post.media.length > 0 &&
+                            post.media[0].file_type === "video"
                               ? "🎥 영상"
                               : "📷 이미지"}
                           </span>
@@ -450,7 +447,7 @@ export default function GalleryPage() {
                       <div className="p-4">
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-sm text-gray-500">
-                            {post.date}
+                            {new Date(post.created_at).toLocaleDateString()}
                           </span>
                           <div className="flex items-center text-sm text-gray-500">
                             <Eye className="w-3 h-3 mr-1" />

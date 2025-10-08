@@ -1,20 +1,61 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import Banner from "@/components/Banner";
-import { Search, ChevronLeft, ChevronRight } from "lucide-react";
-import galleryPosts from "@/mock/galleryPosts";
+import {
+  Search,
+  ChevronLeft,
+  ChevronRight,
+  Loader2,
+  AlertCircle,
+} from "lucide-react";
+import { getGalleryPosts, getMediaUrl, GalleryPost } from "@/lib/gallery";
 
 const Gallery = () => {
+  const router = useRouter();
+  const [posts, setPosts] = useState<GalleryPost[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [activeTab, setActiveTab] = useState<"all" | "image" | "video">("all");
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const itemsPerPage = 6; // 페이지당 아이템 수
-  // 게시글 형태의 갤러리 데이터
+
+  // 갤러리 데이터 로드
+  useEffect(() => {
+    loadGalleryPosts();
+  }, []);
+
+  const loadGalleryPosts = async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+
+      // Supabase에서 갤러리 포스트 조회
+      const postsData = await getGalleryPosts();
+
+      // 발행된 포스트만 필터링 (사용자는 published 상태만 볼 수 있음)
+      const publishedPosts = postsData.filter(
+        (post) => post.status === "published"
+      );
+
+      setPosts(publishedPosts);
+    } catch (error) {
+      console.error("갤러리 로드 실패:", error);
+      setError(
+        error instanceof Error
+          ? error.message
+          : "갤러리를 불러오는데 실패했습니다."
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // 필터링된 갤러리 포스트
   const filteredPosts = useMemo(() => {
-    return galleryPosts.filter((post) => {
+    return posts.filter((post) => {
       // 검색어 필터링
       const matchesSearch =
         post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -23,12 +64,16 @@ const Gallery = () => {
       // 탭 필터링
       const matchesTab =
         activeTab === "all" ||
-        (activeTab === "image" && post.media.type === "image") ||
-        (activeTab === "video" && post.media.type === "video");
+        (activeTab === "image" &&
+          post.media &&
+          post.media.some((m) => m.file_type === "image")) ||
+        (activeTab === "video" &&
+          post.media &&
+          post.media.some((m) => m.file_type === "video"));
 
       return matchesSearch && matchesTab;
     });
-  }, [searchTerm, activeTab]);
+  }, [posts, searchTerm, activeTab]);
 
   // 페이지네이션 계산
   const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
@@ -58,6 +103,62 @@ const Gallery = () => {
   const goToNextPage = () => {
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   };
+
+  // 포스트 클릭 핸들러
+  const handlePostClick = (postId: number) => {
+    router.push(`/gallery/${postId}`);
+  };
+
+  // 로딩 상태
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Banner
+          title="갤러리"
+          description="온리보컬 아카데미의 다양한 순간들을 만나보세요"
+          image="/introduction.jpeg"
+        />
+        <div className="max-w-6xl mx-auto px-4 py-8">
+          <div className="flex items-center justify-center py-12">
+            <div className="text-center">
+              <Loader2 className="w-8 h-8 animate-spin text-gray-600 mx-auto mb-4" />
+              <p className="text-gray-600">갤러리를 불러오는 중...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 에러 상태
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Banner
+          title="갤러리"
+          description="온리보컬 아카데미의 다양한 순간들을 만나보세요"
+          image="/introduction.jpeg"
+        />
+        <div className="max-w-6xl mx-auto px-4 py-8">
+          <div className="flex items-center justify-center py-12">
+            <div className="text-center">
+              <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 mb-2">
+                갤러리를 불러올 수 없습니다
+              </h3>
+              <p className="text-gray-600 mb-4">{error}</p>
+              <button
+                onClick={loadGalleryPosts}
+                className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
+              >
+                다시 시도
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -122,53 +223,84 @@ const Gallery = () => {
         </div>
 
         {/* Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {currentPosts.map((post) => (
-            <article
-              key={post.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-            >
-              {/* Media Section */}
-              <div className="relative h-48 overflow-hidden">
-                {post.media.type === "image" ? (
-                  <img
-                    src={post.media.src}
-                    alt={post.media.alt}
-                    className="w-full h-full object-cover transition-transform duration-300"
-                  />
-                ) : (
-                  <iframe
-                    src={post.media.src}
-                    className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                )}
-                <div className="absolute top-3 right-3">
-                  <span className="bg-white bg-opacity-90 px-2 py-1 rounded-full text-xs font-medium text-gray-700">
-                    {post.media.type === "video" ? "🎥 영상" : "📷 이미지"}
-                  </span>
+        {currentPosts.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {currentPosts.map((post) => (
+              <article
+                key={post.id}
+                onClick={() => handlePostClick(post.id)}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              >
+                {/* Media Section */}
+                <div className="relative h-48 overflow-hidden">
+                  {post.media && post.media.length > 0 ? (
+                    post.media[0].file_type === "image" ? (
+                      <img
+                        src={getMediaUrl(post.media[0].file_path)}
+                        alt={post.media[0].alt_text || post.title}
+                        className="w-full h-full object-cover transition-transform duration-300"
+                      />
+                    ) : (
+                      <video
+                        src={getMediaUrl(post.media[0].file_path)}
+                        className="w-full h-full object-cover"
+                        controls
+                      />
+                    )
+                  ) : (
+                    <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                      <span className="text-gray-500">미디어 없음</span>
+                    </div>
+                  )}
+                  <div className="absolute top-3 right-3">
+                    <span className="bg-white bg-opacity-90 px-2 py-1 rounded-full text-xs font-medium text-gray-700">
+                      {post.media &&
+                      post.media.length > 0 &&
+                      post.media[0].file_type === "video"
+                        ? "🎥 영상"
+                        : "📷 이미지"}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Content Section */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm text-gray-500">{post.date}</span>
+                {/* Content Section */}
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-sm text-gray-500">
+                      {new Date(post.created_at).toLocaleDateString()}
+                    </span>
+                    <div className="flex items-center text-sm text-gray-500">
+                      <span>조회수: {post.views || 0}</span>
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                    {post.title}
+                  </h3>
+
+                  <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                    {post.content}
+                  </p>
                 </div>
-
-                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-                  {post.title}
-                </h3>
-
-                <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
-                  {post.content}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          /* 빈 상태 */
+          <div className="text-center py-12">
+            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Search className="w-8 h-8 text-gray-400" />
+            </div>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">
+              {searchTerm ? "검색 결과가 없습니다" : "갤러리가 비어있습니다"}
+            </h3>
+            <p className="text-gray-600">
+              {searchTerm
+                ? "다른 검색어를 시도해보세요."
+                : "아직 등록된 갤러리가 없습니다."}
+            </p>
+          </div>
+        )}
 
         {/* Pagination */}
         {totalPages > 1 && (

@@ -189,12 +189,30 @@ export default function SignupModal({
             <p className="text-gray-600 mb-6">
               이메일이 오지 않았다면 스팸함을 확인해보세요.
             </p>
-            <button
-              onClick={onClose}
-              className="w-full bg-brand-600 text-black py-3 px-4 rounded-lg hover:bg-brand-700 transition-colors cursor-pointer hover:bg-gray-300"
-            >
-              확인
-            </button>
+            <div className="space-y-3">
+              <button
+                onClick={onClose}
+                className="w-full bg-brand-600 text-black py-3 px-4 rounded-lg hover:bg-brand-700 transition-colors cursor-pointer hover:bg-gray-300"
+              >
+                확인
+              </button>
+              <button
+                onClick={async () => {
+                  try {
+                    await supabase.auth.resend({
+                      type: "signup",
+                      email: email,
+                    });
+                    alert("인증 이메일을 다시 발송했습니다.");
+                  } catch (error) {
+                    alert("이메일 재전송에 실패했습니다.");
+                  }
+                }}
+                className="w-full bg-gray-200 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                인증 이메일 다시 보내기
+              </button>
+            </div>
           </div>
         ) : (
           <>

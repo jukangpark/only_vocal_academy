@@ -64,6 +64,7 @@ export default function Navigation() {
   const handleLogout = async () => {
     try {
       await supabase.auth.signOut();
+      router.push("/");
       setUser(null);
     } catch (error) {
       console.error("로그아웃 실패:", error);
