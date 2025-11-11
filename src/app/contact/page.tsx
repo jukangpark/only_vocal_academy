@@ -236,7 +236,7 @@ export default function ContactPage() {
                   href="https://www.instagram.com/onlyvocal_/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors"
+                  className="flex items-center space-x-2 bg-gradient-to-r from-brand-500 to-brand-600 text-gray-900 px-6 py-3 rounded-lg transition-transform hover:text-pink-300"
                 >
                   <Instagram className="w-6 h-6" />
                   <span>Instagram</span>
@@ -245,7 +245,7 @@ export default function ContactPage() {
                   href="https://www.youtube.com/@onlyvocal2250"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors"
+                  className="flex items-center space-x-2 bg-brand-600 text-gray-900 px-6 py-3 rounded-lg transition-transform hover:text-red-500"
                 >
                   <Youtube className="w-6 h-6" />
                   <span>YouTube</span>

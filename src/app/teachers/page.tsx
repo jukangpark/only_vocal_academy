@@ -46,35 +46,48 @@ export default function TeachersPage() {
                 <p className="text-brand-600 font-semibold mb-1 text-lg">
                   {teachers[0].specialty}
                 </p>
-                <p className="text-gray-500 text-base mb-2">
-                  {teachers[0].experience}
-                </p>
-                <p className="text-gray-600 text-base">
-                  {teachers[0].education}
-                </p>
+                {teachers[0].experience && (
+                  <p className="text-gray-500 text-base mb-2">
+                    {teachers[0].experience}
+                  </p>
+                )}
+                {teachers[0].education && (
+                  <p className="text-gray-600 text-base">
+                    {teachers[0].education}
+                  </p>
+                )}
               </div>
 
-              <div className="mb-6">
-                <p className="text-gray-700 mb-4 text-lg">
-                  {teachers[0].description}
-                </p>
+              {(teachers[0].description || teachers[0].achievements) && (
+                <div className="mb-6">
+                  {teachers[0].description && (
+                    <p className="text-gray-700 mb-4 text-lg">
+                      {teachers[0].description}
+                    </p>
+                  )}
 
-                <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-lg">
-                  <Award className="w-5 h-5 text-yellow-500 mr-2" />
-                  주요 성과
-                </h4>
-                <ul className="space-y-2">
-                  {teachers[0].achievements.map((achievement, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-center space-x-2 text-base text-gray-600"
-                    >
-                      <Star className="w-4 h-4 text-yellow-500 flex-shrink-0" />
-                      <span>{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  {teachers[0].achievements &&
+                    teachers[0].achievements.length > 0 && (
+                      <>
+                        <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-lg">
+                          <Award className="w-5 h-5 text-yellow-500 mr-2" />
+                          주요 성과
+                        </h4>
+                        <ul className="space-y-2">
+                          {teachers[0].achievements.map((achievement, idx) => (
+                            <li
+                              key={idx}
+                              className="flex items-center space-x-2 text-base text-gray-600"
+                            >
+                              <Star className="w-4 h-4 text-yellow-500 flex-shrink-0" />
+                              <span>{achievement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                </div>
+              )}
 
               <Link
                 href="/contact"
@@ -104,35 +117,48 @@ export default function TeachersPage() {
                 <p className="text-brand-600 font-semibold mb-1 text-lg">
                   {teachers[1].specialty}
                 </p>
-                <p className="text-gray-500 text-base mb-2">
-                  {teachers[1].experience}
-                </p>
-                <p className="text-gray-600 text-base">
-                  {teachers[1].education}
-                </p>
+                {teachers[1].experience && (
+                  <p className="text-gray-500 text-base mb-2">
+                    {teachers[1].experience}
+                  </p>
+                )}
+                {teachers[1].education && (
+                  <p className="text-gray-600 text-base">
+                    {teachers[1].education}
+                  </p>
+                )}
               </div>
 
-              <div className="mb-6">
-                <p className="text-gray-700 mb-4 text-lg">
-                  {teachers[1].description}
-                </p>
+              {(teachers[1].description || teachers[1].achievements) && (
+                <div className="mb-6">
+                  {teachers[1].description && (
+                    <p className="text-gray-700 mb-4 text-lg">
+                      {teachers[1].description}
+                    </p>
+                  )}
 
-                <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-lg">
-                  <Award className="w-5 h-5 text-yellow-500 mr-2" />
-                  주요 성과
-                </h4>
-                <ul className="space-y-2">
-                  {teachers[1].achievements.map((achievement, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-center space-x-2 text-base text-gray-600"
-                    >
-                      <Star className="w-4 h-4 text-yellow-500 flex-shrink-0" />
-                      <span>{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  {teachers[1].achievements &&
+                    teachers[1].achievements.length > 0 && (
+                      <>
+                        <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-lg">
+                          <Award className="w-5 h-5 text-yellow-500 mr-2" />
+                          주요 성과
+                        </h4>
+                        <ul className="space-y-2">
+                          {teachers[1].achievements.map((achievement, idx) => (
+                            <li
+                              key={idx}
+                              className="flex items-center space-x-2 text-base text-gray-600"
+                            >
+                              <Star className="w-4 h-4 text-yellow-500 flex-shrink-0" />
+                              <span>{achievement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                </div>
+              )}
 
               <Link
                 href="/contact"
@@ -166,33 +192,46 @@ export default function TeachersPage() {
                   <p className="text-brand-600 font-semibold mb-1">
                     {teacher.specialty}
                   </p>
-                  <p className="text-gray-500 text-sm mb-2">
-                    {teacher.experience}
-                  </p>
-                  <p className="text-gray-600 text-sm">{teacher.education}</p>
+                  {teacher.experience && (
+                    <p className="text-gray-500 text-sm mb-2">
+                      {teacher.experience}
+                    </p>
+                  )}
+                  {teacher.education && (
+                    <p className="text-gray-600 text-sm">{teacher.education}</p>
+                  )}
                 </div>
 
-                <div className="mb-6">
-                  <p className="text-gray-700 mb-4 text-sm">
-                    {teacher.description}
-                  </p>
+                {(teacher.description || teacher.achievements) && (
+                  <div className="mb-6">
+                    {teacher.description && (
+                      <p className="text-gray-700 mb-4 text-sm">
+                        {teacher.description}
+                      </p>
+                    )}
 
-                  <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-sm">
-                    <Award className="w-4 h-4 text-yellow-500 mr-2" />
-                    주요 성과
-                  </h4>
-                  <ul className="space-y-2">
-                    {teacher.achievements.map((achievement, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-center space-x-2 text-xs text-gray-600"
-                      >
-                        <Star className="w-3 h-3 text-yellow-500 flex-shrink-0" />
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                    {teacher.achievements &&
+                      teacher.achievements.length > 0 && (
+                        <>
+                          <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-sm">
+                            <Award className="w-4 h-4 text-yellow-500 mr-2" />
+                            주요 성과
+                          </h4>
+                          <ul className="space-y-2">
+                            {teacher.achievements.map((achievement, idx) => (
+                              <li
+                                key={idx}
+                                className="flex items-center space-x-2 text-xs text-gray-600"
+                              >
+                                <Star className="w-3 h-3 text-yellow-500 flex-shrink-0" />
+                                <span>{achievement}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
+                  </div>
+                )}
 
                 <Link
                   href="/contact"
