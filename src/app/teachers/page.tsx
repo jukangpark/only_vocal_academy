@@ -3,10 +3,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Award, Star } from "lucide-react";
+import { motion } from "framer-motion";
 import Banner from "@/components/Banner";
 import teachers from "@/constants/teachers";
 
 export default function TeachersPage() {
+  // 애니메이션 variants
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: {
+      delay: 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Banner
@@ -15,15 +27,137 @@ export default function TeachersPage() {
         image="/introduction.jpeg"
       />
 
-      <div className="flex justify-center mt-6">
-        <Image
-          src="/images/team_only_vocal.png"
-          alt="온리보컬 팀"
-          width={250}
-          height={250}
-          className="rounded-full"
-        />
+      {/* 팀 로고 */}
+      <div className="flex justify-center py-8">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Image
+            src="/images/team_only_vocal.png"
+            alt="온리보컬 팀"
+            width={250}
+            height={250}
+            className="rounded-full"
+          />
+        </motion.div>
       </div>
+
+      {/* 온리보컬 코치 소개 섹션 - 3개의 카드 */}
+      <motion.section
+        className="py-20 px-4 bg-gradient-to-br from-brand-50 to-brand-100"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+      >
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              🎤 Only Vocal Coach
+            </h2>
+          </div>
+
+          <div className="flex flex-col gap-8 max-w-4xl mx-auto">
+            {/* 카드 1 */}
+            <motion.div
+              className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="text-center">
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  온리보컬 코치는 <span className="font-bold text-gray-900">단순히 노래를 가르치는 사람이 아닙니다.</span>
+                  <br />
+                  <br />
+                  우리는 <span className="font-bold text-brand-600">목소리를 진단하고</span>,
+                  <br />
+                  <span className="font-bold text-brand-600">문제를 분석하고</span>,
+                  <br />
+                  학생이 <span className="font-bold text-gray-900">스스로 선택하고 조절할 수 있도록</span> 돕는
+                  <br />
+                  <span className="font-bold text-brand-600 text-xl">전문 교육자</span>입니다.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* 카드 2 */}
+            <motion.div
+              className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <div className="text-center">
+                <p className="text-lg md:text-xl text-gray-700 mb-6 font-semibold">
+                  온리보컬의 코치는
+                </p>
+                <div className="flex flex-wrap justify-center gap-3 mb-6">
+                  <motion.span
+                    className="px-6 py-3 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl text-blue-700 font-bold shadow-md border border-blue-200"
+                    whileHover={{ scale: 1.05 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.5 }}
+                  >
+                    발성학·음향학
+                  </motion.span>
+                  <motion.span
+                    className="px-6 py-3 bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl text-purple-700 font-bold shadow-md border border-purple-200"
+                    whileHover={{ scale: 1.05 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.6 }}
+                  >
+                    교육학·심리학
+                  </motion.span>
+                  <motion.span
+                    className="px-6 py-3 bg-gradient-to-br from-green-50 to-teal-100 rounded-xl text-green-700 font-bold shadow-md border border-green-200"
+                    whileHover={{ scale: 1.05 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.7 }}
+                  >
+                    뇌과학적 학습 원리
+                  </motion.span>
+                </div>
+                <p className="text-lg md:text-xl text-gray-700">
+                  <span className="font-bold text-gray-900">기반의 커리큘럼을 꾸준히 연구</span>합니다.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* 카드 3 */}
+            <motion.div
+              className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <div className="text-center">
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  우리는 <span className="font-bold text-gray-900">&ldquo;정답 발성&rdquo;을 강요하지 않습니다.</span>
+                  <br />
+                  <br />
+                  학생이 <span className="font-bold text-brand-600">원하는 목소리</span>를
+                  <br />
+                  <span className="font-bold text-gray-900">가장 건강하고 자연스러운 방향</span>으로
+                  <br />
+                  <span className="font-bold text-brand-600">연주할 수 있도록 안내</span>합니다.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
       {/* Teachers List */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
