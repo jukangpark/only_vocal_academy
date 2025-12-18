@@ -3,6 +3,8 @@
 import AddressInfo from "@/components/AddressInfo";
 import Banner from "@/components/Banner";
 import Image from "next/image";
+import { Award, Star } from "lucide-react";
+import teachers from "@/constants/teachers";
 
 export default function AboutPage() {
   // 애니메이션 variants
@@ -114,7 +116,7 @@ export default function AboutPage() {
                 주는 보컬코치가 되어
                 <br />
                 <strong className="text-brand-600 text-xl">
-                  "노래는 타고난 사람만 잘할 수 있다"는 편견을 꼭 깨겠습니다.
+                  &quot;노래는 타고난 사람만 잘할 수 있다&quot;는 편견을 꼭 깨겠습니다.
                 </strong>
               </p>
 
@@ -124,7 +126,7 @@ export default function AboutPage() {
                 입장에서 공감하고 이해하며 끊임없이 노력하는
                 <br />
                 <strong className="text-brand-600 text-xl">
-                  단 하나뿐인 보컬 전문 아카데미 '온리'가 되겠습니다.
+                  단 하나뿐인 보컬 전문 아카데미 &apos;온리&apos;가 되겠습니다.
                 </strong>
               </p>
             </div>
@@ -151,6 +153,203 @@ export default function AboutPage() {
                   />
                 </svg>
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 원장 이력 사항 */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+            원장 이력
+          </h2>
+
+          <div className="bg-white rounded-2xl p-8 md:p-10 shadow-lg">
+            {/* 주요 성과 */}
+            {teachers[0].achievements && teachers[0].achievements.length > 0 && (
+              <div className="mb-8">
+                <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center">
+                  <Award className="w-6 h-6 text-yellow-500 mr-2" />
+                  주요 성과
+                </h3>
+                <ul className="space-y-2">
+                  {teachers[0].achievements.map((achievement, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-center space-x-2 text-base text-gray-700"
+                    >
+                      <Star className="w-4 h-4 text-yellow-500 flex-shrink-0" />
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="space-y-8 border-t pt-8">
+              {/* 학력사항 */}
+              <div>
+                <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center">
+                  <Award className="w-6 h-6 text-brand-600 mr-2" />
+                  학력사항
+                </h3>
+                <div className="bg-gray-50 rounded-lg p-5">
+                  <div className="space-y-2 text-base text-gray-700">
+                    <p><span className="font-semibold">재학기간:</span> 2015-2017</p>
+                    <p><span className="font-semibold">학교명:</span> 배재대학교</p>
+                    <p><span className="font-semibold">전공:</span> 실용음악과 보컬전공</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 실무 경력사항 */}
+              <div>
+                <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center">
+                  <Award className="w-6 h-6 text-brand-600 mr-2" />
+                  실무 경력사항
+                </h3>
+                <div className="bg-gray-50 rounded-lg p-5 space-y-4">
+                  <div className="border-l-4 border-brand-500 pl-4">
+                    <p className="font-semibold text-gray-900">2018.05 - 2019.07</p>
+                    <p className="text-gray-700">원스실용음악학원</p>
+                  </div>
+                  <div className="border-l-4 border-brand-500 pl-4">
+                    <p className="font-semibold text-gray-900">2019.07 - 2022.04</p>
+                    <p className="text-gray-700">원스보컬&댄스아카데미 보컬파트강사</p>
+                    <p className="text-sm text-gray-500 mt-1">퇴직사유: 학원인수</p>
+                  </div>
+                  <div className="border-l-4 border-brand-500 pl-4">
+                    <p className="font-semibold text-gray-900">2022.04 - 현재</p>
+                    <p className="text-gray-700">온리보컬아카데미 대표</p>
+                  </div>
+                  <div className="border-l-4 border-brand-500 pl-4">
+                    <p className="font-semibold text-gray-900">2023.02 - 현재</p>
+                    <p className="text-gray-700">메디컬보이스이비인후과 발성센터/발성지도사</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 기타 경력사항 */}
+              <div>
+                <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center">
+                  <Award className="w-6 h-6 text-brand-600 mr-2" />
+                  기타 경력사항
+                </h3>
+                <div className="bg-gray-50 rounded-lg p-5 space-y-4">
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-2">교육 및 수료</p>
+                    <ul className="space-y-1 text-base text-gray-700 ml-4">
+                      <li className="list-disc">Medical Voice 이론과정 2기 수료 (메디컬보이스이비인후과 주관)</li>
+                      <li className="list-disc">보컬리스트 임정희 사사</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-2">보컬코칭 경력</p>
+                    <ul className="space-y-1 text-base text-gray-700 ml-4">
+                      <li className="list-disc">가수 이예준, 조현영(그룹 레인보우), 트로트가수 한태이 발성 코칭</li>
+                      <li className="list-disc">뮤지컬배우 한재아, 이규학 발성 코칭</li>
+                      <li className="list-disc">다수의 가수, 아이돌, 뮤지컬배우, 배우, 성우 보컬코칭 트레이닝</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-2">입시 합격생 배출</p>
+                    <p className="text-base text-gray-700 ml-4">
+                      동아방송예대, 호원대, 동덕여대, 한양여대, 백석예대, 정화예대, 여주대, 백제예대 등 실용음악과 합격생 다수 배출
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-2">언론 인터뷰</p>
+                    <ul className="space-y-1 text-base text-gray-700 ml-4">
+                      <li className="list-disc">이코노미뷰 2024.4월호</li>
+                      <li className="list-disc">프라임헤럴드 2023.3월호</li>
+                      <li className="list-disc">월간인터뷰 2022.7월호 (보컬 교육기관 대표 인터뷰)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* 수상 내역 */}
+              <div>
+                <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center">
+                  <Award className="w-6 h-6 text-yellow-500 mr-2" />
+                  수상 내역
+                </h3>
+                <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-lg p-5 space-y-3">
+                  <div className="flex items-start space-x-2">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <p className="text-base text-gray-700">
+                      <span className="font-semibold">2024</span> 이노베이션 리더 보컬, 음악 부문 대상 (스포츠서울 주관)
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <p className="text-base text-gray-700">
+                      <span className="font-semibold">2022</span> 혁신한국인 & 파워코리아 보컬전문 교육기관 부문 대상 (스포츠서울 주관)
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <p className="text-base text-gray-700">
+                      제 14회 김제지평선 청소년 가요제 최우수상 수상 (김제지평선축제 주관)
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <p className="text-base text-gray-700">
+                      제 33회 금산인삼축제 전국 틴틴페스타(전국 청소년 가요-댄스 경연대회) 특별상 수상
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <p className="text-base text-gray-700">
+                      제 2회 G-POP 페스티벌 준결선 진출
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <p className="text-base text-gray-700">
+                      제 61회 백제나라 창작동요대회 성인부 은상 수상
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 강연 및 활동 */}
+              <div>
+                <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center">
+                  <Award className="w-6 h-6 text-brand-600 mr-2" />
+                  강연 및 활동
+                </h3>
+                <div className="bg-gray-50 rounded-lg p-5 space-y-4">
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-2">강연</p>
+                    <ul className="space-y-1 text-base text-gray-700 ml-4">
+                      <li className="list-disc">광주소프트웨어 마이스터고등학교 실용음악 파트 보컬강사</li>
+                      <li className="list-disc">전) 원스실용음악학원 보컬파트 강사</li>
+                      <li className="list-disc">전) 원스 보컬&댄스 아카데미 보컬파트 원장</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-2">공연 활동</p>
+                    <ul className="space-y-1 text-base text-gray-700 ml-4">
+                      <li className="list-disc">세월호 참사 추모문화제 &apos;목항에서 띄우는 편지&apos; 공연</li>
+                      <li className="list-disc">찾아가는 병영 문화 예술공연 &apos;하나되는 무한열정&apos; 시즌 1,2 공연</li>
+                      <li className="list-disc">제6회 코리아퓨전재즈 오케스트라 정기연주회 공연</li>
+                      <li className="list-disc">하고 싶어서 하는 밴드 공연</li>
+                      <li className="list-disc">대전지역 청년들에게 드리는 에너지 콘서트 &apos;잭팟&apos; 공연</li>
+                      <li className="list-disc">천안시 도시미플랜 선포 기념 여름 음악 축제 &apos;여름날 소리가 있는 풍경 나들이&apos; 공연</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-2">기타 활동</p>
+                    <ul className="space-y-1 text-base text-gray-700 ml-4">
+                      <li className="list-disc">광주 지역 실버노래자랑 등 심사위원 다수</li>
+                      <li className="list-disc">작곡가 가이드 녹음 및 축제 행사 공연 등 다수</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -271,7 +470,7 @@ export default function AboutPage() {
                 </h3>
                 <div className="bg-gray-100 rounded-lg p-6 text-center">
                   <p className="text-gray-600 mb-4">
-                    네이버 지도에서 '온리보컬아카데미'를 검색하시면
+                    네이버 지도에서 &apos;온리보컬아카데미&apos;를 검색하시면
                     <br />
                     정확한 위치를 확인하실 수 있습니다.
                   </p>
