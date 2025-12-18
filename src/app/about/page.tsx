@@ -75,7 +75,7 @@ export default function AboutPage() {
             <div className="space-y-8 text-lg leading-relaxed text-gray-800">
               <p>
                 안녕하세요. <br />
-                근거중심발성교수법을 토대로 목소리 본연의 아름다움을 찾아
+                목소리 본연의 아름다움을 찾아
                 노래하는 즐거움을 선사하는 온리보컬아카데미의 원장 보컬코치
                 윤지현입니다.
               </p>
@@ -97,7 +97,7 @@ export default function AboutPage() {
                   수강생이 진정으로 원하는 소리와 방향대로 수업하는 것을
                   중요하게
                 </strong>{" "}
-                생각합니다. :)
+                생각합니다.
               </p>
 
               <p>
@@ -214,10 +214,6 @@ export default function AboutPage() {
             {/* 주요 성과 */}
             {teachers[0].achievements && teachers[0].achievements.length > 0 && (
               <div className="mb-8">
-                <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center">
-                  <Award className="w-6 h-6 text-yellow-500 mr-2" />
-                  주요 성과
-                </h3>
                 <ul className="space-y-2">
                   {teachers[0].achievements.map((achievement, idx) => (
                     <li
@@ -261,8 +257,7 @@ export default function AboutPage() {
                   </div>
                   <div className="border-l-4 border-brand-500 pl-4">
                     <p className="font-semibold text-gray-900">2019.07 - 2022.04</p>
-                    <p className="text-gray-700">원스보컬&댄스아카데미 보컬파트강사</p>
-                    <p className="text-sm text-gray-500 mt-1">퇴직사유: 학원인수</p>
+                    <p className="text-gray-700">원스보컬&댄스아카데미 보컬파트원장</p>
                   </div>
                   <div className="border-l-4 border-brand-500 pl-4">
                     <p className="font-semibold text-gray-900">2022.04 - 현재</p>

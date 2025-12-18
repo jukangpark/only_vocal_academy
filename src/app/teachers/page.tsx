@@ -203,10 +203,6 @@ export default function TeachersPage() {
                   {teachers[0].achievements &&
                     teachers[0].achievements.length > 0 && (
                       <>
-                        <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-lg">
-                          <Award className="w-5 h-5 text-yellow-500 mr-2" />
-                          주요 성과
-                        </h4>
                         <ul className="space-y-2">
                           {teachers[0].achievements.map((achievement, idx) => (
                             <li
