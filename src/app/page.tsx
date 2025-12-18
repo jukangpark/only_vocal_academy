@@ -61,7 +61,7 @@ export default function Home() {
         >
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-        <div className="container mx-auto text-center relative z-10">
+        {/* <div className="container mx-auto text-center relative z-10">
           <div className="mb-12">
             <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               <span className="text-brand-400">모든 소리</span>에는 원인과
@@ -74,7 +74,7 @@ export default function Home() {
               광주 유일의 근거중심 보컬전문 아카데미
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* About Only Vocal Academy Section */}
