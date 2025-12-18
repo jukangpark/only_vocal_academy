@@ -2,7 +2,7 @@ const teachers = [
   {
     name: "윤지현 원장",
     specialty: "발성 전문가",
-    experience: "15년 경력",
+    experience: "",
     education: "Medical Voice 1기 수료",
     description:
       "유명 가수 및 뮤지컬 배우, 아이돌, 실용음악과 지망생, 발성장애 환자 등 수많은 케이스에 맞춘 다양한 레슨 경험을 토대로 개인의 발성상태에 맞춘 1:1 최적화 레슨을 진행중입니다.",

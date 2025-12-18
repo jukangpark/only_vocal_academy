@@ -131,28 +131,73 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="text-center mt-12">
-              <a
-                href="https://linktr.ee/onlyvocal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-3 bg-gradient-to-r from-brand-500 to-brand-600 text-black px-10 py-5 rounded-xl font-bold text-lg hover:bg-brand-700 transition-all duration-300 shadow-xl cursor-pointer"
-              >
-                <span>온리보컬 링크트리</span>
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+            
+          </div>
+        </div>
+      </section>
+
+      {/* 온리보컬 철학 섹션 */}
+      <section className="py-20 px-4 bg-gradient-to-br from-brand-50 to-white">
+        <div className="container mx-auto max-w-4xl">
+          <div className="bg-white rounded-2xl p-8 md:p-10 shadow-lg">
+            <div className="space-y-6 text-lg leading-relaxed text-gray-800">
+              <div className="text-center mb-8">
+                <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                  온리보컬은
+                </p>
+                <p className="text-xl md:text-2xl text-brand-600 font-semibold mb-2">
+                  &apos;목소리를 바꾸는 곳&apos;이 아니라
+                </p>
+                <p className="text-2xl md:text-3xl font-bold text-gray-900">
+                  &apos;목소리를 다룰 수 있게 만드는 곳&apos;입니다.
+                </p>
+              </div>
+
+              <div className="space-y-4 pt-6 border-t border-gray-200">
+                <p className="text-gray-700">
+                  저는 지난 8년간 1만 5천 시간 이상의 레슨을 통해
+                  <br />
+                  수많은 목소리와 사람을 직접 만나왔습니다.
+                </p>
+                <p className="text-gray-700">
+                  그 과정에서 <strong className="text-brand-600">발성학, 음성학, 운동학, 뇌과학 기반 심리학</strong>을 공부하고,
+                  <br />
+                  실제 레슨 현장에 적용하며
+                  <br />
+                  개개인의 목소리에 맞는 전략을 설계해왔습니다.
+                </p>
+                <p className="text-gray-700 font-semibold">
+                  정답을 제시하기보다,
+                  <br />
+                  학생의 구조와 목표를 기준으로
+                  <br />
+                  현실적이고 지속 가능한 선택을 돕습니다.
+                </p>
+              </div>
+
+              <div className="text-center pt-8 border-t border-gray-200 mt-8">
+                <a
+                  href="https://linktr.ee/onlyvocal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-3 bg-gradient-to-r from-brand-500 to-brand-600 text-black px-10 py-5 rounded-xl font-bold text-lg hover:bg-brand-700 transition-all duration-300 shadow-xl cursor-pointer"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </a>
+                  <span>온리보컬 링크트리</span>
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>

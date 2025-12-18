@@ -29,7 +29,7 @@ export default function TeachersPage() {
       id: 1,
       name: "윤지현 원장",
       specialty: "보컬 전문",
-      experience: "15년 경력",
+      experience: "",
       education: "음악대학 보컬과 졸업",
       description: "음악대학 보컬과 졸업, 다수의 합격생 배출",
       achievements: [
