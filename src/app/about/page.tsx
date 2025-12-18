@@ -365,6 +365,8 @@ export default function AboutPage() {
                   <div>
                     <p className="font-semibold text-gray-900 mb-2">강연</p>
                     <ul className="space-y-1 text-base text-gray-700 ml-4">
+                      <li className="list-disc">조선대학교 K-컬처공연기획학과 보컬 특강 </li>
+                      <li className="list-disc">조선대학교 K-컬처공연기획학과 기말고사 심사위원</li>
                       <li className="list-disc">광주소프트웨어 마이스터고등학교 실용음악 파트 보컬강사</li>
                       <li className="list-disc">전) 원스실용음악학원 보컬파트 강사</li>
                       <li className="list-disc">전) 원스 보컬&댄스 아카데미 보컬파트 원장</li>
