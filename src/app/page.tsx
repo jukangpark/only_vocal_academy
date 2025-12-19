@@ -556,12 +556,8 @@ export default function Home() {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              광주, 호남 유일의 근거 중심 발성 보컬센터
+              원장 소개
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              근거 중심 발성 교수법, 보컬코치 과정을 수료한 발성 전문 원장과
-              보컬코치들이 수업합니다
-            </p>
           </div>
 
           <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-3xl p-8 md:p-12">
@@ -809,16 +805,7 @@ export default function Home() {
               &apos;ONLY&apos;
             </div>
           </div>
-
-          <p className="text-xl text-white leading-relaxed mb-8">
-            노래와 목소리로 고민하시는 많은 분께
-            <br />
-            직관적이고 근거 있는 방법을 제시하는
-            <br />
-            <strong className="text-white">단 하나의 보컬 전문 아카데미</strong>
-            입니다.
-          </p>
-
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/about"
