@@ -74,7 +74,7 @@ export default function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm">
       <div className="container mx-auto">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-16 xl:h-20">
           <div className="flex items-center overflow-hidden h-20">
             <button
               onClick={handleLogoClick}
@@ -83,13 +83,13 @@ export default function Navigation() {
               <div className="transform rotate-[4deg]">
                 <Logo />
               </div>
-              <h1 className="font-light text-2xl hidden lg:block md:block -ml-5">
+              <h1 className="font-light text-2xl hidden xl:block -ml-5">
                 온리 보컬 아카데미
               </h1>
             </button>
           </div>
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden xl:flex items-center space-x-8">
             {navigationItems.map((item) => (
               <Link
                 key={item.href}
@@ -106,7 +106,7 @@ export default function Navigation() {
           </nav>
 
           {/* Login Button */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden xl:flex items-center">
             {isLoading ? (
               <div className="w-8 h-8 border-2 border-gray-300 border-t-brand-600 rounded-full animate-spin"></div>
             ) : user ? (
@@ -135,7 +135,7 @@ export default function Navigation() {
           </div>
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-gray-700 hover:text-brand-600 transition-colors"
+            className="xl:hidden p-2 text-gray-700 hover:text-brand-600 transition-colors"
             onClick={toggleMobileMenu}
           >
             {isMobileMenuOpen ? (
@@ -148,7 +148,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation - Overlay */}
         {isMobileMenuOpen && (
-          <div className="fixed top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-40 lg:hidden">
+          <div className="fixed top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-40 xl:hidden">
             <div className="container mx-auto px-4 py-4">
               <nav className="space-y-2">
                 {navigationItems.map((item) => (
