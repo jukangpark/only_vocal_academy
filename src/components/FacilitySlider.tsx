@@ -8,7 +8,6 @@ const FacilitySlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const images = [
-    "/slide/온리보컬01.jpeg",
     "/slide/온리보컬02.jpeg",
     "/slide/온리보컬03.jpeg",
     "/slide/온리보컬04.jpeg",
