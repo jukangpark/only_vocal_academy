@@ -91,192 +91,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* About Only Vocal Academy Section */}
-      <motion.section
-        className="py-24 px-4 bg-gradient-to-br from-brand-50 via-white to-brand-100"
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
-      >
-        <div className="container mx-auto max-w-6xl">
-          {/* 우리가 믿는 것 섹션 */}
-          <div className="mb-12">
-            <motion.div
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                온리보컬의 교육 철학
-              </h3>
-            </motion.div>
-
-            <div className="space-y-8">
-              {/* 믿음 1 */}
-              <motion.div
-                className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 overflow-hidden"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-500 via-blue-500 to-purple-500"></div>
-                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl flex items-center justify-center shadow-lg">
-                      <span className="text-2xl font-bold text-white">1</span>
-                    </div>
-                  </div>
-                  <div className="w-full md:flex-1 pt-1">
-                    <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
-                      모든 목소리는 다르다
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                      얼굴, 성격, 성대 구조, 근육 협응성, 성도 모양, 인지 능력
-                      <br />
-                      <span className="font-semibold text-gray-900">따라서 정답 발성은 존재하지 않습니다.</span>
-                      <br />
-                      개인에게 맞는 전략만 있을 뿐입니다.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* 믿음 2 */}
-              <motion.div
-                className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 overflow-hidden"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
-                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
-                      <span className="text-2xl font-bold text-white">2</span>
-                    </div>
-                  </div>
-                  <div className="w-full md:flex-1 pt-1">
-                    <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
-                      노래는 느낌이 아니라 &lsquo;조절 능력&rsquo;이다
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                      학생이 진성/가성·밝고/어두운 소리, 공간등을
-                      <br />
-                      <span className="font-semibold text-gray-900">스스로 조절할 수 있게 되면</span>
-                      <br />
-                      목소리는 하나의 악기처럼 연주 가능한 상태가 됩니다.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* 믿음 3 */}
-              <motion.div
-                className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 overflow-hidden"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"></div>
-                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-                      <span className="text-2xl font-bold text-white">3</span>
-                    </div>
-                  </div>
-                  <div className="w-full md:flex-1 pt-1">
-                    <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
-                      좋은 교육은 &lsquo;왜&rsquo;를 설명할 수 있어야 한다
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                      보컬코치가 설명할 수 없는 지식은
-                      <br />
-                      학생의 성장에 도움이 될 수 없습니다.
-                      <br />
-                      <span className="font-semibold text-gray-900">우리는 항상</span>
-                      <br />
-                      &ldquo;왜 이 훈련을 하는지&rdquo;,
-                      <br />
-                      &ldquo;어떤 원리로 변화가 생기는지&rdquo;
-                      <br />
-                      <span className="text-brand-600 font-bold">&ldquo;왜&rdquo;를 얘기 할 수 있습니다.</span>
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* 믿음 4 */}
-              <motion.div
-                className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 overflow-hidden"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 via-teal-500 to-cyan-500"></div>
-                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg">
-                      <span className="text-2xl font-bold text-white">4</span>
-                    </div>
-                  </div>
-                  <div className="w-full md:flex-1 pt-1">
-                    <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
-                      학생이 선택하는 순간, 성장은 폭발한다
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                      <span className="font-semibold text-gray-900">자율성은 학습의 핵심입니다.</span>
-                      <br />
-                      온리보컬 모든 레슨은
-                      <br />
-                      학생이 하고 싶은 방향을 직접 선택하고
-                      <br />
-                      코치는 그 선택을 기반으로 전략을 함께 설계합니다.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* 믿음 5 */}
-              <motion.div
-                className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 overflow-hidden"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500"></div>
-                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
-                      <span className="text-2xl font-bold text-white">5</span>
-                    </div>
-                  </div>
-                  <div className="w-full md:flex-1 pt-1">
-                    <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
-                      우리의 목표는 &lsquo;노래 잘하는 사람&rsquo;이 아니라
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                      <span className="font-semibold text-gray-900">자기 목소리를 이해하고 연주할 줄 아는 사람을 만드는 것.</span>
-                      <br />
-                      기술보다 중요한 것은
-                      <br />
-                      <span className="text-brand-600 font-bold">본인의 목소리에 대한 지속적인 인지·탐색·조절 능력</span>입니다.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
       {/* Features Section */}
       <motion.section
         className="py-20 px-4 bg-white"
@@ -492,61 +306,8 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Promotional Video Section */}
-      <motion.section
-        className="py-20 px-4 bg-gray-50"
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
-      >
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              윤지현 원장님 방송출연 영상
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              &apos;진심누나&apos; 방송출연! : 트롯돌 &apos;태이&apos; 성대 회복 재활 트레이닝
-              영상입니다
-            </p>
-          </div>
-
-          <div className="bg-white rounded-3xl p-8 shadow-xl">
-            <div className="relative w-full aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
-              <iframe
-                src="https://www.youtube.com/embed/YSReBuZDCU0"
-                title="온리보컬아카데미 홍보영상"
-                className="w-full h-full"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-
-            <div className="text-center mt-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                온리보컬아카데미의 특별함을 확인하세요
-              </h3>
-              <p className="text-gray-600 mb-6">
-                광주 유일의 근거중심 보컬전문 아카데미
-                <br />
-              </p>
-              <a
-                href="https://www.youtube.com/watch?v=YSReBuZDCU0"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
-              >
-                <Youtube className="w-5 h-5" />
-                <span>YouTube에서 보기</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Academy Introduction Section */}
-      <motion.section
+            {/* Academy Introduction Section */}
+            <motion.section
         className="py-20 px-4 bg-white"
         initial="initial"
         whileInView="animate"
@@ -631,6 +392,125 @@ export default function Home() {
           </div>
         </div>
       </motion.section>
+
+      {/* Promotional Video Section */}
+      <motion.section
+        className="py-20 px-4 bg-gray-50"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+      >
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              윤지현 원장님 방송출연 영상
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              &apos;진심누나&apos; 방송출연! : 트롯돌 &apos;태이&apos; 성대 회복 재활 트레이닝
+              영상입니다
+            </p>
+          </div>
+
+          <div className="bg-white rounded-3xl p-8 shadow-xl">
+            <div className="relative w-full aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+              <iframe
+                src="https://www.youtube.com/embed/YSReBuZDCU0"
+                title="온리보컬아카데미 홍보영상"
+                className="w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+
+            <div className="text-center mt-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                온리보컬아카데미의 특별함을 확인하세요
+              </h3>
+              <p className="text-gray-600 mb-6">
+                광주 유일의 근거중심 보컬전문 아카데미
+                <br />
+              </p>
+              <a
+                href="https://www.youtube.com/watch?v=YSReBuZDCU0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
+              >
+                <Youtube className="w-5 h-5" />
+                <span>YouTube에서 보기</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+            {/* Reviews Section */}
+            <motion.section
+        className="py-20 px-4 bg-gray-50"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+      >
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              100% 리얼 수강생 후기를 직접 확인하세요!
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              실제 수강생들이 남긴 솔직한 후기를 통해 온리보컬아카데미의 진짜
+              모습을 확인해보세요
+            </p>
+          </div>
+
+          <div className="space-y-6 mb-8">
+            {displayedReviews.map((review, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+              >
+                <ReviewCard {...review} />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            {!showMoreReviews && (
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowMoreReviews(true)}
+                className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors cursor-pointer"
+              >
+                <span>더보기</span>
+                <ChevronRight className="w-5 h-5" />
+              </motion.button>
+            )}
+
+            {showMoreReviews && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="space-y-4"
+              >
+                <Link
+                  href="/review"
+                  className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
+                >
+                  <span>전체 수강후기 보기</span>
+                  <ChevronRight className="w-5 h-5" />
+                </Link>
+              </motion.div>
+            )}
+          </div>
+        </div>
+      </motion.section>
+
+
 
       {/* Consultation Process Section */}
       <motion.section
@@ -814,70 +694,6 @@ export default function Home() {
               <span>학원 소개</span>
               <ChevronRight className="w-5 h-5" />
             </Link>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Reviews Section */}
-      <motion.section
-        className="py-20 px-4 bg-gray-50"
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
-      >
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              100% 리얼 수강생 후기를 직접 확인하세요!
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              실제 수강생들이 남긴 솔직한 후기를 통해 온리보컬아카데미의 진짜
-              모습을 확인해보세요
-            </p>
-          </div>
-
-          <div className="space-y-6 mb-8">
-            {displayedReviews.map((review, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-              >
-                <ReviewCard {...review} />
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            {!showMoreReviews && (
-              <motion.button
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowMoreReviews(true)}
-                className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors cursor-pointer"
-              >
-                <span>더보기</span>
-                <ChevronRight className="w-5 h-5" />
-              </motion.button>
-            )}
-
-            {showMoreReviews && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="space-y-4"
-              >
-                <Link
-                  href="/review"
-                  className="inline-flex items-center space-x-2 bg-brand-600 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
-                >
-                  <span>전체 수강후기 보기</span>
-                  <ChevronRight className="w-5 h-5" />
-                </Link>
-              </motion.div>
-            )}
           </div>
         </div>
       </motion.section>

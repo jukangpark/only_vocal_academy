@@ -5,6 +5,7 @@ import Banner from "@/components/Banner";
 import Image from "next/image";
 import { Award, Star } from "lucide-react";
 import teachers from "@/constants/teachers";
+import { motion } from "framer-motion";
 
 export default function AboutPage() {
   // 애니메이션 variants
@@ -48,6 +49,191 @@ export default function AboutPage() {
         description="광주 유일의 근거 중심 발성 보컬 센터, 발성은 과학, 노래는 예술이다."
         image="/introduction.jpeg"
       />
+
+<motion.section
+        className="py-24 px-4 bg-gradient-to-br from-brand-50 via-white to-brand-100"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+      >
+        <div className="container mx-auto max-w-6xl">
+          {/* 우리가 믿는 것 섹션 */}
+          <div className="mb-12">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                온리보컬의 교육 철학
+              </h3>
+            </motion.div>
+
+            <div className="space-y-8">
+              {/* 믿음 1 */}
+              <motion.div
+                className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 overflow-hidden"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-500 via-blue-500 to-purple-500"></div>
+                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl flex items-center justify-center shadow-lg">
+                      <span className="text-2xl font-bold text-white">1</span>
+                    </div>
+                  </div>
+                  <div className="w-full md:flex-1 pt-1">
+                    <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                      모든 목소리는 다르다
+                    </h4>
+                    <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+                      얼굴, 성격, 성대 구조, 근육 협응성, 성도 모양, 인지 능력
+                      <br />
+                      <span className="font-semibold text-gray-900">따라서 정답 발성은 존재하지 않습니다.</span>
+                      <br />
+                      개인에게 맞는 전략만 있을 뿐입니다.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 믿음 2 */}
+              <motion.div
+                className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 overflow-hidden"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+                      <span className="text-2xl font-bold text-white">2</span>
+                    </div>
+                  </div>
+                  <div className="w-full md:flex-1 pt-1">
+                    <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                      노래는 느낌이 아니라 &lsquo;조절 능력&rsquo;이다
+                    </h4>
+                    <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+                      학생이 진성/가성·밝고/어두운 소리, 공간등을
+                      <br />
+                      <span className="font-semibold text-gray-900">스스로 조절할 수 있게 되면</span>
+                      <br />
+                      목소리는 하나의 악기처럼 연주 가능한 상태가 됩니다.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 믿음 3 */}
+              <motion.div
+                className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 overflow-hidden"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"></div>
+                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                      <span className="text-2xl font-bold text-white">3</span>
+                    </div>
+                  </div>
+                  <div className="w-full md:flex-1 pt-1">
+                    <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                      좋은 교육은 &lsquo;왜&rsquo;를 설명할 수 있어야 한다
+                    </h4>
+                    <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+                      보컬코치가 설명할 수 없는 지식은
+                      <br />
+                      학생의 성장에 도움이 될 수 없습니다.
+                      <br />
+                      <span className="font-semibold text-gray-900">우리는 항상</span>
+                      <br />
+                      &ldquo;왜 이 훈련을 하는지&rdquo;,
+                      <br />
+                      &ldquo;어떤 원리로 변화가 생기는지&rdquo;
+                      <br />
+                      <span className="text-brand-600 font-bold">&ldquo;왜&rdquo;를 얘기 할 수 있습니다.</span>
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 믿음 4 */}
+              <motion.div
+                className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 overflow-hidden"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 via-teal-500 to-cyan-500"></div>
+                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg">
+                      <span className="text-2xl font-bold text-white">4</span>
+                    </div>
+                  </div>
+                  <div className="w-full md:flex-1 pt-1">
+                    <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                      학생이 선택하는 순간, 성장은 폭발한다
+                    </h4>
+                    <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+                      <span className="font-semibold text-gray-900">자율성은 학습의 핵심입니다.</span>
+                      <br />
+                      온리보컬 모든 레슨은
+                      <br />
+                      학생이 하고 싶은 방향을 직접 선택하고
+                      <br />
+                      코치는 그 선택을 기반으로 전략을 함께 설계합니다.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 믿음 5 */}
+              <motion.div
+                className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 overflow-hidden"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500"></div>
+                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+                      <span className="text-2xl font-bold text-white">5</span>
+                    </div>
+                  </div>
+                  <div className="w-full md:flex-1 pt-1">
+                    <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                      우리의 목표는 &lsquo;노래 잘하는 사람&rsquo;이 아니라
+                    </h4>
+                    <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+                      <span className="font-semibold text-gray-900">자기 목소리를 이해하고 연주할 줄 아는 사람을 만드는 것.</span>
+                      <br />
+                      기술보다 중요한 것은
+                      <br />
+                      <span className="text-brand-600 font-bold">본인의 목소리에 대한 지속적인 인지·탐색·조절 능력</span>입니다.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
 
       {/* Greeting Section */}
       <section className="py-20 px-4">
