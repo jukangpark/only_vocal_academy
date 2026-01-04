@@ -263,74 +263,35 @@ export default function CoursesPage() {
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold">1:1 개인레슨</span>
+                      <span className="font-semibold text-brand-600">상세 문의</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold">1T (50분)</span>
+                      <span className="font-semibold text-brand-600">상세 문의</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
-                      <span className="font-bold text-brand-600">590,000₩</span>
+                      <span className="font-bold text-brand-600">상세 문의</span>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-200">
                     <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
-                    <p className="text-sm text-gray-700">
-                      개인의 발성상태, 지향성에 맞춘 100% 1:1 개인 맞춤 커리큘럼
+                    <ul className="text-sm text-gray-700 space-y-1 list-disc list-inside">
+                      <li>1:1 개인레슨</li>
+                      <li>발성 그룹수업</li>
+                      <li>원내 공연</li>
+                      <li>기초 화성학, 시창청음</li>
+                    </ul>
+                    <p className="text-sm text-gray-700 mt-3">
+                      실용음악과 입시 및 프로 활동을 준비하는 과정에서는
+                      노래 실력뿐 아니라
+                      발성 이해, 음악 이론, 시창청음 능력, 무대 경험까지
+                      종합적인 준비가 필요합니다.
                     </p>
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
-                    <p className="text-sm text-gray-700">
-                      흥미, 재미를 위한 수강은 불가하며 실용음악과 입시 지망생
-                      또는 전문적인 수강 목적을 가진 경우 (1년 이상 장기 수강생)
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 발성프로그램 */}
-            <div className="mb-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                발성프로그램
-              </h3>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="text-center mb-4">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">
-                      발성프로그램
-                    </h4>
-                    <div className="inline-block bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-semibold">
-                      그룹수업
-                    </div>
-                  </div>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold">주 1회 (한 달 4회)</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold">1T (50분)</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">수강료:</span>
-                      <span className="font-bold text-brand-600">₩100,000</span>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
-                    <p className="text-sm text-gray-700">
-                      기본 발성 위주의 그룹수업 (실기, 이론 병행)
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
-                    <p className="text-sm text-gray-700">
-                      전문적인 수강 목적을 가진 경우 (1년 이상 장기 수강생)
+                    <p className="text-sm text-gray-700 mt-2">
+                      보컬프로클래스는
+                      이러한 필수 요소들을 하나로 묶어
+                      체계적으로 훈련할 수 있도록 설계된 통합 과정입니다.
                     </p>
                   </div>
                 </div>
@@ -442,7 +403,7 @@ export default function CoursesPage() {
                     부탁드립니다
                   </li>
                   <li>
-                    • '보컬PRO'과정은 원장직강으로만 진행하며, 6개월이상
+                    • &apos;보컬PRO&apos;과정은 원장직강으로만 진행하며, 6개월이상
                     대기하실 수 있습니다
                   </li>
                 </ul>
@@ -451,7 +412,7 @@ export default function CoursesPage() {
               <p className="text-center text-lg font-semibold text-brand-600">
                 노래와 목소리로 고민하시는 많은 분께 직관적이고 근거 있는 방법을
                 제시하는
-                <br />단 하나의 보컬 전문 아카데미 'ONLY' 입니다.
+                <br />단 하나의 보컬 전문 아카데미 &apos;ONLY&apos; 입니다.
               </p>
             </div>
           </div>
@@ -476,26 +437,6 @@ export default function CoursesPage() {
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                 </svg>
                 <span>네이버 예약하기</span>
-              </a>
-              <a
-                href="/images/온리보컬_수강신청서.jpeg"
-                download="온리보컬_수강신청서.jpeg"
-                className="inline-flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                <span>수강신청서 다운로드</span>
               </a>
             </div>
           </div>

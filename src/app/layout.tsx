@@ -5,9 +5,30 @@ import Navigation from "@/components/navigation";
 import ChatBot from "@/components/ChatBot";
 
 export const metadata: Metadata = {
-  title: "온리보컬아카데미 - 광주 유일의 근거중심 보컬전문 아카데미",
+  title: "온리보컬아카데미 - 광주 최고의 보컬·발성 전문 아카데미",
   description:
-    "500여명을 합격시킨 진짜 경험과 노하우, 광주 유일의 근거중심 보컬전문 아카데미입니다.",
+    "광주 최고의 보컬·발성 전문 아카데미",
+  openGraph: {
+    title: "온리보컬아카데미 - 광주 최고의 보컬·발성 전문 아카데미",
+    description: "광주 최고의 보컬·발성 전문 아카데미",
+    images: [
+      {
+        url: "/home-banner.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "온리보컬아카데미",
+      },
+    ],
+    type: "website",
+    locale: "ko_KR",
+    siteName: "온리보컬아카데미",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "온리보컬아카데미 - 광주 최고의 보컬·발성 전문 아카데미",
+    description: "광주 최고의 보컬·발성 전문 아카데미",
+    images: ["/home-banner.jpeg"],
+  },
 };
 
 export default function RootLayout({

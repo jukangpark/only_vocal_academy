@@ -83,8 +83,8 @@ export default function Navigation() {
               <div className="transform rotate-[4deg]">
                 <Logo />
               </div>
-              <h1 className="font-light text-2xl hidden xl:block -ml-5">
-                온리 보컬 아카데미
+              <h1 className="font-light text-2xl hidden xl:block -ml-3">
+                온리보컬아카데미
               </h1>
             </button>
           </div>
