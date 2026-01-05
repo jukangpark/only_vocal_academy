@@ -46,7 +46,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <Banner
         title="학원 소개"
-        description="광주 유일의 근거 중심 발성 보컬 센터, 발성은 과학, 노래는 예술이다."
+        description="광주 최고의 보컬·발성 전문 아카데미, 근거 있는 훈련을 통해 지속 가능한 성장을 돕습니다."
         image="/introduction.jpeg"
       />
 

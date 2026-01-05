@@ -62,7 +62,7 @@ export default function CoursesPage() {
                 <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="text-center mb-4">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">
-                      스탠다드
+                      스탠다드 (Standard)
                     </h4>
                     <div className="inline-block bg-gray-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold">
                       추천
@@ -71,25 +71,15 @@ export default function CoursesPage() {
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold">고정스케줄</span>
+                      <span className="font-semibold">주 1회 (한 달 4회)</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold">1T (50분)</span>
+                      <span className="font-semibold">1T（50분）× 4회</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
                       <span className="font-bold text-brand-600">₩220,000</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">1회 수강료:</span>
-                      <span className="font-semibold text-gray-700">
-                        ₩55,000
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">할인:</span>
-                      <span className="text-gray-500">해당 없음</span>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-200">
@@ -107,40 +97,28 @@ export default function CoursesPage() {
                   </div>
                 </div>
 
-                {/* 심화 */}
+                {/* 보컬심화과정 */}
                 <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="text-center mb-4">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">
-                      심화
+                      보컬심화과정 (Hard)
                     </h4>
                     <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
-                      2만원 할인
+                      할인적용
                     </div>
                   </div>
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold">고정스케줄</span>
+                      <span className="font-semibold">주 2회 (한 달 8회)</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold">2T (100분)</span>
+                      <span className="font-semibold">1T（50분）× 8회</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
-                      <span className="font-bold text-brand-600">₩440,000</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">1회 수강료:</span>
-                      <span className="font-semibold text-gray-700">
-                        ₩52,500
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">할인:</span>
-                      <span className="text-green-600 font-semibold">
-                        2만원 할인
-                      </span>
+                      <span className="font-bold text-brand-600">₩420,000</span>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-200">
@@ -162,7 +140,7 @@ export default function CoursesPage() {
                 <div className="bg-gradient-to-br from-brand-50 to-brand-100 border border-brand-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="text-center mb-4">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">
-                      원장직강
+                      원장직강 레슨 (Master)
                     </h4>
                     <div className="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-semibold">
                       프리미엄
@@ -171,25 +149,15 @@ export default function CoursesPage() {
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold">주 1회 (한 달 4회)</span>
+                      <span className="font-semibold">주 1회 수업</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold">1T (50분)</span>
+                      <span className="font-semibold">1T（50분）× 4회</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
                       <span className="font-bold text-brand-600">₩390,000</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">1회 수강료:</span>
-                      <span className="font-semibold text-gray-700">
-                        ₩97,500
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">할인:</span>
-                      <span className="text-gray-500">해당 없음</span>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-200">
@@ -207,11 +175,11 @@ export default function CoursesPage() {
                   </div>
                 </div>
 
-                {/* 원장직강 원포인트 */}
-                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                 {/* 원장직강 원포인트 */}
+                 <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="text-center mb-4">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">
-                      원장직강 원포인트 [쿠폰제]
+                      원장직강 원포인트 (쿠폰제)
                     </h4>
                     <div className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
                       1회 레슨
@@ -250,11 +218,55 @@ export default function CoursesPage() {
                   </div>
                 </div>
 
-                {/* 보컬 Pro class */}
+                {/* 원포인트레슨 */}
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-center mb-4">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      원포인트레슨 (쿠폰제)
+                    </h4>
+                    <div className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      쿠폰제
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수업시간:</span>
+                      <span className="font-semibold">자유 예약 (코치와상의)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">레슨시간:</span>
+                      <span className="font-semibold">1T(50분) x 쿠폰 수</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">수강료:</span>
+                      <span className="font-bold text-brand-600">1장당 ₩59,000</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">할인:</span>
+                      <span className="text-green-600 font-semibold">
+                        5매: ₩280,000
+                      </span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">커리큘럼:</p>
+                    <p className="text-sm text-gray-700">
+                      개인의 발성상태, 지향성에 맞춘 100% 1:1 개인 맞춤 커리큘럼
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2">추천 대상:</p>
+                    <p className="text-sm text-gray-700">
+                      수업 받을 수 있는 시간이 일정치 않아 고정 스케줄이 불가능한 경우
+                    </p>
+                  </div>
+                </div>
+
+                {/* 보컬프로과정 */}
                 <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="text-center mb-4">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">
-                      보컬 Pro class
+                      보컬프로과정 (Pro)
                     </h4>
                     <div className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
                       전문반
@@ -263,15 +275,15 @@ export default function CoursesPage() {
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold text-brand-600">상세 문의</span>
+                      <span className="font-semibold text-brand-600">상세 문의필요</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold text-brand-600">상세 문의</span>
+                      <span className="font-semibold text-brand-600">상세 문의필요</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
-                      <span className="font-bold text-brand-600">상세 문의</span>
+                      <span className="font-bold text-brand-600">₩590,000</span>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-200">
