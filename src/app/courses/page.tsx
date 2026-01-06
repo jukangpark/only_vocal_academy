@@ -1,44 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import Navigation from "@/components/navigation";
-import { motion } from "framer-motion";
 import Banner from "@/components/Banner";
 
 export default function CoursesPage() {
-  // 애니메이션 variants
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" },
-  };
-
-  const fadeInLeft = {
-    initial: { opacity: 0, x: -60 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.6, ease: "easeOut" },
-  };
-
-  const fadeInRight = {
-    initial: { opacity: 0, x: 60 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.6, ease: "easeOut" },
-  };
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const scaleIn = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.5, ease: "easeOut" },
-  };
-
   return (
     <div className="min-h-screen bg-white">
       <Banner
@@ -64,15 +28,16 @@ export default function CoursesPage() {
                     <h4 className="text-xl font-bold text-gray-900 mb-2">
                       스탠다드 (Standard)
                     </h4>
-                    <div className="inline-block bg-gray-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold">
-                      추천
+                    <div className="flex flex-wrap items-center justify-center gap-2">
+                      <div className="inline-block bg-gray-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        추천
+                      </div>
+                      <div className="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        고정 스케줄 주 1회
+                      </div>
                     </div>
                   </div>
                   <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold">주 1회 (한 달 4회)</span>
-                    </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
                       <span className="font-semibold">1T（50분）× 4회</span>
@@ -103,15 +68,16 @@ export default function CoursesPage() {
                     <h4 className="text-xl font-bold text-gray-900 mb-2">
                       보컬심화과정 (Hard)
                     </h4>
-                    <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
-                      할인적용
+                    <div className="flex flex-wrap items-center justify-center gap-2">
+                      <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        할인적용
+                      </div>
+                      <div className="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        고정 스케줄 주 1회
+                      </div>
                     </div>
                   </div>
                   <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold">주 2회 (한 달 8회)</span>
-                    </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
                       <span className="font-semibold">1T（50분）× 8회</span>
@@ -142,15 +108,16 @@ export default function CoursesPage() {
                     <h4 className="text-xl font-bold text-gray-900 mb-2">
                       원장직강 레슨 (Master)
                     </h4>
-                    <div className="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-semibold">
-                      프리미엄
+                    <div className="flex flex-wrap items-center justify-center gap-2">
+                      <div className="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        프리미엄
+                      </div>
+                      <div className="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        고정 스케줄 주 1회
+                      </div>
                     </div>
                   </div>
                   <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">수업시간:</span>
-                      <span className="font-semibold">주 1회 수업</span>
-                    </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
                       <span className="font-semibold">1T（50분）× 4회</span>
