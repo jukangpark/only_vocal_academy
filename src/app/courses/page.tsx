@@ -32,15 +32,17 @@ export default function CoursesPage() {
                       <div className="inline-block bg-gray-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold">
                         추천
                       </div>
-                      <div className="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
-                        고정 스케줄 주 1회
-                      </div>
                     </div>
                   </div>
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold">1T（50분）× 4회</span>
+                      <span className="inline-flex items-center gap-2 font-semibold">
+                        <span className="text-gray-600 font-medium">
+                          고정 스케줄
+                        </span>
+                        <span>월 4회 (1회 50분)</span>
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
@@ -72,15 +74,17 @@ export default function CoursesPage() {
                       <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
                         할인적용
                       </div>
-                      <div className="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
-                        고정 스케줄 주 1회
-                      </div>
                     </div>
                   </div>
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold">1T（50분）× 8회</span>
+                      <span className="inline-flex items-center gap-2 font-semibold">
+                        <span className="text-gray-600 font-medium">
+                          고정 스케줄
+                        </span>
+                        <span>월 8회 (1회 50분)</span>
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
@@ -112,15 +116,17 @@ export default function CoursesPage() {
                       <div className="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-semibold">
                         프리미엄
                       </div>
-                      <div className="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
-                        고정 스케줄 주 1회
-                      </div>
                     </div>
                   </div>
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold">1T（50분）× 4회</span>
+                      <span className="inline-flex items-center gap-2 font-semibold">
+                        <span className="text-gray-600 font-medium">
+                          고정 스케줄
+                        </span>
+                        <span>월 4회 (1회 50분)</span>
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
@@ -159,7 +165,7 @@ export default function CoursesPage() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold">1T (50분)</span>
+                      <span className="font-semibold">1회 50분</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
@@ -202,7 +208,7 @@ export default function CoursesPage() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">레슨시간:</span>
-                      <span className="font-semibold">1T(50분) x 쿠폰 수</span>
+                      <span className="font-semibold">1회 50분 x 쿠폰 수</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
