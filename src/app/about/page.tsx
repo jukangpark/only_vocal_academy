@@ -15,32 +15,6 @@ export default function AboutPage() {
     transition: { duration: 0.6, ease: "easeOut" },
   };
 
-  const fadeInLeft = {
-    initial: { opacity: 0, x: -60 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.6, ease: "easeOut" },
-  };
-
-  const fadeInRight = {
-    initial: { opacity: 0, x: 60 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.6, ease: "easeOut" },
-  };
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const scaleIn = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.5, ease: "easeOut" },
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -58,6 +32,11 @@ export default function AboutPage() {
         variants={fadeInUp}
       >
         <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <p className="text-gray-700 text-lg md:text-2xl font-semibold">
+              등록번호 제 6805호
+            </p>
+          </div>
           {/* 우리가 믿는 것 섹션 */}
           <div className="mb-12">
             <motion.div
