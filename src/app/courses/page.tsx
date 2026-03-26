@@ -88,7 +88,7 @@ export default function CoursesPage() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
-                      <span className="font-bold text-brand-600">₩440,000</span>
+                      <span className="font-bold text-brand-600">₩420,000</span>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-200">
@@ -130,7 +130,7 @@ export default function CoursesPage() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
-                      <span className="font-bold text-brand-600">₩350,000</span>
+                      <span className="font-bold text-brand-600">₩390,000</span>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-200">
@@ -192,7 +192,7 @@ export default function CoursesPage() {
                 </div>
 
                 {/* 원포인트레슨 */}
-                {/* <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="text-center mb-4">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">
                       원포인트레슨 (쿠폰제)
@@ -233,7 +233,7 @@ export default function CoursesPage() {
                       수업 받을 수 있는 시간이 일정치 않아 고정 스케줄이 불가능한 경우
                     </p>
                   </div>
-                </div> */}
+                </div>
 
                 {/* 보컬프로과정 */}
                 <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
@@ -256,7 +256,7 @@ export default function CoursesPage() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">수강료:</span>
-                      <span className="font-bold text-brand-600">₩550,000</span>
+                      <span className="font-bold text-brand-600">₩590,000</span>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-200">
