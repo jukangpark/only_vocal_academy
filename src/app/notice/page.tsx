@@ -1,92 +1,51 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Banner from "@/components/Banner";
 import { Calendar, Search, ChevronLeft, ChevronRight } from "lucide-react";
-import { getPublicNotices, Notice } from "@/lib/notices";
+import { getPublicNotices } from "@/lib/notices";
+
+const allNotices = getPublicNotices().sort((a, b) => {
+  const dateA = new Date(a.updated_at || a.date);
+  const dateB = new Date(b.updated_at || b.date);
+  return dateB.getTime() - dateA.getTime();
+});
 
 export default function NoticePage() {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [notices, setNotices] = useState<Notice[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
-  const itemsPerPage = 5; // 페이지당 아이템 수
+  const itemsPerPage = 5;
 
-  // 공지사항 데이터 로드
-  useEffect(() => {
-    loadNotices();
-  }, []);
-
-  const loadNotices = async () => {
-    try {
-      setIsLoading(true);
-      const data = await getPublicNotices();
-      // updated_at 기준으로 최신순 정렬
-      const sortedData = data.sort((a, b) => {
-        const dateA = new Date(a.updated_at || a.date);
-        const dateB = new Date(b.updated_at || b.date);
-        return dateB.getTime() - dateA.getTime(); // 최신순 (내림차순)
-      });
-      setNotices(sortedData);
-    } catch (error) {
-      console.error("공지사항 로드 실패:", error);
-      setError("공지사항을 불러오는데 실패했습니다.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  // 필터링된 공지사항
   const filteredNotices = useMemo(() => {
-    const filtered = notices.filter((notice) => {
-      const matchesSearch =
+    return allNotices.filter((notice) => {
+      return (
         notice.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         notice.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
         notice.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        notice.author.toLowerCase().includes(searchTerm.toLowerCase());
-      return matchesSearch;
+        notice.author.toLowerCase().includes(searchTerm.toLowerCase())
+      );
     });
+  }, [searchTerm]);
 
-    // 검색 결과도 updated_at 기준으로 최신순 정렬
-    return filtered.sort((a, b) => {
-      const dateA = new Date(a.updated_at || a.date);
-      const dateB = new Date(b.updated_at || b.date);
-      return dateB.getTime() - dateA.getTime(); // 최신순 (내림차순)
-    });
-  }, [notices, searchTerm]);
-
-  // 페이지네이션 계산
   const totalPages = Math.ceil(filteredNotices.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentNotices = filteredNotices.slice(startIndex, endIndex);
+  const currentNotices = filteredNotices.slice(startIndex, startIndex + itemsPerPage);
 
-  // 검색어가 변경되면 첫 페이지로 이동
   const handleSearchChange = (value: string) => {
     setSearchTerm(value);
     setCurrentPage(1);
   };
 
-  // 페이지 변경 함수
-  const goToPage = (page: number) => {
-    setCurrentPage(page);
-  };
+  const goToPage = (page: number) => setCurrentPage(page);
+  const goToPreviousPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
+  const goToNextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
 
-  const goToPreviousPage = () => {
-    setCurrentPage((prev) => Math.max(prev - 1, 1));
-  };
-
-  const goToNextPage = () => {
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
-  };
-
-  // 공지사항 클릭 핸들러
   const handleNoticeClick = (noticeId: number) => {
     router.push(`/notice/${noticeId}`);
   };
+
   return (
     <div className="min-h-screen bg-white">
       <Banner
@@ -95,7 +54,6 @@ export default function NoticePage() {
         image="/introduction.jpeg"
       />
 
-      {/* Notice List */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
           {/* 검색 UI */}
@@ -112,27 +70,19 @@ export default function NoticePage() {
             </div>
           </div>
 
-          {/* 로딩 상태 */}
-          {isLoading ? (
+          {filteredNotices.length === 0 ? (
             <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-600 mx-auto mb-4"></div>
-              <p className="text-gray-600">공지사항을 불러오는 중...</p>
-            </div>
-          ) : error ? (
-            <div className="text-center py-12">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Search className="w-8 h-8 text-red-400" />
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search className="w-8 h-8 text-gray-400" />
               </div>
               <h3 className="text-lg font-medium text-gray-900 mb-2">
-                공지사항을 불러올 수 없습니다
+                {searchTerm ? "검색 결과가 없습니다" : "공지사항이 없습니다"}
               </h3>
-              <p className="text-gray-600 mb-4">{error}</p>
-              <button
-                onClick={loadNotices}
-                className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
-              >
-                다시 시도
-              </button>
+              <p className="text-gray-600">
+                {searchTerm
+                  ? "다른 검색어를 시도해보세요."
+                  : "아직 등록된 공지사항이 없습니다."}
+              </p>
             </div>
           ) : (
             <div className="space-y-6">
@@ -167,23 +117,6 @@ export default function NoticePage() {
             </div>
           )}
 
-          {/* 검색 결과가 없을 때 */}
-          {!isLoading && !error && filteredNotices.length === 0 && (
-            <div className="text-center py-12">
-              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Search className="w-8 h-8 text-gray-400" />
-              </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">
-                {searchTerm ? "검색 결과가 없습니다" : "공지사항이 없습니다"}
-              </h3>
-              <p className="text-gray-600">
-                {searchTerm
-                  ? "다른 검색어를 시도해보세요."
-                  : "아직 등록된 공지사항이 없습니다."}
-              </p>
-            </div>
-          )}
-
           {/* Pagination */}
           {totalPages > 1 && (
             <div className="flex justify-center mt-12">
@@ -197,41 +130,34 @@ export default function NoticePage() {
                   이전
                 </button>
 
-                {/* 페이지 번호들 */}
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                  (page) => {
-                    // 현재 페이지 주변의 페이지들만 표시
-                    if (
-                      page === 1 ||
-                      page === totalPages ||
-                      (page >= currentPage - 1 && page <= currentPage + 1)
-                    ) {
-                      return (
-                        <button
-                          key={page}
-                          onClick={() => goToPage(page)}
-                          className={`px-4 py-2 rounded-lg transition-colors ${
-                            page === currentPage
-                              ? "bg-black text-white"
-                              : "border border-black text-black hover:bg-black hover:text-white"
-                          }`}
-                        >
-                          {page}
-                        </button>
-                      );
-                    } else if (
-                      page === currentPage - 2 ||
-                      page === currentPage + 2
-                    ) {
-                      return (
-                        <span key={page} className="px-4 py-2 text-gray-500">
-                          ...
-                        </span>
-                      );
-                    }
-                    return null;
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                  if (
+                    page === 1 ||
+                    page === totalPages ||
+                    (page >= currentPage - 1 && page <= currentPage + 1)
+                  ) {
+                    return (
+                      <button
+                        key={page}
+                        onClick={() => goToPage(page)}
+                        className={`px-4 py-2 rounded-lg transition-colors ${
+                          page === currentPage
+                            ? "bg-black text-white"
+                            : "border border-black text-black hover:bg-black hover:text-white"
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    );
+                  } else if (page === currentPage - 2 || page === currentPage + 2) {
+                    return (
+                      <span key={page} className="px-4 py-2 text-gray-500">
+                        ...
+                      </span>
+                    );
                   }
-                )}
+                  return null;
+                })}
 
                 <button
                   onClick={goToNextPage}
